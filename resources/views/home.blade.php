@@ -1,3 +1,4 @@
+@extends('layouts.default')
 
 <h1>Homepage</h1>
 
