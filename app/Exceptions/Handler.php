@@ -53,7 +53,7 @@ class Handler extends ExceptionHandler
         //check if exception is an instance of ModelNotFoundException.
         if ($e instanceof ClientException) {
             // normal 404 view page feedback
-            return response()->view('login', [], 400);
+            return response()->view('welcome', [], 400);
         }
 
         return parent::render($request, $e);
