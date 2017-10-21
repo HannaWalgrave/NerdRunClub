@@ -43,6 +43,7 @@ class LoginController extends Controller
         return redirect()->route('home');
     }
 
+    // TODO: check guard function
     protected function guard()
     {
         return Auth::guard();
