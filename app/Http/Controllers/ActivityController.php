@@ -4,18 +4,17 @@ namespace App\Http\Controllers;
 
 use App;
 use App\Activity;
-use App\Strava;
+use App\NerdRunClub\Strava;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class ActivityController extends Controller
 {
-    public function index()
+    public function index(Strava $strava)
     {
         $user = auth()->user();
         $token = $user->token;
-
-        $data = App::make('App\Strava')->get('/api/v3/athlete/activities', ['Authorization' => 'Bearer '.$token]);
+        $data = $strava->get('/api/v3/athlete/activities', ['Authorization' => 'Bearer '.$token]);
 
 
         foreach ($data as $activity) {

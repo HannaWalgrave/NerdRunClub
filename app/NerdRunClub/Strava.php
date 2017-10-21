@@ -6,7 +6,7 @@
  * Time: 10:33
  */
 
-namespace App;
+namespace App\NerdRunClub;
 
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Client;

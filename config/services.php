@@ -36,7 +36,7 @@ return [
     ],
 
     'strava' => [
-        'model' => App\Strava::class,
+        'model' => App\NerdRunClub\Strava::class,
         'key' => env('STRAVA_ID'),
         'secret' => env('STRAVA_SECRET'),
     ],

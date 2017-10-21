@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Client;
 use App;
-use App\Strava;
+use App\NerdRunClub\Strava;
 
 class UserController extends Controller
 {
@@ -16,23 +16,23 @@ class UserController extends Controller
        return view('welcome');
     }
 
-    public function token_exchange()
+    public function token_exchange(Strava $strava)
     {
         // get token from url
         $token = request()->code;
 
-        $data = App::make('App\Strava')->post('/oauth/token', ['code' => $token]);
-
         //Retrieve the current user's STRAVA ID
-        $userStravaId = $data->athlete->id;
+        $data = $strava->post('/oauth/token', ['code' => $token]);
+        //Retrieve the current user's STRAVA ID
+        $stravaUser = $data->athlete;
 
         // Look for user in database and either update user or make new user
-        $user = App\User::firstOrNew(['strava_id' => $userStravaId]);
+        $user = App\User::firstOrNew(['strava_id' => $stravaUser->id]);
 
-            $user->strava_id = $userStravaId;
-            $user->firstname = $data->athlete->firstname;
-            $user->lastname = $data->athlete->lastname;
-            $user->sex = $data->athlete->sex;
+            $user->strava_id = $stravaUser->id;
+            $user->firstname = $stravaUser->firstname;
+            $user->lastname = $stravaUser->lastname;
+            $user->sex = $stravaUser->sex;
             $user->profile = $data->athlete->profile;
             $user->token = $data->access_token;
             $user->save();
