@@ -10,6 +10,9 @@ use Illuminate\Http\Request;
 
 class ActivityController extends Controller
 {
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function index(Strava $strava)
     {
         $user = auth()->user();
@@ -20,15 +23,15 @@ class ActivityController extends Controller
         foreach ($data as $activity) {
             $newActivity = Activity::firstOrNew(['strava_activity_id' => $activity->id]);;
             $newActivity->strava_activity_id = $activity->id;
-            $newActivity->strava_id = $activity->athlete->id;
+            $newActivity->user_id = $user->id;
             $newActivity->distance = $activity->distance;
             $newActivity->start_date = Carbon::parse($activity->start_date)->toDateTimeString();
             $newActivity->save();
         }
 
+        $activities = App\User::find($user->id)->activity;
 
-        $activities = Activity::all()->where('strava_id', $user->strava_id);
-        return view('activities', ['strava_id' => $user->strava_id, 'firstname' => $user->firstname, 'activities' =>
+        return view('activities', ['user_id' => $user->id, 'firstname' => $user->firstname, 'activities' =>
             $activities]);
     }
 }
