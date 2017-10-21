@@ -10,6 +10,9 @@ use Illuminate\Http\Request;
 
 class ActivityController extends Controller
 {
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function index()
     {
         $user = auth()->user();
@@ -26,9 +29,9 @@ class ActivityController extends Controller
             $newActivity->start_date = Carbon::parse($activity->start_date)->toDateTimeString();
             $newActivity->save();
         }
+        
+        $activities = App\User::find($user->id)->activity;
 
-
-        $activities = Activity::all()->where('user_id', $user->id);
         return view('activities', ['user_id' => $user->id, 'firstname' => $user->firstname, 'activities' =>
             $activities]);
     }
