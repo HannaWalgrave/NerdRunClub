@@ -10,9 +10,11 @@ use Illuminate\Http\Request;
 
 class ActivityController extends Controller
 {
-    /**
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index(Strava $strava)
     {
         $user = auth()->user();
@@ -31,7 +33,6 @@ class ActivityController extends Controller
 
         $activities = App\User::find($user->id)->activity;
 
-        return view('activities', ['user_id' => $user->id, 'firstname' => $user->firstname, 'activities' =>
-            $activities]);
+        return view('activities', compact('user', 'activities'));
     }
 }
