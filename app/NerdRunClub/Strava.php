@@ -8,7 +8,6 @@
 
 namespace App\NerdRunClub;
 
-use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Client;
 
 class Strava
