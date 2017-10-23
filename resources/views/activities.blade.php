@@ -15,7 +15,7 @@ Deze wordt uitgevoerd indien er niets te loopen valt (dus als er nog geen activi
     <p>This is activity {{ $activity->id }}, in which you ran {{ $activity->distance }} meters on {{
 
      Carbon\Carbon::parse($activity->start_date)->format('d/m/Y') }}.</p>
-@endforeach
+
     </div>
 @endsection
 
