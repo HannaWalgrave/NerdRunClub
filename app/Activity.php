@@ -15,7 +15,7 @@ class Activity extends Model
      * @var array
      */
     protected $fillable = [
-        'strava_activity_id', 'strava_id', 'distance', 'start_date',
+        'strava_activity_id', 'user_id', 'distance', 'start_date',
     ];
 
     /**
@@ -26,4 +26,9 @@ class Activity extends Model
     protected $hidden = [
 
     ];
+
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 }

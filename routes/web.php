@@ -11,13 +11,10 @@
 |
 */
 
-Route::get('/', 'UserController@login');
+// Login routes
+Route::get('/login', 'LoginController@login')->name('login');
+Route::get('/', 'HomeController@index')->name('home');
+Route::get('token_exchange', 'LoginController@token_exchange');
 
-Route::get('token_exchange', 'UserController@token_exchange');
-
+// Activity routes
 Route::get('/activities', 'ActivityController@index');
-
-
-
-
-

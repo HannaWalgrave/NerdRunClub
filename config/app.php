@@ -177,9 +177,6 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
-        /* Strava provider */
-        App\Providers\StravaServiceProvider::class,
-
         /* Debugbar */
         Barryvdh\Debugbar\ServiceProvider::class,
 
