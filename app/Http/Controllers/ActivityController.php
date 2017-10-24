@@ -15,10 +15,25 @@ class ActivityController extends Controller
         $this->middleware('auth');
     }
 
-    public function index(Strava $strava)
-    {
+    public function update(Strava $strava) {
         $user = auth()->user();
         $token = $user->token;
+        $data = $strava->get('/api/v3/athlete/activities', ['Authorization' => 'Bearer '.$token]);
+
+        foreach ($data as $activity) {
+            $newActivity = Activity::firstOrNew(['strava_activity_id' => $activity->id]);;
+            $newActivity->strava_activity_id = $activity->id;
+            $newActivity->user_id = $user->id;
+            $newActivity->distance = $activity->distance;
+            $newActivity->start_date = Carbon::parse($activity->start_date)->toDateTimeString();
+            $newActivity->save();
+        }
+    }
+
+    public function index()
+    {
+        $user = auth()->user();
+       /* $token = $user->token;
         $data = $strava->get('/api/v3/athlete/activities', ['Authorization' => 'Bearer '.$token]);
 
 
@@ -30,7 +45,7 @@ class ActivityController extends Controller
             $newActivity->start_date = Carbon::parse($activity->start_date)->toDateTimeString();
             $newActivity->save();
         }
-
+        */
         $activities = App\User::find($user->id)->activity;
 
         return view('activities', compact('user', 'activities'));

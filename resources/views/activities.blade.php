@@ -17,7 +17,7 @@ Deze wordt uitgevoerd indien er niets te loopen valt (dus als er nog geen activi
      Carbon\Carbon::parse($activity->start_date)->format('d/m/Y') }}.</p>
 
     </div>
-    
+
 @empty
     <p>You don't have any activities yet. Start running or zombies will eat your brains!</p>
 @endforelse
