@@ -30,7 +30,8 @@ class Kernel extends ConsoleKernel
     {
 
         $schedule->call('App\Http\Controllers\ActivityController@update')
-                 ->hourlyAt(00);
+                 ->everyMinute()
+                 ->appendOutputTo('log/activitiesupdater.txt');
 
         // $schedule->command('inspire')
         //          ->hourly();
