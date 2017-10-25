@@ -14,7 +14,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        'App\Console\Commands\dbUpdate',
     ];
 
     /**
@@ -29,9 +29,8 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
 
-        $schedule->call('App\Http\Controllers\ActivityController@update')
-                 ->everyMinute()
-                 ->appendOutputTo('log/activitiesupdater.txt');
+        $schedule->command('db:update')
+                 ->everyMinute();
 
         // $schedule->command('inspire')
         //          ->hourly();
