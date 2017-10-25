@@ -3,6 +3,10 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use App\NerdRunClub\Strava;
+use App\User;
+use App\Activity;
+use Carbon\Carbon;
 
 class dbUpdate extends Command
 {
@@ -35,13 +39,12 @@ class dbUpdate extends Command
      *
      * @return mixed
      */
-    public function handle()
+    public function handle(Strava $strava)
     {
         // testboodschap in logfile  (storage/logs/laravel.log)
-        \Log::info('Dit is een test die werd gelogd om ' . \Carbon\Carbon::now());
+        \Log::info('Dit is een database update die werd gelogd om ' . \Carbon\Carbon::now());
 
-        // eerst scheduler issue oplossen, dan onderstaande code proberen te implementeren
-        /*
+
         $allUsers = User::all();
 
         foreach ($allUsers as $user) {
@@ -58,7 +61,7 @@ class dbUpdate extends Command
                 $newActivity->save();
             }
         }
-        */
+
 
     }
 }
