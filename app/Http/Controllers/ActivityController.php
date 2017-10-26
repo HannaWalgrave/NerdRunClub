@@ -18,22 +18,11 @@ class ActivityController extends Controller
 
     public function index()
     {
+        //get active user and collect all activities from database
         $user = auth()->user();
-       /* $token = $user->token;
-        $data = $strava->get('/api/v3/athlete/activities', ['Authorization' => 'Bearer '.$token]);
+        $activities = User::find($user->id)->activity;
 
-
-        foreach ($data as $activity) {
-            $newActivity = Activity::firstOrNew(['strava_activity_id' => $activity->id]);;
-            $newActivity->strava_activity_id = $activity->id;
-            $newActivity->user_id = $user->id;
-            $newActivity->distance = $activity->distance;
-            $newActivity->start_date = Carbon::parse($activity->start_date)->toDateTimeString();
-            $newActivity->save();
-        }
-        */
-        $activities = App\User::find($user->id)->activity;
-
+        // pass user and activities data over to activities view
         return view('activities', compact('user', 'activities'));
     }
 }

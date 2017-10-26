@@ -24,17 +24,13 @@ class Kernel extends ConsoleKernel
      * @return void
      */
 
-    // laadt om het uur (op het half uur) de data van de actieve user in
 
     protected function schedule(Schedule $schedule)
     {
-
+        // schedule for hourly update of database activity data through Strava API
         $schedule->command('db:update')
-                 //->everyMinute();    deze was enkel om te testen, draait elke minuut
-                    ->hourly(30);
-
-        // $schedule->command('inspire')
-        //          ->hourly();
+                 ->everyMinute();    // should be changed to next one, but this is easier for testing purposes
+              // ->hourly(30);
     }
 
     /**

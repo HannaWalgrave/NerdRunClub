@@ -41,14 +41,15 @@ class dbUpdate extends Command
      */
     public function handle(Strava $strava)
     {
-        // testboodschap in logfile  (storage/logs/laravel.log)
-        \Log::info('Dit is een database update die werd gelogd om ' . \Carbon\Carbon::now());
+        // message for log file  (storage/logs/laravel.log)
+        \Log::info('This is a database update which happened at ' . \Carbon\Carbon::now());
 
+        // collect all users from database, loop over them and for each of them retrieve all activities from Strava API
+        // existing activities will remain in the database, new activities will be added
 
         $allUsers = User::all();
 
         foreach ($allUsers as $user) {
-
 
             $data = $strava->get('/api/v3/athlete/activities', ['Authorization' => 'Bearer '.$user->token]);
 
