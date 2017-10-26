@@ -20,7 +20,9 @@ class ActivityController extends Controller
     {
         //get active user and collect all activities from database
         $user = auth()->user();
-        $activities = User::find($user->id)->activity;
+        $user = User::find($user->id);
+        $activities = $user->activities;
+
 
         // pass user and activities data over to activities view
         return view('activities', compact('user', 'activities'));
