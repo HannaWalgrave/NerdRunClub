@@ -48,9 +48,9 @@ class dbUpdate extends Command
         $allUsers = User::all();
 
         foreach ($allUsers as $user) {
-            $user = auth()->user();
-            $token = $user->token;
-            $data = $strava->get('/api/v3/athlete/activities', ['Authorization' => 'Bearer '.$token]);
+
+
+            $data = $strava->get('/api/v3/athlete/activities', ['Authorization' => 'Bearer '.$user->token]);
 
             foreach ($data as $activity) {
                 $newActivity = Activity::firstOrNew(['strava_activity_id' => $activity->id]);;

@@ -24,13 +24,14 @@ class Kernel extends ConsoleKernel
      * @return void
      */
 
-    // laadt om het uur (op het volle uur) de data van de actieve user in
+    // laadt om het uur (op het half uur) de data van de actieve user in
 
     protected function schedule(Schedule $schedule)
     {
 
         $schedule->command('db:update')
-                 ->everyMinute();
+                 //->everyMinute();    deze was enkel om te testen, draait elke minuut
+                    ->hourly(30);
 
         // $schedule->command('inspire')
         //          ->hourly();
