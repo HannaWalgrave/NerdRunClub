@@ -9,7 +9,7 @@ schedules  -->
 
     <p>You still have to select a running schedule to participate in. Please select one from the list.</p>
 
-    <form>
+    <form method="post">
 
         {{ csrf_field() }}
 

@@ -26,7 +26,8 @@ class ScheduleController extends Controller
 
     public function store(Request $request) {
         echo "nu zou er gesaved moeten worden";
-        $test = $request->input('submit');
-        echo $test;
+        echo $request;
+        //$test = $request->input('submit');
+        //echo $test;
     }
 }
