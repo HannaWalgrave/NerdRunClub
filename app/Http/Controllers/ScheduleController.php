@@ -26,6 +26,13 @@ class ScheduleController extends Controller
 
     public function store(Request $request) {
         echo "nu zou er gesaved moeten worden";
-        var_dump ($request->all());
+        $schedule_id = $request->schedule;
+        echo $schedule_id;
+        $user = auth()->user();
+        var_dump($user);
+        $user->schedule_id = $schedule_id;
+        $user->save();
+
+
     }
 }
