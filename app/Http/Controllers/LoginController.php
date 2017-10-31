@@ -44,7 +44,7 @@ class LoginController extends Controller
 
         Artisan::call('db:update');
 
-        return redirect()->route('home');
+        return redirect()->route('schedule');
     }
 
     // TODO: check guard function
