@@ -15,7 +15,7 @@ schedules  -->
 
         <title>Select A Running Schedule</title>
 
-        <select>
+        <select name="schedule">
             @forelse ($allSchedules as $schedule)
 
                 <option value="{{ $schedule->id }}">{{ $schedule->name }}</option>
