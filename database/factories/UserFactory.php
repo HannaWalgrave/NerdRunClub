@@ -1,6 +1,7 @@
 <?php
 
 use Faker\Generator as Faker;
+use App\Schedule;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +24,8 @@ $factory->define(App\User::class, function (Faker $faker) {
         'sex' => $faker->randomElement($array = array ('M','F')),
         'profile' => $faker->imageUrl($width = 124, $height = 124),
         'token' => str_random(10),
+        'schedule_id' => $faker->randomElement(Schedule::pluck('id')->toArray()),
     ];
 });
+
 

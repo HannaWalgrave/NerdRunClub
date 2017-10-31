@@ -12,9 +12,9 @@ class DatabaseSeeder extends Seeder
 
     public function run()
     {
+        $this->call(ScheduleSeeder::class);
         $this->call(UserSeeder::class);
         $this->call(ActivitySeeder::class);
-        // de schedule seeder werkt prima, maar ik laat deze liever inactief zodat ik met manuele voorbeelden kan werken
-        // $this->call(ScheduleSeeder::class);
+
     }
 }
