@@ -21,7 +21,8 @@ class CreateUsersTable extends Migration
             $table->string('sex')->nullable();
             $table->string('profile');  // avatar with 124x124 pixel dimension
             $table->string('token');
-            $table->integer('schedule_id');
+            $table->integer('schedule_id')->unsigned();
+            $table->foreign('schedule_id')->references('id')->on('schedules');
             $table->timestamps();
         });
     }
