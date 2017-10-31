@@ -42,7 +42,7 @@ class dbUpdate extends Command
     public function handle(Strava $strava)
     {
         // message for log file  (storage/logs/laravel.log)
-        \Log::info('This is a database update which happened at ' . \Carbon\Carbon::now());
+        \Log::info('This is a database update which happened at ' . Carbon::now());
 
         // collect all users from database, loop over them and for each of them retrieve all activities from Strava API
         // existing activities will remain in the database, new activities will be added

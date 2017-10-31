@@ -23,4 +23,10 @@ class ScheduleController extends Controller
         // pass user and schedule data over to schedule view
         return view('schedule', compact('user', 'schedule', 'allSchedules'));
     }
+
+    public function store(Request $request) {
+        echo "nu zou er gesaved moeten worden";
+        $test = $request->input('submit');
+        echo $test;
+    }
 }
