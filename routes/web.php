@@ -21,4 +21,4 @@ Route::get('/activities', 'ActivityController@index');
 
 //Schedule routes
 Route::get('/schedule', 'ScheduleController@index');
-Route::post('/schedule', 'ScheduleController@store');
+Route::post('/schedule', 'ScheduleController@store')->name('schedule');

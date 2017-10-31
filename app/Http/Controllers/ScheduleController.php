@@ -25,14 +25,11 @@ class ScheduleController extends Controller
     }
 
     public function store(Request $request) {
-        echo "nu zou er gesaved moeten worden";
         $schedule_id = $request->schedule;
-        echo $schedule_id;
         $user = auth()->user();
-        var_dump($user);
         $user->schedule_id = $schedule_id;
         $user->save();
 
-
+        return redirect()->route('schedule');
     }
 }
