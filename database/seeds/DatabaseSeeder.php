@@ -14,6 +14,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(UserSeeder::class);
         $this->call(ActivitySeeder::class);
-        $this->call(ScheduleSeeder::class);
+        // de schedule seeder werkt prima, maar ik laat deze liever inactief zodat ik met manuele voorbeelden kan werken
+        // $this->call(ScheduleSeeder::class);
     }
 }
