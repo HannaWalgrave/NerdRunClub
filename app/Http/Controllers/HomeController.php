@@ -15,6 +15,9 @@ class HomeController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+
+        // Door deze middleware toe te voegen kan je enkel op home als je al een schedule gekozen hebt. Anders wordt je geredirect naar /schedule
+        $this->middleware('schedule');
     }
 
     /**

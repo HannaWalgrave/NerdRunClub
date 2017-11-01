@@ -29,11 +29,11 @@ class User extends Authenticatable
 
     public function activities()
     {
-        return $this->hasMany('App\Activity');
+        return $this->hasMany(Activity::class);
     }
 
     public function schedule()
     {
-        return $this->belongsTo('App\Schedule');
+        return $this->belongsTo(Schedule::class);
     }
 }

@@ -42,9 +42,9 @@ class LoginController extends Controller
         $user->save();
         auth()->login($user);
 
-        Artisan::call('db:update');
+        //Artisan::call('db:update');
 
-        return redirect()->route('schedule');
+        return redirect()->route('home');
     }
 
     // TODO: check guard function

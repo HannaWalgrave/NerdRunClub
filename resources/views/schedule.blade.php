@@ -4,8 +4,7 @@
 
 <!--  check whether user already has a running schedule. If yes, use it. If no, let user select from available
 schedules  -->
-
-@if ($schedule == 0)
+@if ($user->schedule == null)
 
     <p>You still have to select a running schedule to participate in. Please select one from the list.</p>
 
@@ -16,7 +15,7 @@ schedules  -->
         <title>Select A Running Schedule</title>
 
         <select name="schedule">
-            @forelse ($allSchedules as $schedule)
+            @forelse ($schedules as $schedule)
 
                 <option value="{{ $schedule->id }}">{{ $schedule->name }}</option>
 
@@ -32,7 +31,7 @@ schedules  -->
 
 @else
 
-    <p>You are participating in running schedule {{ $schedule }}, congratulations!</p>
+    <p>You are participating in running schedule {{ $user->schedule->name }}, congratulations!</p>
 
 @endif
 
