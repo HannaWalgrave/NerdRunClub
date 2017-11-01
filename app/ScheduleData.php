@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 
-class Schedule extends Model
+class ScheduleData extends Model
 {
     use Notifiable;
 
@@ -15,7 +15,7 @@ class Schedule extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'weeks', 'distance_goal',
+        'schedule_id', 'title', 'distance', 'week', 'day'
     ];
 
     /**
@@ -27,8 +27,8 @@ class Schedule extends Model
 
     ];
 
-    public function users()
+    public function schedule()
     {
-        return $this->hasMany('App\User');
+        $this->belongsTo(Schedule::class);
     }
 }
