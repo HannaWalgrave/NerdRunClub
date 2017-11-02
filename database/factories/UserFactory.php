@@ -19,7 +19,6 @@ $factory->define(App\User::class, function (Faker $faker) {
     $schedule_id = $faker->randomElement(Schedule::pluck('id')->toArray());
     $schedule = Schedule::where('id', $schedule_id)->first();
     $schedule_start = $faker->dateTimeBetween('this week', '+6 days');
-    //dd($schedule_start->format('Y-m-d'));
     $schedule_end = Carbon::parse($schedule_start->format('Y-m-d H:i:s'))->addWeeks($schedule->weeks);
 
     return [

@@ -12,7 +12,7 @@ class ScheduleDataSeeder extends Seeder
      */
     public function run()
     {
-        $data = new ScheduleData();
+        /*$data = new ScheduleData();
         $data['schedule_id'] = 1;
         $data['title'] = "First run!";
         $data['distance'] = 3;
@@ -58,6 +58,7 @@ class ScheduleDataSeeder extends Seeder
         $data['distance'] = 5;
         $data['week'] = 2;
         $data['day'] = 6;
-        $data->save();
+        $data->save();*/
+        factory(\App\ScheduleData::class, 20)->create();
     }
 }
