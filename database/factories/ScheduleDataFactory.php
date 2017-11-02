@@ -6,8 +6,8 @@ use App\Schedule;
 /* @var Illuminate\Database\Eloquent\Factory $factory */
 
 $factory->define(\App\ScheduleData::class, function (Faker $faker) {
-    $schedule_id = $faker->randomElement(User::pluck('id')->toArray());
-    $schedule = Schedule::where('id',$schedule_id) -> first();
+    $schedule_id = $faker->randomElement(Schedule::pluck('id')->toArray());
+    $schedule = Schedule::where('id',$schedule_id)->first();
     return [
         'schedule_id' => $schedule_id,
         'title' => $faker->sentence($nbWords = 6, $variableNbWords = true),

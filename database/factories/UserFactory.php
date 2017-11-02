@@ -2,6 +2,7 @@
 
 use Faker\Generator as Faker;
 use App\Schedule;
+use Carbon\Carbon;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +16,11 @@ use App\Schedule;
 */
 
 $factory->define(App\User::class, function (Faker $faker) {
-    // static $password;
+    $schedule_id = $faker->randomElement(Schedule::pluck('id')->toArray());
+    $schedule = Schedule::where('id', $schedule_id)->first();
+    $schedule_start = $faker->dateTimeBetween('this week', '+6 days');
+    //dd($schedule_start->format('Y-m-d'));
+    $schedule_end = Carbon::parse($schedule_start->format('Y-m-d H:i:s'))->addWeeks($schedule->weeks);
 
     return [
         'strava_id' => $faker->randomNumber($nbDigits = 6),
@@ -24,7 +29,9 @@ $factory->define(App\User::class, function (Faker $faker) {
         'sex' => $faker->randomElement($array = array ('M','F')),
         'profile' => $faker->imageUrl($width = 124, $height = 124),
         'token' => str_random(10),
-        'schedule_id' => $faker->randomElement(Schedule::pluck('id')->toArray()),
+        'schedule_id' => $schedule_id,
+        'schedule_start' => $schedule_start,
+        'schedule_end' => $schedule_end
     ];
 });
 
