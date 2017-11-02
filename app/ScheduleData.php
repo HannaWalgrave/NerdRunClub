@@ -29,6 +29,11 @@ class ScheduleData extends Model
 
     public function schedule()
     {
-        $this->belongsTo(Schedule::class);
+        return $this->belongsTo(Schedule::class);
+    }
+
+    public function userData()
+    {
+        return $this->hasMany(UserData::class);
     }
 }

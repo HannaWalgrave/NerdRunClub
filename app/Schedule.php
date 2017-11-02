@@ -29,6 +29,11 @@ class Schedule extends Model
 
     public function users()
     {
-        return $this->hasMany('App\User');
+        return $this->belongsToMany('App\User');
+    }
+
+    public function scheduleData()
+    {
+        return $this->hasMany(ScheduleData::class);
     }
 }

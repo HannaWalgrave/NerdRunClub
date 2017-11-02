@@ -29,11 +29,11 @@ class UserData extends Model
 
     public function user()
     {
-        $this->belongsTo(User::class);
+        return $this->hasOne(User::class);
     }
 
     public function scheduleData()
     {
-        return $this->belongsTo(ScheduleData::class);
+        return $this->hasOne(ScheduleData::class);
     }
 }
