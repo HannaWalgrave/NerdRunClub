@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -40,5 +41,17 @@ class User extends Authenticatable
     public function userData()
     {
         return $this->hasMany(UserData::class);
+    }
+
+    public function generateUserData()
+    {
+        $scheduleDatas = ScheduleData::where('schedule_id', $this->schedule->id)->get();
+        foreach($scheduleDatas as $scheduleData) {
+            $userData = new UserData();
+            $userData->user_id = $this->id;
+            $userData->scheduleData_id = $scheduleData->id;
+            $userData->date = Carbon::parse($this->schedule_start)->addDays(($scheduleData->day -1) + 7*($scheduleData->week -1));
+            $userData->save();
+        }
     }
 }
