@@ -35,7 +35,7 @@ class User extends Authenticatable
 
     public function schedule()
     {
-        return $this->hasOne(Schedule::class);
+        return $this->belongsTo(Schedule::class);
     }
 
     public function userData()
