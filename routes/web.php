@@ -18,3 +18,7 @@ Route::get('token_exchange', 'LoginController@token_exchange');
 
 // Activity routes
 Route::get('/activities', 'ActivityController@index');
+
+//Schedule routes
+Route::get('/schedule', 'ScheduleController@index')->name('schedule');;
+Route::post('/schedule', 'ScheduleController@store');

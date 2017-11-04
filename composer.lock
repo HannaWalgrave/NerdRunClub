@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "f542ff8c00684ff09ae673e7e73e69c3",
+    "content-hash": "ca4dfbb06a6e547d707d40cf47980225",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -586,18 +586,16 @@
         },
         {
             "name": "laravel/framework",
-
-            "version": "v5.5.18",
+            "version": "v5.5.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "1cc21baac11551377734b8c17ead17db4c34fe21"
+                "reference": "c678100e84934ec85c9f8bc26bd0a60222682719"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/1cc21baac11551377734b8c17ead17db4c34fe21",
-                "reference": "1cc21baac11551377734b8c17ead17db4c34fe21",
-
+                "url": "https://api.github.com/repos/laravel/framework/zipball/c678100e84934ec85c9f8bc26bd0a60222682719",
+                "reference": "c678100e84934ec85c9f8bc26bd0a60222682719",
                 "shasum": ""
             },
             "require": {
@@ -715,9 +713,7 @@
                 "framework",
                 "laravel"
             ],
-
-            "time": "2017-10-19T12:50:26+00:00"
- c1e05ded7b89b9621a8af443fa24289a04fba0bf
+            "time": "2017-10-25T19:10:45+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -945,7 +941,7 @@
         },
         {
             "name": "mtdowling/cron-expression",
-            "version": "v1.2.0",
+            "version": "v1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mtdowling/cron-expression.git",
@@ -1335,7 +1331,6 @@
         },
         {
             "name": "psy/psysh",
-
             "version": "v0.8.13",
             "source": {
                 "type": "git",
@@ -1346,7 +1341,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/bobthecow/psysh/zipball/cdb5593c3684bab74e10fcfffe4a0c8d1c39695d",
                 "reference": "cdb5593c3684bab74e10fcfffe4a0c8d1c39695d",
- c1e05ded7b89b9621a8af443fa24289a04fba0bf
                 "shasum": ""
             },
             "require": {
@@ -1406,7 +1400,7 @@
                 "interactive",
                 "shell"
             ],
- c1e05ded7b89b9621a8af443fa24289a04fba0bf
+            "time": "2017-10-19T06:13:20+00:00"
         },
         {
             "name": "ramsey/uuid",

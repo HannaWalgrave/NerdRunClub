@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App;
 use App\NerdRunClub\Strava;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Artisan;
 
 class LoginController extends Controller
 {
@@ -37,8 +38,11 @@ class LoginController extends Controller
         $user->sex = $stravaUser->sex;
         $user->profile = $data->athlete->profile;
         $user->token = $data->access_token;
+        //$user->schedule_id = 0;
         $user->save();
         auth()->login($user);
+
+        //Artisan::call('db:update');
 
         return redirect()->route('home');
     }

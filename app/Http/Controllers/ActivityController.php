@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App;
+use App\User;
 use App\Activity;
 use App\NerdRunClub\Strava;
 use Carbon\Carbon;
@@ -15,24 +16,15 @@ class ActivityController extends Controller
         $this->middleware('auth');
     }
 
-    public function index(Strava $strava)
+    public function index()
     {
+        //get active user and collect all activities from database
         $user = auth()->user();
-        $token = $user->token;
-        $data = $strava->get('/api/v3/athlete/activities', ['Authorization' => 'Bearer '.$token]);
+        $user = User::find($user->id);
+        $activities = $user->activities;
 
 
-        foreach ($data as $activity) {
-            $newActivity = Activity::firstOrNew(['strava_activity_id' => $activity->id]);;
-            $newActivity->strava_activity_id = $activity->id;
-            $newActivity->user_id = $user->id;
-            $newActivity->distance = $activity->distance;
-            $newActivity->start_date = Carbon::parse($activity->start_date)->toDateTimeString();
-            $newActivity->save();
-        }
-
-        $activities = App\User::find($user->id)->activity;
-
+        // pass user and activities data over to activities view
         return view('activities', compact('user', 'activities'));
     }
 }
