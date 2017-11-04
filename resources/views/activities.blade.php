@@ -15,11 +15,9 @@ Deze wordt uitgevoerd indien er niets te loopen valt (dus als er nog geen activi
     <p>This is activity {{ $activity->id }}, in which you ran {{ $activity->distance }} meters on {{Carbon\Carbon::parse($activity->start_date)->format('d/m/Y') }}.</p>
 
     </div>
-    
 @empty
     <p>You don't have any activities yet. Start running or zombies will eat your brains!</p>
 @endforelse
-
 
 @endsection
 
