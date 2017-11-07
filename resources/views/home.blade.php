@@ -1,7 +1,7 @@
 @extends('layouts.default')
 @section('container')
     <div class="wrap">
-        <div><a href="">MENU</a>  </div>
+        <div><a href="menu">MENU</a>  </div>
         <div class="userProfile">
         <img class="userImg" src="{{ $user->profile }}" alt="profile picture">
 
