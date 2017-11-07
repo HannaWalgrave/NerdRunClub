@@ -1,7 +1,10 @@
-<h1>Choose a training schedule</h1>
+@extends('layouts.default')
+@section('container')
+    <div class="scheduleWrap">
 
-<p>Hello user {{ $user->firstname }}!</p>
 
+<h1>Hello {{ $user->firstname }}!</h1>
+        <h2>Choose a training schedule</h2>
 <!--  check whether user already has a running schedule. If yes, use it. If no, let user select from available
 schedules  -->
 @if ($user->schedule == null)
@@ -43,7 +46,7 @@ schedules  -->
     <p>You are participating in running schedule {{ $user->schedule->name }}, congratulations!</p>
 
 @endif
-
+    </div>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -57,3 +60,4 @@ schedules  -->
     } );
 
 </script>
+@endsection

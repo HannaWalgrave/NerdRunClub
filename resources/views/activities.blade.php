@@ -3,7 +3,7 @@
     <div>
 <h1>Activities</h1>
 
-<p>Hi {{ $user->firstname }}, who has id {{ $user->id }}, these are your activities!</p>
+<p>Hi {{ $user->firstname }} these are your activities!</p>
 
 <!--
 UITLEG:
