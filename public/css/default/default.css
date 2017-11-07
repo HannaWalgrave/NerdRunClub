@@ -9,5 +9,12 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  background-color: white;
+}
+
+.userImg {
+  height: 25%;
+  width: 25%;
+  border-radius: 50%;
 }
 

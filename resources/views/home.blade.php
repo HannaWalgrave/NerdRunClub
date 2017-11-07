@@ -1,9 +1,22 @@
 @extends('layouts.default')
 @section('container')
-    <div>
-        <h1>Homepage</h1>
+    <div class="wrap">
+        <div><a href="">MENU</a>  </div>
+        <div class="userProfile">
+        <img class="userImg" src="{{ $user->profile }}" alt="profile picture">
 
-        <p>Hello, {{ $user->firstname }}, how are you doing today? I sure hope you feel like running! :-)</p>
+        <h1>{{ $user->firstname }} {{$user->lastname}}</h1>
+        </div>
+
+        <div id="badges">
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+        </div>
     <!--
 <p>Your selected running schedule is {{ $user->schedule_id }}.</p>
 -->
@@ -15,7 +28,7 @@
             @endforeach
         </ul>
 
-        <img width="250px" height="250px" src="{{ $user->profile }}" alt="profile picture">
+
 
         <a href="activities">Go to activities</a>
     </div>
