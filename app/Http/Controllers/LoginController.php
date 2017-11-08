@@ -52,4 +52,9 @@ class LoginController extends Controller
     {
         return Auth::guard();
     }
+
+    public function logout()
+    {
+        return view('login');
+    }
 }

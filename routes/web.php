@@ -13,6 +13,7 @@
 
 // Login routes
 Route::get('/login', 'LoginController@login')->name('login');
+Route::get('logout', 'LoginController@logout')->name('logout');
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('token_exchange', 'LoginController@token_exchange');
 
