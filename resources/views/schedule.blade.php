@@ -2,22 +2,18 @@
 @section('container')
     <div class="scheduleWrap">
 
-
-<h1>Hello {{ $user->firstname }}!</h1>
-        <h2>Choose a training schedule</h2>
 <!--  check whether user already has a running schedule. If yes, use it. If no, let user select from available
 schedules  -->
 @if ($user->schedule == null)
 
-    <p>You still have to select a running schedule to participate in. Please select one from the list.</p>
-
-    <form method="post">
+<h1>Hello {{ $user->firstname }}! Choose your schedule</h1>
+    <form method="post" class="calender">
 
         {{ csrf_field() }}
 
         <title>Select A Running Schedule</title>
 
-        <h2>Select a running schedule</h2>
+
         <select name="schedule">
             @forelse ($schedules as $schedule)
 
@@ -37,7 +33,7 @@ schedules  -->
         <div id="datepicker"></div>
         <input type="hidden" class="dateValue" name="dateValue">
 
-        <button type="submit">Select this running schedule!</button>
+        <button class="btn btn-primary" type="submit">Let's run!</button>
 
     </form>
 

@@ -46,7 +46,6 @@ align-items: center;
   border-radius: 50%;
   width: 30px;
   height: 30px;
-  background-color: #1b6d85;
   list-style: none;
 }
 
@@ -77,5 +76,21 @@ a{
 
 .scheduleWrap{
   display: flex;
+  align-items: center;
+}
+
+.calender{
+  display: flex;
   flex-direction: column;
+  align-items: center;
+  padding: 6px;
+}
+
+.calender button,
+.calender select{
+  margin: 15px;
+}
+
+.calender button{
+  width: 40%;
 }

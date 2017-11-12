@@ -9,6 +9,7 @@
         </div>
 
         <div id="badges">
+            <p>No badges yet , start running to earn some!</p>
 <ul>
     <li></li>
     <li></li>
