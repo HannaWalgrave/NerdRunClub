@@ -15,7 +15,7 @@ class UserSchedule extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id', 'schedule_id', 'init_date', 'start_date', 'number_weeks', 'km_per_Week',
+        'user_id', 'schedule_id', 'init_date', 'start_date', 'number_weeks', 'km_per_week',
     ];
 
     /**

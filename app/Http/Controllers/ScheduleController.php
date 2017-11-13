@@ -44,6 +44,7 @@ class ScheduleController extends Controller
         return view('schedule', compact('user', 'schedules'));
     }
 
+    /*
     public function store(Request $request)
     {
         $schedule_id = $request->schedule;
@@ -54,5 +55,27 @@ class ScheduleController extends Controller
         $user->save();
 
         return redirect()->route('home');
+    }
+    */
+
+    public function store_user_schedule(Request $request) {
+
+        $user_id = 1;
+        $schedule_id = 1;
+        $init_date = Carbon::now();
+        // hier moet nog een test om te zien welke dag de init_date is etc, maar om te testen is dit ok
+        $start_date = Carbon::now();
+        $number_weeks = 12;
+        $km_per_week = 1.4545;
+
+        $user_Schedule = new App\UserSchedule();
+        $user_Schedule->user_id = $user_id;
+        $user_Schedule->schedule_id = $schedule_id;
+        $user_Schedule->init_date = $init_date;
+        $user_Schedule->start_date = $start_date;
+        $user_Schedule->number_weeks = $number_weeks;
+        $user_Schedule->km_per_week = $km_per_week;
+        $user_Schedule->save();
+
     }
 }
