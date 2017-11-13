@@ -49,19 +49,8 @@ class ScheduleController extends Controller
         $schedule_id = $request->schedule;
         $schedule = Schedule::where('id', $schedule_id)->first();
 
-        if ($request->date == "start") {
-            $schedule_start = Carbon::parse($request->dateValue);
-            $schedule_end = Carbon::parse($schedule_start->format('Y-m-d H:i:s'))->addWeeks($schedule->weeks);
-        } else {
-            $schedule_end = Carbon::parse($request->dateValue);
-            $schedule_start = Carbon::parse($schedule_end->format('Y-m-d H:i:s'))->subWeeks($schedule->weeks);
-        }
-
         $user = auth()->user();
         $user->schedule_id = $schedule_id;
-        $user->schedule_start = $schedule_start;
-        $user->schedule_end = $schedule_end;
-        $user->generateUserData();
         $user->save();
 
         return redirect()->route('home');

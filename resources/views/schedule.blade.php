@@ -24,15 +24,6 @@ schedules  -->
             @endforelse
         </select>
 
-        <h2>Select a start or end date</h2>
-        <select name="date">
-            <option value="start">start date</option>
-            <option value="end">end date</option>
-        </select>
-
-        <div id="datepicker"></div>
-        <input type="hidden" class="dateValue" name="dateValue">
-
         <button class="btn btn-primary" type="submit">Let's run!</button>
 
     </form>

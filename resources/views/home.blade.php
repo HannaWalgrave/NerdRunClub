@@ -24,9 +24,7 @@
         <p>Your selected running schedule is {{ $user->schedule->name }}.</p>
         <p>Here is your schedule:</p>
         <ul>
-            @foreach($user->userData as $data)
-                <li>{{$data->date}}</li>
-            @endforeach
+
         </ul>
 
 

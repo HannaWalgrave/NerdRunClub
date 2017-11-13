@@ -28,7 +28,7 @@ class HomeController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $scheduleData = $user->schedule->scheduleData;
-        return view('home', compact('user', 'scheduleData'));
+        $schedule = $user->schedule;
+        return view('home', compact('user', 'schedule'));
     }
 }
