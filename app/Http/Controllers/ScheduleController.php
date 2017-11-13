@@ -60,7 +60,9 @@ class ScheduleController extends Controller
 
     public function store_user_schedule(Request $request) {
 
-        $user_id = 1;
+        $user = auth()->user();
+
+        $user_id = $user->id;
         $schedule_id = 1;
         $init_date = Carbon::now();
         // hier moet nog een test om te zien welke dag de init_date is etc, maar om te testen is dit ok
