@@ -64,9 +64,29 @@ class ScheduleController extends Controller
 
         $user_id = $user->id;
         $schedule_id = 1;
+        // $schedule_id = $schedule->id;
         $init_date = Carbon::now();
         // hier moet nog een test om te zien welke dag de init_date is etc, maar om te testen is dit ok
-        $start_date = Carbon::now();
+
+        if ($init_date->dayOfWeek == Carbon::MONDAY) {
+            $start_date = Carbon::now()->subDays(2);
+        } elseif ($init_date->dayOfWeek == Carbon::TUESDAY) {
+            $start_date = Carbon::now()->subDay();
+        } elseif ($init_date->dayOfWeek == Carbon::WEDNESDAY) {
+            $start_date = Carbon::now()->subDays(2);
+        } elseif ($init_date->dayOfWeek == Carbon::THURSDAY) {
+            $start_date = Carbon::now()->subDays(3);
+        } elseif ($init_date->dayOfWeek == Carbon::FRIDAY) {
+            $start_date = Carbon::now()->addDays(3);
+        } elseif ($init_date->dayOfWeek == Carbon::SATURDAY) {
+            $start_date = Carbon::now()->addDays(2);
+        } elseif ($init_date->dayOfWeek == Carbon::SUNDAY) {
+            $start_date = Carbon::now()->addDay();
+        } else {
+            $start_date = "ERROR";
+        }
+
+        // $start_date = Carbon::now();
         $number_weeks = 12;
         $km_per_week = 1.4545;
 
