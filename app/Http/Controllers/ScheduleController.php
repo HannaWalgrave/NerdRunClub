@@ -64,9 +64,8 @@ class ScheduleController extends Controller
 
         $user_id = $user->id;
         $schedule_id = 1;
-        // $schedule_id = $schedule->id;
+        // $schedule_id = $user->schedule->id;
         $init_date = Carbon::now();
-        // hier moet nog een test om te zien welke dag de init_date is etc, maar om te testen is dit ok
 
         if ($init_date->dayOfWeek == Carbon::MONDAY) {
             $start_date = Carbon::now()->subDays(2);
@@ -86,8 +85,11 @@ class ScheduleController extends Controller
             $start_date = "ERROR";
         }
 
-        // $start_date = Carbon::now();
+
+        // $schedule_end_date = $user->schedule->end_date;
+        // $number_weeks = floor(($schedule_end_date - $start_date)/7);
         $number_weeks = 12;
+        // $km_per_week = $user->schedule->distance_goal / $number_weeks;
         $km_per_week = 1.4545;
 
         $user_Schedule = new App\UserSchedule();
