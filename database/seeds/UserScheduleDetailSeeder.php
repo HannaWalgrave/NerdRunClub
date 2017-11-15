@@ -14,7 +14,7 @@ class UserScheduleDetailSeeder extends Seeder
     public function run()
     {
         foreach(User::all() as $user) {
-            for($i = 1; $i < $user->number_weeks; $i++) {
+            for($i = 1; $i <= $user->number_weeks; $i++) {
                 factory(\App\UserScheduleDetail::class)->create([
                     'user_id' => $user->id,
                     'week' => Carbon::parse($user->start_date)->addweeks($i-1),

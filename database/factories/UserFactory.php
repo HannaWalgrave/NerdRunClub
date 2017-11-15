@@ -23,7 +23,7 @@ $factory->define(App\User::class, function (Faker $faker) {
     $init_date = $faker->dateTimeBetween('-30 days', 'today');
     $init_date = Carbon::parse($init_date->format('Y-m-d H:i:s'));
 
-    switch ($init_date->dayOfWeek) {
+    /*switch ($init_date->dayOfWeek) {
         case Carbon::FRIDAY:
         case Carbon::SATURDAY:
         case Carbon::SUNDAY:
@@ -32,6 +32,26 @@ $factory->define(App\User::class, function (Faker $faker) {
         default:
             $start_date = $init_date->startOfWeek();
             break;
+    }*/
+
+    var_dump($init_date);
+    var_dump($init_date->dayOfWeek);
+    if ($init_date->dayOfWeek == Carbon::MONDAY) {
+        $start_date = Carbon::now();
+    } elseif ($init_date->dayOfWeek == Carbon::TUESDAY) {
+        $start_date = Carbon::now()->subDay();
+    } elseif ($init_date->dayOfWeek == Carbon::WEDNESDAY) {
+        $start_date = Carbon::now()->subDays(2);
+    } elseif ($init_date->dayOfWeek == Carbon::THURSDAY) {
+        $start_date = Carbon::now()->subDays(3);
+    } elseif ($init_date->dayOfWeek == Carbon::FRIDAY) {
+        $start_date = Carbon::now()->addDays(3);
+    } elseif ($init_date->dayOfWeek == Carbon::SATURDAY) {
+        $start_date = Carbon::now()->addDays(2);
+    } elseif ($init_date->dayOfWeek == Carbon::SUNDAY) {
+        $start_date = Carbon::now()->addDay();
+    } else {
+        $start_date = "ERROR";
     }
 
     $number_weeks = floor(Carbon::parse($schedule->end_date)->DIFF($start_date)->days / 7);
@@ -43,7 +63,7 @@ $factory->define(App\User::class, function (Faker $faker) {
         'lastname' => $faker->lastName,
         'sex' => $faker->randomElement($array = array('M', 'F')),
         'profile' => $faker->imageUrl($width = 124, $height = 124),
-        'token' => str_random(10),
+        'token' => "f798846a2ce4f6a7a31faf101972935eba245750",
         'schedule_id' => $schedule_id,
         'init_date' => $init_date,
         'start_date' => $start_date,

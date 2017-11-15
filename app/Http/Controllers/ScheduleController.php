@@ -94,14 +94,12 @@ class ScheduleController extends Controller
 
         $km_per_week = Schedule::find($schedule_id)->distance_goal / $number_weeks;
 
-        $user_Schedule = new App\UserSchedule();
-        $user_Schedule->user_id = $user_id;
-        $user_Schedule->schedule_id = $schedule_id;
-        $user_Schedule->init_date = $init_date;
-        $user_Schedule->start_date = $start_date;
-        $user_Schedule->number_weeks = $number_weeks;
-        $user_Schedule->km_per_week = $km_per_week;
-        $user_Schedule->save();
+        $user->schedule_id = $schedule_id;
+        $user->init_date = $init_date;
+        $user->start_date = $start_date;
+        $user->number_weeks = $number_weeks;
+        $user->km_per_week = $km_per_week;
+        $user->save();
 
         return redirect()->route('home');
 

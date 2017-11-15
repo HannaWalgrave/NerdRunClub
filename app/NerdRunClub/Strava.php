@@ -20,7 +20,6 @@ class Strava
     {
         $this->client = new Client([
             'base_uri' => 'https://www.strava.com/',
-            'timeout' => 2.0,
         ]);
 
         $this->key = $key;

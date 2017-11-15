@@ -30,10 +30,7 @@ class HomeController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $user_id = Auth::id();
-        $user_schedule = UserSchedule::search()->where('user_id', $user_id)->get();
-        $schedule_id = $user_schedule->schedule_id;
-        $schedule = Schedule::all()->where('id', $schedule_id);
+        $schedule = Schedule::all()->where('id', $user->schedule_id);
 
         return view('home', compact('user', 'schedule'));
     }

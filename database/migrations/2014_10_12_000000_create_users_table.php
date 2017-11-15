@@ -21,11 +21,11 @@ class CreateUsersTable extends Migration
             $table->string('sex')->nullable();
             $table->string('profile');  // avatar with 124x124 pixel dimension
             $table->string('token');
-            $table->integer('schedule_id');
-            $table->date('init_date');
-            $table->date('start_date');
-            $table->integer('number_weeks');
-            $table->float('km_per_week');
+            $table->integer('schedule_id')->nullable();
+            $table->date('init_date')->nullable();
+            $table->date('start_date')->nullable();
+            $table->integer('number_weeks')->nullable();
+            $table->float('km_per_week')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
