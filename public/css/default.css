@@ -137,3 +137,31 @@ a {
   width: 40%;
 }
 
+/*login screen*/
+
+.vertical {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.vertical img {
+  -webkit-transform: scale(0.7);
+          transform: scale(0.7);
+}
+
+.login {
+  width: 70%;
+  height: 50px;
+  line-height: 35px;
+  font-size: x-large;
+  font-weight: bold;
+}
+
