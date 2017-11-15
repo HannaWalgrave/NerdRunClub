@@ -7,7 +7,7 @@ schedules  -->
 @if ($user->schedule == null)
 
 <h1>Hello {{ $user->firstname }}! Choose your schedule</h1>
-    <form method="post" class="calender">
+    <form method="post" class="calender" action="/schedule">
 
         {{ csrf_field() }}
 
@@ -17,7 +17,7 @@ schedules  -->
         <select name="schedule">
             @forelse ($schedules as $schedule)
 
-                <option value="{{ $schedule->id }}">{{ $schedule->name }}</option>
+                <option value="{{ $schedule->id }}" name="schedule_option">{{ $schedule->name }}</option>
 
             @empty
                 <option value="choice">No schedules are available.</option>

@@ -63,12 +63,12 @@ class ScheduleController extends Controller
         $user = auth()->user();
 
         $user_id = $user->id;
-        $schedule_id = 1;
-        // $schedule_id = $user->schedule->id;
+
+        $schedule_id = $request->input('schedule');
         $init_date = Carbon::now();
 
         if ($init_date->dayOfWeek == Carbon::MONDAY) {
-            $start_date = Carbon::now()->subDays(2);
+            $start_date = Carbon::now();
         } elseif ($init_date->dayOfWeek == Carbon::TUESDAY) {
             $start_date = Carbon::now()->subDay();
         } elseif ($init_date->dayOfWeek == Carbon::WEDNESDAY) {
@@ -86,11 +86,13 @@ class ScheduleController extends Controller
         }
 
 
-        // $schedule_end_date = $user->schedule->end_date;
-        // $number_weeks = floor(($schedule_end_date - $start_date)/7);
-        $number_weeks = 12;
-        // $km_per_week = $user->schedule->distance_goal / $number_weeks;
-        $km_per_week = 1.4545;
+
+        $schedule_end_date_1 = Schedule::find($schedule_id)->end_date;
+        $schedule_end_date = \DateTime::createFromFormat('Y-m-d', $schedule_end_date_1);
+
+        $number_weeks = floor(($schedule_end_date->diff($start_date)->days)/7);
+
+        $km_per_week = Schedule::find($schedule_id)->distance_goal / $number_weeks;
 
         $user_Schedule = new App\UserSchedule();
         $user_Schedule->user_id = $user_id;
@@ -100,6 +102,8 @@ class ScheduleController extends Controller
         $user_Schedule->number_weeks = $number_weeks;
         $user_Schedule->km_per_week = $km_per_week;
         $user_Schedule->save();
+
+        return redirect()->route('home');
 
     }
 }

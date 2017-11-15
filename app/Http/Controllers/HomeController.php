@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Schedule;
+use App\UserSchedule;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -28,7 +30,11 @@ class HomeController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $schedule = $user->schedule;
+        $user_id = Auth::id();
+        $user_schedule = UserSchedule::search()->where('user_id', $user_id)->get();
+        $schedule_id = $user_schedule->schedule_id;
+        $schedule = Schedule::all()->where('id', $schedule_id);
+
         return view('home', compact('user', 'schedule'));
     }
 }
