@@ -15,7 +15,7 @@ class Schedule extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'weeks', 'distance_goal',
+        'name', 'end_date', 'distance_goal',
     ];
 
     /**
@@ -30,10 +30,5 @@ class Schedule extends Model
     public function users()
     {
         return $this->hasMany('App\User');
-    }
-
-    public function scheduleData()
-    {
-        return $this->hasMany(ScheduleData::class);
     }
 }

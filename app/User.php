@@ -39,10 +39,9 @@ class User extends Authenticatable
         return $this->belongsTo(Schedule::class);
     }
 
-
-    public function user_schedule()
+    public function user_schedule_detail()
     {
-        return $this->belongsTo(UserSchedule::class);
+        return $this->hasMany(UserScheduleDetail::class);
     }
 
 }

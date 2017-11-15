@@ -15,22 +15,40 @@ use Carbon\Carbon;
 |
 */
 
+/* @var Illuminate\Database\Eloquent\Factory $factory */
+
 $factory->define(App\User::class, function (Faker $faker) {
     $schedule_id = $faker->randomElement(Schedule::pluck('id')->toArray());
     $schedule = Schedule::where('id', $schedule_id)->first();
-    $schedule_start = $faker->dateTimeBetween('this week', '+6 days');
-    $schedule_end = Carbon::parse($schedule_start->format('Y-m-d H:i:s'))->addWeeks($schedule->weeks);
+    $init_date = $faker->dateTimeBetween('-30 days', 'today');
+    $init_date = Carbon::parse($init_date->format('Y-m-d H:i:s'));
+
+    switch ($init_date->dayOfWeek) {
+        case Carbon::FRIDAY:
+        case Carbon::SATURDAY:
+        case Carbon::SUNDAY:
+            $start_date = $init_date->startOfWeek()->addWeek();
+            break;
+        default:
+            $start_date = $init_date->startOfWeek();
+            break;
+    }
+
+    $number_weeks = floor(Carbon::parse($schedule->end_date)->DIFF($start_date)->days / 7);
+
 
     return [
         'strava_id' => $faker->randomNumber($nbDigits = 6),
         'firstname' => $faker->firstName,
         'lastname' => $faker->lastName,
-        'sex' => $faker->randomElement($array = array ('M','F')),
+        'sex' => $faker->randomElement($array = array('M', 'F')),
         'profile' => $faker->imageUrl($width = 124, $height = 124),
         'token' => str_random(10),
         'schedule_id' => $schedule_id,
-        'schedule_start' => $schedule_start,
-        'schedule_end' => $schedule_end
+        'init_date' => $init_date,
+        'start_date' => $start_date,
+        'number_weeks' => $number_weeks,
+        'km_per_week' => $schedule->distance_goal / $number_weeks,
     ];
 });
 
