@@ -17,52 +17,14 @@ class ScheduleController extends Controller
 
     public function index()
     {
-        /**
-         * De code dat hier geschreven staat zorgt ervoor dat je enkel naar /schedules kan als je nog geen schedule gekozen hebt waardoor
-         * het geen nut heeft om in de view een if else te zetten (schedule gekozen of niet)
-         * Nu wordt je vanuit home naar hier geredirect als je nog geen schedule gekozen hebt, maar als je er wel al een hebt kan je hier wel nog op
-         * zodat je dit later eventueel kan aanpassen.
-         */
-
-
-        /*$user = auth()->user();
-        $user = User::find($user->id);  // Je overschrijft hier de user maar het resultaat bijft hetzelfde: auth()->user() geeft de hele user terug zoals het in de databank staat
-        $schedule = $user['schedule_id'];
-        $allSchedules = Schedule::all();
-        $selectedSchedule = $user->schedule_id;
-
-        // pass user and schedule data over to schedule view
-
-        if ($selectedSchedule == 0) {
-            return view('schedule', compact('user', 'schedule', 'allSchedules'));
-        } else {
-            return view('home', compact('user'));
-        }*/
-
         $user = auth()->user();
         $schedules = Schedule::all();
         return view('schedule', compact('user', 'schedules'));
     }
 
-    /*
     public function store(Request $request)
     {
-        $schedule_id = $request->schedule;
-        $schedule = Schedule::where('id', $schedule_id)->first();
-
         $user = auth()->user();
-        $user->schedule_id = $schedule_id;
-        $user->save();
-
-        return redirect()->route('home');
-    }
-    */
-
-    public function store_user_schedule(Request $request) {
-
-        $user = auth()->user();
-
-        $user_id = $user->id;
 
         $schedule_id = $request->input('schedule');
         $init_date = Carbon::now();
@@ -85,12 +47,10 @@ class ScheduleController extends Controller
             $start_date = "ERROR";
         }
 
-
-
         $schedule_end_date_1 = Schedule::find($schedule_id)->end_date;
         $schedule_end_date = \DateTime::createFromFormat('Y-m-d', $schedule_end_date_1);
 
-        $number_weeks = floor(($schedule_end_date->diff($start_date)->days)/7);
+        $number_weeks = floor(($schedule_end_date->diff($start_date)->days) / 7);
 
         $km_per_week = Schedule::find($schedule_id)->distance_goal / $number_weeks;
 
@@ -101,7 +61,10 @@ class ScheduleController extends Controller
         $user->km_per_week = $km_per_week;
         $user->save();
 
-        return redirect()->route('home');
+        for($i = 1; $i <= $number_weeks; $i++) {
+            $user->createDetails($start_date, $km_per_week, $i);
+        }
 
+        return redirect()->route('home');
     }
 }

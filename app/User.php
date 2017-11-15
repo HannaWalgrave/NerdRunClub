@@ -5,6 +5,7 @@ namespace App;
 use Carbon\Carbon;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\Auth;
 
 class User extends Authenticatable
 {
@@ -39,7 +40,18 @@ class User extends Authenticatable
         return $this->belongsTo(Schedule::class);
     }
 
-    public function user_schedule_detail()
+    public function createDetails($start_date, $km_per_week, $i)
+    {
+        $userScheduleDetail = new UserScheduleDetail();
+        $userScheduleDetail->user_id = Auth::id();
+        $userScheduleDetail->week_count = $i;
+        $userScheduleDetail->week = Carbon::parse($start_date)->addweeks($i-1);
+        $userScheduleDetail->km_this_week = $km_per_week * $i;
+
+        $userScheduleDetail->save();
+    }
+
+    public function userScheduleDetail()
     {
         return $this->hasMany(UserScheduleDetail::class);
     }
