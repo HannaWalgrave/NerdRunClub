@@ -11,14 +11,25 @@ Deze wordt uitgevoerd indien er niets te loopen valt (dus als er nog geen activi
  -->
 
         <ul>
+
             @foreach($user->userScheduleDetail as $detail)
+
+                {{ $activities->where('start_date', '>', $detail->week)->where('start_date', '<', Carbon\Carbon::parse($detail->week)->addDays(6))->sum('distance') }}
+
                 <li>
                     <p class="schedule_week_count">week {{$detail->week_count}}</p>
                     <p class="schedule_week_dates">{{ Carbon\Carbon::parse($detail->week)->format('d/m/Y') }} - {{Carbon\Carbon::parse($detail->week)->addDays(6)->format('d/m/Y') }}</p>
                     <p class="schedule_week_goal">{{$detail->km_this_week}}km</p>
-                    <p class="schedule_week_success">Goal reached! / Goal not reached</p>
+                    <p class="schedule_week_success">
+                        @if($activities->where('start_date', '>', $detail->week)->where('start_date', '<', Carbon\Carbon::parse($detail->week)->addDays(6))->sum('distance') / 1000 > $detail->km_this_week)
+                            Goal reached!
+                        @else
+                            Goal not reached
+                        @endif
+                    </p>
 
                     <ul class="activity_list">
+
                         @forelse ($activities as $activity)
                             @if($activity->start_date >= $detail->week AND $activity->start_date <= Carbon\Carbon::parse($detail->week)->addDays(6))
                                 <li>
@@ -26,11 +37,13 @@ Deze wordt uitgevoerd indien er niets te loopen valt (dus als er nog geen activi
                                     <p class="activity_distance">{{ number_format($activity->distance / 1000, 1, ",", ".") }}km
                                         done!</p>
                                 </li>
+
                             @endif
 
                         @empty
                             <li>You don't have any activities yet this week. Start running or zombies will eat your brains!</li>
                         @endforelse
+
                     </ul>
 
                 </li>
