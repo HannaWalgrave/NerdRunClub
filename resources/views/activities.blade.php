@@ -15,7 +15,9 @@ Deze wordt uitgevoerd indien er niets te loopen valt (dus als er nog geen activi
             @forelse ($activities as $activity)
                 <li>
                     <p class="activity_date">{{Carbon\Carbon::parse($activity->start_date)->format('d/m/Y') }}</p>
-                    <p class="activity_distance">{{ $activity->distance / 1000 }}km done!</p>
+                    <p class="activity_distance">{{ number_format($activity->distance / 1000, 1, ",", ".") }}km
+                        done!</p>
+
                 </li>
 
             @empty
