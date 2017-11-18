@@ -54,10 +54,12 @@ class User extends Authenticatable
         $userScheduleDetail->save();
     }
 
+
     public function userScheduleDetail()
     {
         return $this->hasMany(UserScheduleDetail::class);
     }
+
 
     public function updateScheduleDetails()
     {
@@ -69,6 +71,7 @@ class User extends Authenticatable
             $detail_this_week_modified = App\UserScheduleDetail::all()->where('user_id', $user_id)->where('week',
                 $start_date_current_week)->first()->modified_marker;
 
+            // is verleden week al gecheckt?
             if($detail_this_week_modified == 0) {
                 // we checken de stand van zaken van afgelopen week, want dat is nog niet gebeurd
 
@@ -84,10 +87,11 @@ class User extends Authenticatable
                     $last_week_schedule_vs_activity = $total_last_week - $scheduled_last_week;
 
                     // indien negatief: overschrijf de km_this_week_modified van deze week
-
                     if ($last_week_schedule_vs_activity < 0) {
                         $current_schedule_detail = App\UserScheduleDetail::where('week', $start_date_current_week)->where('user_id', $user_id)->first();
-                        $current_schedule_detail->km_this_week_modified = 3;
+
+                        $current_schedule_detail->km_this_week_modified = $current_schedule_detail->km_this_week_modified*1.2;
+
                         $current_schedule_detail->modified_marker = 1;
                         $current_schedule_detail->save();
                     };
