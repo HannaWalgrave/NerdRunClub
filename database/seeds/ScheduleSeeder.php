@@ -33,9 +33,9 @@ class ScheduleSeeder extends Seeder
 
         $schedule3 = new Schedule();
         $schedule3['id'] = 3;
-        $schedule3['name'] = "De KVLV Loopt Met U Mee";
-        $schedule3['end_date'] = "2018-04-08";
-        $schedule3['distance_goal'] = 5;
+        $schedule3['name'] = "Wim's Wicked Running Extravaganza!";
+        $schedule3['end_date'] = "2017-12-31";
+        $schedule3['distance_goal'] = 10;
         $schedule3->save();
     }
 }
