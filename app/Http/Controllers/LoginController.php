@@ -44,6 +44,12 @@ class LoginController extends Controller
 
         Artisan::call('db:update');
 
+        $details = App\UserScheduleDetail::all()->where('user_id', Auth::id())->count();
+        if($details != 0) {
+            dd("you should change man");
+        }
+
+
         return redirect()->route('home');
     }
 

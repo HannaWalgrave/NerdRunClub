@@ -58,4 +58,10 @@ class User extends Authenticatable
         return $this->hasMany(UserScheduleDetail::class);
     }
 
+    public function updateScheduleDetails()
+    {
+        $user_id = Auth::id();
+        dd($user_id);
+    }
+
 }
