@@ -47,6 +47,8 @@ class User extends Authenticatable
         $userScheduleDetail->week_count = $i;
         $userScheduleDetail->week = Carbon::parse($start_date)->addweeks($i-1);
         $userScheduleDetail->km_this_week = $km_per_week * $i;
+        $userScheduleDetail->km_this_week_modified = $km_per_week * $i;
+        $userScheduleDetail->modified_marker = false;
 
         $userScheduleDetail->save();
     }
