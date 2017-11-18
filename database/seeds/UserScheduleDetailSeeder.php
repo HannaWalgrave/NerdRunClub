@@ -20,6 +20,8 @@ class UserScheduleDetailSeeder extends Seeder
                     'week' => Carbon::parse($user->start_date)->addweeks($i-1),
                     'week_count' => $i,
                     'km_this_week' => $user->km_per_week * $i,
+                    'km_this_week_modified' => $user->km_per_week * $i,
+                    'modified_marker' => false,
                 ]);
             }
         }

@@ -19,6 +19,8 @@ class CreateUserScheduleDetailsTable extends Migration
             $table->date('week');
             $table->integer('week_count');
             $table->float('km_this_week');
+            $table->float('km_this_week_modified');
+            $table->boolean('modified_marker')->default(false);
             $table->timestamps();
         });
     }

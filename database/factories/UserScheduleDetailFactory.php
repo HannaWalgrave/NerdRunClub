@@ -14,6 +14,8 @@ $factory->define(App\UserScheduleDetail::class, function (Faker $faker) {
         'user_id' => $faker->randomNumber(),
         'week' => $faker->date(),
         'week_count' => $faker->randomNumber(),
-        'km_this_week' => $faker->randomFloat()
+        'km_this_week_modified' => $faker->randomFloat(),
+        'km_this_week' => $faker->randomFloat(),
+        'modified_marker' => false
     ];
 });
