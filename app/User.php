@@ -32,7 +32,7 @@ class User extends Authenticatable
 
     public function activities()
     {
-        return $this->hasMany(Activity::class);
+        return $this->hasMany(Activity::class)->orderBy('start_date', 'asc');
     }
 
     public function schedule()
