@@ -13,7 +13,7 @@ Deze wordt uitgevoerd indien er niets te loopen valt (dus als er nog geen activi
             @foreach($user->userScheduleDetail as $detail)
                 <li>
                     <p class="schedule_week_count">week {{$detail->week_count}}</p>
-                    <p class="schedule_week_dates">dates komen hier</p>
+                    <p class="schedule_week_dates">{{ Carbon\Carbon::parse($detail->week)->format('d/m/Y') }} - {{Carbon\Carbon::parse($detail->week)->addDays(6)->format('d/m/Y') }}</p>
                     <p class="schedule_week_goal">{{$detail->km_this_week}}km</p>
                     <p class="schedule_week_success">Goal reached! / Goal not reached</p>
                 </li>
@@ -23,7 +23,7 @@ Deze wordt uitgevoerd indien er niets te loopen valt (dus als er nog geen activi
         <ul class="activity_list">
             @forelse ($activities as $activity)
                 <li>
-                    <p class="activity_date">{{Carbon\Carbon::parse($activity->start_date)->format('d/m/Y') }}</p>
+                    <p class="activity_date">{{ Carbon\Carbon::parse($activity->start_date)->format('d/m/Y') }}</p>
                     <p class="activity_distance">{{ number_format($activity->distance / 1000, 1, ",", ".") }}km
                         done!</p>
                 </li>
