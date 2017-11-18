@@ -65,6 +65,8 @@ class ScheduleController extends Controller
             $user->createDetails($start_date, $km_per_week, $i);
         }
 
+
+
         return redirect()->route('home');
     }
 }

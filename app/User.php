@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App;
 use Carbon\Carbon;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -60,8 +61,13 @@ class User extends Authenticatable
 
     public function updateScheduleDetails()
     {
-        $user_id = Auth::id();
-        dd($user_id);
+        $details = App\UserScheduleDetail::all()->where('user_id', Auth::id())->count();
+        if($details != 0) {
+
+            // $detail_this_week_modified = App\UserScheduleDetail::all()->where('user_id', Auth::id());
+
+            dd("you should change man");
+        }
     }
 
 }
