@@ -23,7 +23,6 @@ class ActivityController extends Controller
         $user = User::find($user->id);
         $activities = $user->activities;
 
-
         // pass user and activities data over to activities view
         return view('activities', compact('user', 'activities'));
     }

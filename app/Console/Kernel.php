@@ -29,8 +29,8 @@ class Kernel extends ConsoleKernel
     {
         // schedule for hourly update of database activity data through Strava API
         $schedule->command('db:update')
-                 ->everyMinute();    // for testing purposes, runs every minute
-              // ->hourly(30);       // for live system, runs every hour at half past the hour
+            //   ->everyMinute();    // for testing purposes, runs every minute
+                 ->hourly(30);       // for live system, runs every hour at half past the hour
     }
 
     /**
