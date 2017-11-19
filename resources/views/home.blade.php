@@ -18,12 +18,7 @@
                 <li></li>
             </ul>
         </div>
-        <section id="myChart" class="section">
-            <h1 class="title is-1">
-            </h1>
-            <graph-bar :labels="labels" :values="votes" type="bar">
-            </graph-bar>
-        </section>
+
     <!--
 <p>Your selected running schedule is {{ $user->schedule_id }}.</p>
 -->
