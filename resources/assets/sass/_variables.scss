@@ -1,4 +1,11 @@
+//Color
+$primary-color: #FF5D0D;
+$secondary-color: #ff8f43;
+$tertiary-color: #c42700;
 
+$zombie-primary-color: #35a67c;
+$zombie-secondary-color: #6bd8ab;
+$zombie-tertiary-oolor: #007650;
 // Body
 $body-bg: #ffffff;
 
@@ -21,13 +28,14 @@ $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
 $font-family-sans-serif: "Raleway", sans-serif;
 $font-size-base: 14px;
 $line-height-base: 1.6;
-$text-color: #9EA0A2;
+$text-color: $tertiary-color;
 
 // Navbar
 $navbar-default-bg: #fff;
 
 // Buttons
 $btn-default-color: $text-color;
+$btn-primary-bg: $primary-color;
 
 // Inputs
 $input-border: lighten($text-color, 40%);
@@ -36,3 +44,4 @@ $input-color-placeholder: lighten($text-color, 30%);
 
 // Panels
 $panel-default-heading-bg: #fff;
+

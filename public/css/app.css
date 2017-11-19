@@ -1405,7 +1405,7 @@ body {
   font-family: "Raleway", sans-serif;
   font-size: 14px;
   line-height: 1.6;
-  color: #9EA0A2;
+  color: #c42700;
   background-color: #ffffff;
 }
 
@@ -3354,7 +3354,7 @@ output {
   color: #555555;
   background-color: #fff;
   background-image: none;
-  border: 1px solid white;
+  border: 1px solid #ffa791;
   border-radius: 4px;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
@@ -3373,16 +3373,16 @@ output {
 }
 
 .form-control::-moz-placeholder {
-  color: #eceded;
+  color: #ff7e5e;
   opacity: 1;
 }
 
 .form-control:-ms-input-placeholder {
-  color: #eceded;
+  color: #ff7e5e;
 }
 
 .form-control::-webkit-input-placeholder {
-  color: #eceded;
+  color: #ff7e5e;
 }
 
 .form-control::-ms-expand {
@@ -3840,7 +3840,7 @@ select[multiple].input-lg,
   display: block;
   margin-top: 5px;
   margin-bottom: 10px;
-  color: #dfe0e0;
+  color: #ff6a45;
 }
 
 @media (min-width: 768px) {
@@ -3994,7 +3994,7 @@ select[multiple].input-lg,
 .btn:hover,
 .btn:focus,
 .btn.focus {
-  color: #9EA0A2;
+  color: #c42700;
   text-decoration: none;
 }
 
@@ -4022,20 +4022,20 @@ fieldset[disabled] a.btn {
 }
 
 .btn-default {
-  color: #9EA0A2;
+  color: #c42700;
   background-color: #fff;
   border-color: #ccc;
 }
 
 .btn-default:focus,
 .btn-default.focus {
-  color: #9EA0A2;
+  color: #c42700;
   background-color: #e6e5e5;
   border-color: #8c8c8c;
 }
 
 .btn-default:hover {
-  color: #9EA0A2;
+  color: #c42700;
   background-color: #e6e5e5;
   border-color: #adadad;
 }
@@ -4043,7 +4043,7 @@ fieldset[disabled] a.btn {
 .btn-default:active,
 .btn-default.active,
 .open > .btn-default.dropdown-toggle {
-  color: #9EA0A2;
+  color: #c42700;
   background-color: #e6e5e5;
   border-color: #adadad;
 }
@@ -4057,7 +4057,7 @@ fieldset[disabled] a.btn {
 .open > .btn-default.dropdown-toggle:hover,
 .open > .btn-default.dropdown-toggle:focus,
 .open > .btn-default.dropdown-toggle.focus {
-  color: #9EA0A2;
+  color: #c42700;
   background-color: #d4d4d4;
   border-color: #8c8c8c;
 }
@@ -4083,34 +4083,34 @@ fieldset[disabled] .btn-default.focus {
 
 .btn-default .badge {
   color: #fff;
-  background-color: #9EA0A2;
+  background-color: #c42700;
 }
 
 .btn-primary {
   color: #fff;
-  background-color: #3097D1;
-  border-color: #2a88bd;
+  background-color: #FF5D0D;
+  border-color: #f35000;
 }
 
 .btn-primary:focus,
 .btn-primary.focus {
   color: #fff;
-  background-color: #2579a9;
-  border-color: #133d55;
+  background-color: #d94800;
+  border-color: #732600;
 }
 
 .btn-primary:hover {
   color: #fff;
-  background-color: #2579a9;
-  border-color: #1f648b;
+  background-color: #d94800;
+  border-color: #b53c00;
 }
 
 .btn-primary:active,
 .btn-primary.active,
 .open > .btn-primary.dropdown-toggle {
   color: #fff;
-  background-color: #2579a9;
-  border-color: #1f648b;
+  background-color: #d94800;
+  border-color: #b53c00;
 }
 
 .btn-primary:active:hover,
@@ -4123,8 +4123,8 @@ fieldset[disabled] .btn-default.focus {
 .open > .btn-primary.dropdown-toggle:focus,
 .open > .btn-primary.dropdown-toggle.focus {
   color: #fff;
-  background-color: #1f648b;
-  border-color: #133d55;
+  background-color: #b53c00;
+  border-color: #732600;
 }
 
 .btn-primary:active,
@@ -4142,12 +4142,12 @@ fieldset[disabled] .btn-default.focus {
 fieldset[disabled] .btn-primary:hover,
 fieldset[disabled] .btn-primary:focus,
 fieldset[disabled] .btn-primary.focus {
-  background-color: #3097D1;
-  border-color: #2a88bd;
+  background-color: #FF5D0D;
+  border-color: #f35000;
 }
 
 .btn-primary .badge {
-  color: #3097D1;
+  color: #FF5D0D;
   background-color: #fff;
 }
 
@@ -4972,7 +4972,7 @@ tbody.collapse.in {
   color: #555555;
   text-align: center;
   background-color: #eeeeee;
-  border: 1px solid white;
+  border: 1px solid #ffa791;
   border-radius: 4px;
 }
 
@@ -6332,7 +6332,7 @@ a.badge:focus {
 
 .thumbnail .caption {
   padding: 9px;
-  color: #9EA0A2;
+  color: #c42700;
 }
 
 a.thumbnail:hover,
@@ -8457,10 +8457,28 @@ a {
   background-color: #F1F9FF;
 }
 
+.scheduleText {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 20px;
+}
+
 .scheduleWrap {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -8486,7 +8504,15 @@ a {
 }
 
 .calender button {
-  width: 40%;
+  width: 100%;
+  height: 50px;
+  font-size: x-large;
+  margin-top: 90px;
+}
+
+.calender select {
+  height: 40px;
+  font-size: large;
 }
 
 /*login screen*/

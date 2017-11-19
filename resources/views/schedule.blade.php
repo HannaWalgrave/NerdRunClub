@@ -5,8 +5,11 @@
 <!--  check whether user already has a running schedule. If yes, use it. If no, let user select from available
 schedules  -->
 @if ($user->schedule == null)
+    <div class="scheduleText">
 
-<h1>Hello {{ $user->firstname }}! Choose your schedule</h1>
+<h1>Hello {{ $user->firstname }}! Ready to run?</h1>
+        <h4>To get your running schedule please select one below.</h4>
+    </div>
     <form method="post" class="calender" action="/schedule">
 
         {{ csrf_field() }}
