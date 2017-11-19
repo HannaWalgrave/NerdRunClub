@@ -1,7 +1,7 @@
 @extends('layouts.default')
 @section('container')
     <div class="wrap">
-        <div><a href="menu">MENU</a></div>
+        <div><a class="btn btn-primary" href="menu">MENU</a></div>
         <div class="userProfile">
             <img class="userImg" src="{{ $user->profile }}" alt="profile picture">
 
@@ -35,6 +35,6 @@
 
 
 
-        <a href="activities">Go to activities</a>
+        <a class="btn btn-primary" href="activities">Go to activities</a>
     </div>
 @endsection
