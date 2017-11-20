@@ -24,7 +24,7 @@ Daaronder staat, indien van toepassing, dan een lijst met de afgelegde activitei
                 <li>
                     <p class="schedule_week_count">week {{$detail->week_count}}</p>
                     <p class="schedule_week_dates">{{ Carbon\Carbon::parse($detail->week)->format('d/m/Y') }} - {{Carbon\Carbon::parse($detail->week)->addDays(6)->format('d/m/Y') }}</p>
-                    <p class="schedule_week_goal">{{$detail->km_this_week}}km</p>
+                    <p class="schedule_week_goal">{{$detail->km_this_week_modified}}km</p>
                     <p class="schedule_week_success">
                         @if($detail->week > Carbon\Carbon::now())
                             Week still to come
