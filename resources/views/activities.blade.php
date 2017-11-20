@@ -2,7 +2,8 @@
 
 @section('container')
     <div>
-<h1>Activities</h1>
+        <div><a class="btn btn-primary" href="menu">MENU</a></div>
+        <h1>Activities</h1>
 
 <!--
 UITLEG:

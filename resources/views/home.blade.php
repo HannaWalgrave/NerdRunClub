@@ -18,22 +18,12 @@
                 <li></li>
             </ul>
         </div>
-<canvas id="myGraph">
 
-</canvas>
     <!--
 <p>Your selected running schedule is {{ $user->schedule_id }}.</p>
 -->
         <p>Your selected running schedule is {{ $user->schedule->name }}.</p>
-        <p>Here is your schedule:</p>
-
-        <ul>
-            @foreach($user->userScheduleDetail as $detail)
-                <li>week {{$detail->week_count}}: {{$detail->km_this_week}}km</li>
-            @endforeach
-        </ul>
-
-
+       
 
         <a class="btn btn-primary" href="activities">Go to activities</a>
     </div>
