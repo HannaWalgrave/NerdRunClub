@@ -2,6 +2,7 @@
 
 @section('container')
     <div>
+        @include('includes.menu')
 <h1>Activities</h1>
 
 <!--

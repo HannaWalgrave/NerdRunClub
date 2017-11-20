@@ -1,6 +1,7 @@
 @extends('layouts.default')
 @section('container')
     <div class="scheduleWrap">
+    @include('includes.menu')
 
 <!--  check whether user already has a running schedule. If yes, use it. If no, let user select from available
 schedules  -->

@@ -6,7 +6,10 @@
 <body>
 <div class="container center-block">
 @section('container')
+
     @show
+
+
 </div>
 
 <script src="js/app.js"></script>
