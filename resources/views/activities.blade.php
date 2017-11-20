@@ -28,7 +28,7 @@ Daaronder staat, indien van toepassing, dan een lijst met de afgelegde activitei
                     <p class="schedule_week_success">
                         @if($detail->week > Carbon\Carbon::now())
                             Week still to come
-                        @elseif($activities->where('start_date', '>', $detail->week)->where('start_date', '<', Carbon\Carbon::parse($detail->week)->addDays(6))->sum('distance') / 1000 > $detail->km_this_week)
+                        @elseif($activities->where('start_date', '>', $detail->week)->where('start_date', '<', Carbon\Carbon::parse($detail->week)->addDays(6))->sum('distance') / 1000 > $detail->km_this_week_modified)
                             Goal reached!
                         @else
                             Goal not reached
