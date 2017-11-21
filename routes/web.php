@@ -18,7 +18,7 @@ Route::get('token_exchange', 'LoginController@token_exchange');
 
 //ajax route
 
-Route::get('chart/index','ActivityController@index');
+Route::get('activities','ActivityController@index');
 
 // All routes you can only access when authenticated
 Route::middleware('auth')->group(function () {

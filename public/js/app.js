@@ -17985,7 +17985,7 @@ window.Vue = __webpack_require__(220);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-var url = "{{url('chart/index')}}";
+var url = "{{url('activities')}}";
 var userData = [];
 var Labels = [];
 var Prices = [];

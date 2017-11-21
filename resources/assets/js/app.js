@@ -20,7 +20,7 @@ window.Vue = require('vue');
 
 
 
-var url = "{{url('chart/index')}}";
+var url = "{{url('activities')}}";
 var userData = [];
 var Labels = [];
 var Prices = [];
