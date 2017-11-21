@@ -20,12 +20,16 @@ window.Vue = require('vue');
 
 
 
-var url = "{{url('activities')}}";
+var url = "activities/chart";
 var userData = [];
 var Labels = [];
 var Prices = [];
 $(document).ready(function(){
-    $.get(url, function(response) {
+    $.get(url,
+        {
+            '_token': $('input[name*="_token"]').val()
+        }
+    ).done(function(response) {
         response.forEach(function (data) {
             userData.push(data.user);
         });

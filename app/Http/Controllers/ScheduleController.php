@@ -12,9 +12,21 @@ class ScheduleController extends Controller
 {
     public function index()
     {
+        //get active user and collect all activities from database
+        $user = auth()->user();
+        $pastGoals = $user->userScheduleDetail()->where('week', '<', Carbon::now()->startOfWeek()->format('Y-m-d'))->get();
+        $currentGoal = $user->userScheduleDetail()->where('week', Carbon::now()->startOfWeek()->format('Y-m-d'))->first();
+        $nextGoals = $user->userScheduleDetail()->where('week', '>', Carbon::now()->startOfWeek()->format('Y-m-d'))->get();
+        $activities = $user->activities;
+
+        // pass user and activities data over to activities view
+        return view('schedule.index', compact('user', 'pastGoals', 'currentGoal', 'nextGoals', 'activities'));
+    }
+
+    public function create(){
         $user = auth()->user();
         $schedules = Schedule::all();
-        return view('schedule', compact('user', 'schedules'));
+        return view('schedule.create', compact('user', 'schedules'));
     }
 
     public function store(Request $request)

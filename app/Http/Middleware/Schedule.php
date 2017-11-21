@@ -18,7 +18,7 @@ class Schedule
         // Check if user has a schedule. If not -> redirect to schedule select
         $user = auth()->user();
         if($user->schedule == null) {
-            return redirect('/schedule');
+            return redirect('/schedule/create');
         }
 
         return $next($request);

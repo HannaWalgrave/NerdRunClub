@@ -11,15 +11,8 @@ use Illuminate\Http\Request;
 
 class ActivityController extends Controller
 {
-    public function index()
+    public function chart()
     {
-        //get active user and collect all activities from database
-        $user = auth()->user();
-        $currentGoal = $user->userScheduleDetail()->where('week', Carbon::now()->startOfWeek()->format('Y-m-d'))->first();
-        $nextGoals = $user->userScheduleDetail()->where('week', '>', Carbon::now()->startOfWeek()->format('Y-m-d'))->get();
-        $activities = $user->activities;
-
-        // pass user and activities data over to activities view
-        return view('activities', compact('user', 'currentGoal', 'nextGoals', 'activities'));
+        // Hier zet je je code om de juiste data terug te sturen
     }
 }
