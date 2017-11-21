@@ -2,6 +2,7 @@
 @section('container')
     <div class="scheduleWrap">
 
+
 <!--  check whether user already has a running schedule. If yes, use it. If no, let user select from available
 schedules  -->
 @if ($user->schedule == null)

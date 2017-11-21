@@ -91,7 +91,7 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  height: 33vh;
+  height: 25vh;
   width: 100vw;
   color: white;
   font-size: 20px;
@@ -116,6 +116,10 @@
 
 .LogoutButton {
   background-color: #c42700;
+}
+
+.HomeButton {
+  background-color: #f73100;
 }
 
 .scheduleText {
@@ -202,5 +206,12 @@
   line-height: 35px;
   font-size: x-large;
   font-weight: bold;
+}
+
+.menu-top {
+  width: 100%;
+  background-color: orange;
+  padding: 5px;
+  margin-bottom: 10px;
 }
 

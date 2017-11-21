@@ -2,8 +2,10 @@
 
 @section('container')
     <div>
-        <div><a class="btn btn-primary" href="menu">MENU</a></div>
-        <h1>Activities</h1>
+
+        @include('includes.menu')
+<h1>Activities</h1>
+
 
         <ul>
             <li>

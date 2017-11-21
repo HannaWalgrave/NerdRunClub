@@ -1,7 +1,7 @@
 @extends('layouts.default')
 @section('container')
     <div class="wrap">
-        <div><a class="btn btn-primary" href="menu">MENU</a></div>
+        @include('includes.menu')
         <div class="userProfile">
             <img class="userImg" src="{{ $user->profile }}" alt="profile picture">
 
@@ -19,6 +19,7 @@
             </ul>
         </div>
 
+        <canvas id="myGraph" width="400" height="400"></canvas>
     <!--
 <p>Your selected running schedule is {{ $user->schedule_id }}.</p>
 -->
