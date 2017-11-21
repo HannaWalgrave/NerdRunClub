@@ -19,6 +19,7 @@
             </ul>
         </div>
 
+        <canvas id="myGraph" width="400" height="400"></canvas>
     <!--
 <p>Your selected running schedule is {{ $user->schedule_id }}.</p>
 -->

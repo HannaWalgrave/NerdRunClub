@@ -16,6 +16,10 @@ Route::get('login', 'LoginController@login')->name('login');
 Route::get('logout', 'LoginController@logout')->name('logout');
 Route::get('token_exchange', 'LoginController@token_exchange');
 
+//ajax route
+
+Route::get('chart/index','ActivityController@index');
+
 // All routes you can only access when authenticated
 Route::middleware('auth')->group(function () {
     //menu routes
@@ -30,6 +34,7 @@ Route::middleware('auth')->group(function () {
 
     // Activity routes
     Route::get('/activities', 'ActivityController@index');
+
 });
 
 
