@@ -30,7 +30,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('schedule', 'ScheduleController', ['only' => ['index', 'create', 'store']]);
 
     // Activity routes
-    /*Route::get('/activities', 'ActivityController@index');*/
+    Route::get('/activities', 'ActivityController@index');
     Route::get('activities/chart', 'ActivityController@chart');
 });
 

@@ -27,6 +27,6 @@
         <p>Your selected running schedule is {{ $user->schedule->name }}.</p>
        
 
-        <a class="btn btn-primary" href="activities">Go to activities</a>
+        <a class="btn btn-primary" href="schedule">Go to your schedule</a>
     </div>
 @endsection

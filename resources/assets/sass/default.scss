@@ -156,3 +156,32 @@ a{
   padding: 5px;
   margin-bottom: 10px;
 }
+
+// activities
+.scheduleList {
+  padding: 0;
+}
+
+.scheduleList li {
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  list-style-type: none;
+  color:#fff;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content: space-between;
+}
+
+.pastGoals {
+  background:#FE8E44;
+}
+
+.currentGoal {
+  background:#FE5C11;
+}
+
+.nextGoals {
+  background:#FE8E44;
+}
+
