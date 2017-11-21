@@ -13,6 +13,9 @@ class ActivityController extends Controller
 {
     public function chart()
     {
-        // Hier zet je je code om de juiste data terug te sturen
+        $user = auth()->user();
+        $user->schedule();
+
+        return
     }
 }
