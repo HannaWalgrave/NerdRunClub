@@ -15,7 +15,6 @@
                             - {{Carbon\Carbon::parse($detail->week)->addDays(6)->format('d/m/Y') }}
                         </p>
                     </div>
-
                     <p class="schedule_week_goal">{{$detail->km_this_week_modified}}km</p>
                 </li>
             @endforeach
@@ -25,10 +24,8 @@
                 <div>
                     <p class="schedule_week_count">This week</p>
                 </div>
-
                 <p class="schedule_week_goal">{{$currentGoal->km_this_week_modified}}km</p>
-
-
+                <ul class="activity_list" style="width:100%;"></ul>
             </li>
 
             @foreach($nextGoals as $detail)
@@ -56,6 +53,7 @@
 @section('footerscripts')
     <script>
         $('.currentGoal').on('click', function(){
+            var that = $(this);
             $.get("activities",
                 {
                     '_token': '{{csrf_token()}}',
@@ -63,8 +61,19 @@
 
                 }
             ).done(function (data) {
-                console.log(data);
+                if(data === []){
+                    that.find('ul.activity_list').append("<li style='list-style-type: none;'> You don't have any activities yet this week. Start running or zombies will eat your brains! </li>");
+                } else {
+                    that.find('ul.activity_list').append("<li style='list-style-type: none;'><p>Your activities:</p></li>");
+                    $.each(data, function (i, value){
+                        that.find('ul.activity_list').append("<li style='list-style-type: none; display: flex; justify-content: space-around;'><p class='activity_date'>" + value[0] + "</p> <p class='activity_distance'>" + value[1] + " km done!</p></li>");
+                    });
+                }
             })
+        });
+
+        $('body').on('click', function(){
+            $(this).find('ul.activity_list').children().remove();
         })
     </script>
 @endsection
