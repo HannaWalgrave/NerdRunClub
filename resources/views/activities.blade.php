@@ -2,8 +2,10 @@
 
 @section('container')
     <div>
+
         @include('includes.menu')
 <h1>Activities</h1>
+
 
 <!--
 UITLEG:
@@ -24,11 +26,11 @@ Daaronder staat, indien van toepassing, dan een lijst met de afgelegde activitei
                 <li>
                     <p class="schedule_week_count">week {{$detail->week_count}}</p>
                     <p class="schedule_week_dates">{{ Carbon\Carbon::parse($detail->week)->format('d/m/Y') }} - {{Carbon\Carbon::parse($detail->week)->addDays(6)->format('d/m/Y') }}</p>
-                    <p class="schedule_week_goal">{{$detail->km_this_week}}km</p>
+                    <p class="schedule_week_goal">{{$detail->km_this_week_modified}}km</p>
                     <p class="schedule_week_success">
                         @if($detail->week > Carbon\Carbon::now())
                             Week still to come
-                        @elseif($activities->where('start_date', '>', $detail->week)->where('start_date', '<', Carbon\Carbon::parse($detail->week)->addDays(6))->sum('distance') / 1000 > $detail->km_this_week)
+                        @elseif($activities->where('start_date', '>', $detail->week)->where('start_date', '<', Carbon\Carbon::parse($detail->week)->addDays(6))->sum('distance') / 1000 > $detail->km_this_week_modified)
                             Goal reached!
                         @else
                             Goal not reached
