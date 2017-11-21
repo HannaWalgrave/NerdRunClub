@@ -12,17 +12,25 @@
 */
 
 // Login routes
-Route::get('/login', 'LoginController@login')->name('login');
+Route::get('login', 'LoginController@login')->name('login');
 Route::get('logout', 'LoginController@logout')->name('logout');
-Route::get('/', 'HomeController@index')->name('home');
 Route::get('token_exchange', 'LoginController@token_exchange');
 
-// Activity routes
-Route::get('/activities', 'ActivityController@index');
+// All routes you can only access when authenticated
+Route::middleware('auth')->group(function () {
+    //menu routes
+    Route::view('/menu', 'menu');
 
-//Schedule routes
-Route::get('/schedule', 'ScheduleController@index')->name('schedule');;
-Route::post('/schedule', 'ScheduleController@store');
+    // Home
+    Route::get('/', 'HomeController@index')->name('home');
 
-//menu routes
-Route::view('/menu', 'menu');
+    //Schedule routes
+    Route::get('/schedule', 'ScheduleController@index')->name('schedule');;
+    Route::post('/schedule', 'ScheduleController@store');
+
+    // Activity routes
+    Route::get('/activities', 'ActivityController@index');
+});
+
+
+

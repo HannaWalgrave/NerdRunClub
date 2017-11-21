@@ -34,8 +34,6 @@ $factory->define(App\User::class, function (Faker $faker) {
             break;
     }*/
 
-    var_dump($init_date);
-    var_dump($init_date->dayOfWeek);
     if ($init_date->dayOfWeek == Carbon::MONDAY) {
         $start_date = Carbon::now();
     } elseif ($init_date->dayOfWeek == Carbon::TUESDAY) {

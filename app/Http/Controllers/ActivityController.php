@@ -11,19 +11,15 @@ use Illuminate\Http\Request;
 
 class ActivityController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     public function index()
     {
         //get active user and collect all activities from database
         $user = auth()->user();
-        $user = User::find($user->id);
+        $currentGoal = $user->userScheduleDetail()->where('week', Carbon::now()->startOfWeek()->format('Y-m-d'))->first();
+        $nextGoals = $user->userScheduleDetail()->where('week', '>', Carbon::now()->startOfWeek()->format('Y-m-d'))->get();
         $activities = $user->activities;
 
         // pass user and activities data over to activities view
-        return view('activities', compact('user', 'activities'));
+        return view('activities', compact('user', 'currentGoal', 'nextGoals', 'activities'));
     }
 }
