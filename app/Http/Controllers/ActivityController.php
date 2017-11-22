@@ -31,10 +31,20 @@ class ActivityController extends Controller
 
     public function chart()
     {
+        $result = [];
+        $kmRun = 0;
+
         $user = auth()->user();
         $currentGoal = $user->userScheduleDetail()->where('week', Carbon::now()->startOfWeek()->format('Y-m-d'))->first();
         $activities = Activity::where('start_date', '>=', $currentGoal->week)->where('start_date', '<=', Carbon::parse($currentGoal->week)->addDays(6))->get();
 
-        return $currentGoal;
+        foreach($activities as $activity) {
+            $kmRun += number_format($activity->distance / 1000, 1, ",", ".");
+        }
+
+        array_push($result, $currentGoal->km_per_week);
+        array_push($result, $kmRun);
+
+        return $result;
     }
 }
