@@ -8567,3 +8567,35 @@ button.close {
   margin-bottom: 10px;
 }
 
+.scheduleList {
+  padding: 0;
+}
+
+.scheduleList li {
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  list-style-type: none;
+  color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.pastGoals {
+  background: #FE8E44;
+}
+
+.currentGoal {
+  background: #FE5C11;
+}
+
+.nextGoals {
+  background: #FE8E44;
+}
+

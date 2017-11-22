@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App;
+use App\Schedule;
 use App\User;
 use App\Activity;
 use App\UserScheduleDetail;
@@ -30,11 +31,10 @@ class ActivityController extends Controller
 
     public function chart()
     {
-       $user = Auth::user();
+        $user = auth()->user();
         $currentGoal = $user->userScheduleDetail()->where('week', Carbon::now()->startOfWeek()->format('Y-m-d'))->first();
+        $activities = Activity::where('start_date', '>=', $currentGoal->week)->where('start_date', '<=', Carbon::parse($currentGoal->week)->addDays(6))->get();
 
-
-
-        return $currentGoal ;
+        return $currentGoal;
     }
 }

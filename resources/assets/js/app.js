@@ -31,10 +31,10 @@ $(document).ready(function(){
         }
     ).done(function(response) {
         console.log(response);
-        response.forEach(function (data) {
-            userData.push(data);
-            kmRun.push(data);
-        });
+        //console.log(response['km_per_week']);
+      // $.each(response ,function (data) {
+            userData.push(response);
+       // });
         var Chart = require('chart.js');
         var context = document.querySelector('#myGraph').getContext('2d');
         var myChart = new Chart(context, {
@@ -63,7 +63,7 @@ $(document).ready(function(){
                     borderWidth: 1,
                 },{
                     label: 'How should you be running?',
-                    data: kmRun,
+                    data: userData,
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
                         'rgba(54, 162, 235, 0.2)',
