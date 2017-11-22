@@ -43,7 +43,7 @@ class ActivityController extends Controller
             $kmRun += number_format($activity->distance / 1000, 1, ",", ".");
         }
 
-        array_push($result, $currentGoal->km_per_week);
+        array_push($result, $currentGoal->km_this_week);
         array_push($result, $kmRun);
 
         return $result;
