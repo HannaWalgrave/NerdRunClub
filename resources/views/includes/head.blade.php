@@ -4,7 +4,7 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <title>humans vs zombies</title>
-<link rel="stylesheet" href="css/app.css">
-<link rel="stylesheet" href="css/default.css">
+<link rel="stylesheet" href="/css/app.css">
+<link rel="stylesheet" href="/css/default.css">
 
 
