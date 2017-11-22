@@ -1,6 +1,6 @@
 @extends('layouts.default')
 @section('container')
-    <div class="wrap">
+    <div class="scheduleWrap">
         @include('includes.menu')
         <div class="scheduleText">
 
