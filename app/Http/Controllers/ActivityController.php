@@ -30,7 +30,7 @@ class ActivityController extends Controller
         return $result;
     }
 
-    public function chart()
+    public function chart(Request $request)
     {
         $result = [];
         $kmRun = 0;
