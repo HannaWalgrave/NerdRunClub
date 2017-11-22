@@ -19,7 +19,7 @@
             </ul>
         </div>
 
-        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+        {{--<input type="hidden" name="_token" value="{{ csrf_token() }}">--}}
         <canvas id="myGraph" width="400" height="400"></canvas>
     <!--
 <p>Your selected running schedule is {{ $user->schedule_id }}.</p>
