@@ -1,7 +1,7 @@
 @extends('layouts.default')
 
 @section('container')
-    <div>
+    <div class="wrap">
         @include('includes.menu')
         <h1>Your schedule</h1>
         <ul class="scheduleList" style="padding:0;">
