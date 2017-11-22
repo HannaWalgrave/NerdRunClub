@@ -30,15 +30,3 @@
     </div>
 
 @endsection
-@section('footerscripts')
-    <script>
-        $(function () {
-            $("#datepicker").datepicker({
-                onSelect: function (date) {
-                    $('.dateValue').val(date);
-                }
-            });
-        });
-
-    </script>
-@endsection
