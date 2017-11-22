@@ -61,7 +61,7 @@ class dbUpdate extends Command
                     $newActivity->distance = $activity->distance;
                     $newActivity->start_date = Carbon::parse($activity->start_date)->toDateTimeString();
                     $newActivity->save();
-                
+
             }
         }
 

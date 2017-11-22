@@ -16,9 +16,10 @@ class ActivityController extends Controller
 {
     public function index(Request $request)
     {
+        $user_id = Auth::id();
         $result = [];
         $schedule = UserScheduleDetail::find($request->schedule_id);
-        $activities = Activity::where('start_date', '>=', $schedule->week)->where('start_date', '<=', Carbon::parse($schedule->week)->addDays(6))->get();
+        $activities = Activity::where('start_date', '>=', $schedule->week)->where('start_date', '<=', Carbon::parse($schedule->week)->addDays(6))->where('user_id', '=', $user_id)->get();
         foreach($activities as $activity) {
             $r = [];
             array_push($r, Carbon::parse($activity->start_date)->format('d/m/Y'));
