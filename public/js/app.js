@@ -28929,30 +28929,6 @@ $(document).ready(function () {
     });
 });
 
-//schedule show
-
-$('.currentGoal').on('click', function () {
-    var that = $(this);
-    $.get("activities", {
-        '_token': '{{csrf_token()}}',
-        'schedule_id': $(this).attr('id')
-
-    }).done(function (data) {
-        if (data === []) {
-            that.find('ul.activity_list').append("<li style='list-style-type: none;'> You don't have any activities yet this week. Start running or zombies will eat your brains! </li>");
-        } else {
-            that.find('ul.activity_list').append("<li style='list-style-type: none;'><p>Your activities:</p></li>");
-            $.each(data, function (i, value) {
-                that.find('ul.activity_list').append("<li style='list-style-type: none; display: flex; justify-content: space-around;'><p class='activity_date'>" + value[0] + "</p> <p class='activity_distance'>" + value[1] + " km done!</p></li>");
-            });
-        }
-    });
-});
-
-$('body').on('click', function () {
-    $(this).find('ul.activity_list').children().remove();
-});
-
 /***/ }),
 /* 138 */
 /***/ (function(module, exports, __webpack_require__) {
