@@ -37,7 +37,7 @@ class ActivityController extends Controller
 
         $user = auth()->user();
         $currentGoal = $user->userScheduleDetail()->where('week', Carbon::now()->startOfWeek()->format('Y-m-d'))->first();
-        $activities = Activity::where('start_date', '>=', $currentGoal->week)->where('start_date', '<=', Carbon::parse($currentGoal->week)->addDays(6))->get();
+        $activities = Activity::where('start_date', '>=', $currentGoal->week)->where('start_date', '<=', Carbon::parse($currentGoal->week)->addDays(6))->where('user_id', '=', $user->id)->get();
 
         foreach($activities as $activity) {
             $kmRun += $activity->distance / 1000;
