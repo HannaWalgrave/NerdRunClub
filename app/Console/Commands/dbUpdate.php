@@ -54,14 +54,14 @@ class dbUpdate extends Command
             $data = $strava->get('/api/v3/athlete/activities', ['Authorization' => 'Bearer '.$user->token]);
 
             foreach ($data as $activity) {
-                if($activity->type == "run" && $activity->average_speed < 3 && $activity->max_speed < 3) {
+
                     $newActivity = Activity::firstOrNew(['strava_activity_id' => $activity->id]);;
                     $newActivity->strava_activity_id = $activity->id;
                     $newActivity->user_id = $user->id;
                     $newActivity->distance = $activity->distance;
                     $newActivity->start_date = Carbon::parse($activity->start_date)->toDateTimeString();
                     $newActivity->save();
-                }
+
             }
         }
 
