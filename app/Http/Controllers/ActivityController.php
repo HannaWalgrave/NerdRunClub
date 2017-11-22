@@ -40,9 +40,9 @@ class ActivityController extends Controller
         $activities = Activity::where('start_date', '>=', $currentGoal->week)->where('start_date', '<=', Carbon::parse($currentGoal->week)->addDays(6))->get();
 
         foreach($activities as $activity) {
-            $kmRun += number_format($activity->distance / 1000, 1, ",", ".");
+            $kmRun += $activity->distance / 100;
         }
-
+        number_format($kmRun, 1, ",", ".");
         array_push($result, $currentGoal->km_this_week);
         array_push($result, $kmRun);
 
