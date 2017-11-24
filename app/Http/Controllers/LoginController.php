@@ -18,7 +18,9 @@ class LoginController extends Controller
     public function login()
     {
         $redirect_uri = env('REDIRECT_URI');
-        return view('login', compact('redirect_uri'));
+        $client_id = env('STRAVA_ID');
+        $client_secret = env('STRAVA_SECRET');
+        return view('login', compact('redirect_uri','client_id','client_secret'));
     }
 
     public function token_exchange(Strava $strava)
