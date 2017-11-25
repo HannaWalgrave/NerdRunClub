@@ -36,8 +36,9 @@ class ActivityController extends Controller
         $kmRun = 0;
 
         $user = auth()->user();
-        $currentGoal = $user->userScheduleDetail()->where('week', Carbon::now()->startOfWeek()->format('Y-m-d'))->first();
-        $activities = Activity::where('start_date', '>=', $currentGoal->week)->where('start_date', '<=', Carbon::parse($currentGoal->week)->addDays(6))->where('user_id', '=', $user->id)->get();
+        $currentGoal = $user->userScheduleDetail()->where('week', Carbon::now()->startOfWeek()->format('Y-m-d')->first();
+        return $currentGoal;
+       /* $activities = Activity::where('start_date', '>=', $currentGoal->week)->where('start_date', '<=', Carbon::parse($currentGoal->week)->addDays(6))->where('user_id', '=', $user->id)->get();
 
         foreach($activities as $activity) {
             $kmRun += $activity->distance / 1000;
@@ -46,6 +47,6 @@ class ActivityController extends Controller
         array_push($result, $currentGoal->km_this_week);
         array_push($result, $kmRun);
 
-        return $result;
+        return $result;*/
     }
 }
