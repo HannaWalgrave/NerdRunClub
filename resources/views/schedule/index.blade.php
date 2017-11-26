@@ -34,7 +34,7 @@
                 <li class="nextGoals"
                     style="width: 100%; margin: 10px 0; padding: 10px; list-style-type: none; background:#FE8E44; color:#fff; display:flex; flex-wrap:wrap; justify-content: space-between;">
                     <div>
-                        @if(Carbon\Carbon::parse($detail->week)->format('d/m/Y') == Carbon\Carbon::parse($currentGoal->week)->addWeek()->format('d/m/Y'))
+                        @if(Carbon\Carbon::parse($detail->week)->format('d/m/Y') == Carbon\Carbon::now()->startOfWeek()->addWeek()->format('d/m/Y'))
                             <p class="schedule_week_count">Next week</p>
                         @else
                             <p class="schedule_week_count">week {{$detail->week_count}}</p>
