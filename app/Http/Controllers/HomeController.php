@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Schedule;
+use Carbon\Carbon;
 use App\UserScheduleDetail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -29,8 +30,9 @@ class HomeController extends Controller
     {
         $user = Auth::user();
         $schedule = Schedule::all()->where('id', $user->schedule_id);
-        $this_weeks_userSchedule = UserScheduleDetail::all()->where('user_id', $user->id)->first();
-        $this_weeks_message = $this_weeks_userSchedule->message;
+        $start_date_current_week = Carbon::now()->startOfWeek()->format('Y-m-d');
+        $current_schedule_detail = $user->userScheduleDetail()->where('week', $start_date_current_week)->first();
+        $this_weeks_message = $current_schedule_detail->message;
 
         return view('home', compact('user', 'schedule', 'this_weeks_message'));
     }

@@ -93,11 +93,11 @@ class User extends Authenticatable
                         $current_schedule_detail->km_this_week_modified = $current_schedule_detail->km_this_week_modified * 1.2;
 
                         $current_schedule_detail->modified_marker = 1;
-                        $current_schedule_detail->message = "You did not reach last week\'s goal, so you will have to run more in order to become human again!";
+                        $current_schedule_detail->message = "You did not reach last week's goal, so you will have to run more in order to become human again!";
                         $current_schedule_detail->save();
                     } else {
                         $current_schedule_detail = $this->userScheduleDetail()->where('week', $start_date_current_week)->first();
-                        $current_schedule_detail->message = "You managed to reach last week\'s goal, oh human! Keep going & make sure not to turn into a zombie!";
+                        $current_schedule_detail->message = "You managed to reach last week's goal, oh human! Keep going & make sure not to turn into a zombie!";
                         $current_schedule_detail->save();
                     };
                 }
