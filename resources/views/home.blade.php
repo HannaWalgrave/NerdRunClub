@@ -8,6 +8,10 @@
             <h1>{{ $user->firstname }} {{$user->lastname}}</h1>
         </div>
 
+        <div class="message">
+            <p>{{ $this_weeks_message }}</p>
+        </div>
+
         <div id="badges">
             <p>No badges yet , start running to earn some!</p>
             <ul>

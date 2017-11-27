@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Schedule;
-use App\UserSchedule;
+use App\UserScheduleDetail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -29,7 +29,9 @@ class HomeController extends Controller
     {
         $user = Auth::user();
         $schedule = Schedule::all()->where('id', $user->schedule_id);
+        $this_weeks_userSchedule = UserScheduleDetail::all()->where('user_id', $user->id)->first();
+        $this_weeks_message = $this_weeks_userSchedule->message;
 
-        return view('home', compact('user', 'schedule'));
+        return view('home', compact('user', 'schedule', 'this_weeks_message'));
     }
 }

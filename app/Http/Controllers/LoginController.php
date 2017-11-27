@@ -49,7 +49,6 @@ class LoginController extends Controller
 
         $user->updateScheduleDetails();
 
-
         return redirect()->route('home');
     }
 
