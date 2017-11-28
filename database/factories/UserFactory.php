@@ -67,6 +67,7 @@ $factory->define(App\User::class, function (Faker $faker) {
         'start_date' => $start_date,
         'number_weeks' => $number_weeks,
         'km_per_week' => $schedule->distance_goal / $number_weeks,
+        'zombie' => $faker->boolean()
     ];
 });
 

@@ -26,6 +26,7 @@ class CreateUsersTable extends Migration
             $table->date('start_date')->nullable();
             $table->integer('number_weeks')->nullable();
             $table->float('km_per_week')->nullable();
+            $table->boolean('zombie')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });
