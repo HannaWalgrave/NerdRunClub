@@ -8362,11 +8362,35 @@ button.close {
       -ms-flex-pack: center;
           justify-content: center;
   background-color: #FFFFFF;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 0;
+  width: 100%;
+}
+
+.center-block {
+  width: 100%;
+}
+
+.bodyHome {
+  width: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .userImg {
-  height: 25%;
-  width: 25%;
+  height: 10em;
+  width: 10em;
   border-radius: 50%;
   -ms-flex-item-align: center;
       align-self: center;
@@ -8384,6 +8408,7 @@ button.close {
       -ms-flex-direction: column;
           flex-direction: column;
   height: 100%;
+  width: 80%;
 }
 
 .wrap {
@@ -8394,6 +8419,10 @@ button.close {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  width: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .userProfile h1 {
@@ -8423,55 +8452,6 @@ button.close {
   width: 30px;
   height: 30px;
   list-style: none;
-}
-
-#menu {
-  text-align: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-#menu a {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  height: 25vh;
-  width: 100vw;
-  color: white;
-  font-size: 20px;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.dashButton {
-  background-color: #ff8f43;
-}
-
-.activityButton {
-  background-color: #ff5d0d;
-  color: white !important;
-}
-
-.LogoutButton {
-  background-color: #c42700;
-}
-
-.HomeButton {
-  background-color: #f73100;
 }
 
 .scheduleText {
@@ -8563,8 +8543,27 @@ button.close {
 .menu-top {
   width: 100%;
   background-color: orange;
-  padding: 5px;
+  padding: 40px;
   margin-bottom: 10px;
+  height: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.menu-top .btn {
+  color: white;
+  text-decoration: none;
 }
 
 .scheduleList {
@@ -8589,13 +8588,71 @@ button.close {
 
 .pastGoals {
   background: #FE8E44;
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  list-style-type: none;
+  color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .currentGoal {
   background: #FE5C11;
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  list-style-type: none;
+  color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .nextGoals {
-  background: #FE8E44;
+  background: #78909C;
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  list-style-type: none;
+  color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.scheduleBody {
+  width: 70%;
+}
+
+.schedule_week_goal {
+  margin-top: 11px;
+  margin-right: 11px;
+}
+
+.schedule_week_count {
+  margin-top: 11px;
+  margin-left: 11px;
+}
+
+.graph1 {
+  max-width: 800px;
+  max-height: 800px;
 }
 

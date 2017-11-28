@@ -1,4 +1,10 @@
 @extends('layouts.default')
 @section('container')
-<canvas id="myGraph" height="400" width="400"></canvas>
+    @include('includes.menu')
+    <div class="wrap">
+        <div class="graph1">
+            <h2>your goal this week</h2>
+        <canvas id="myGraph" width="400" height="400"></canvas>
+        </div>
+    </div>
     @endsection

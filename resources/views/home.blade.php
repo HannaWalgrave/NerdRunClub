@@ -7,7 +7,7 @@
 
             <h1>{{ $user->firstname }} {{$user->lastname}}</h1>
         </div>
-
+        <div class="bodyHome">
         <div class="message">
             <p>{{ $this_weeks_message }}</p>
         </div>
@@ -28,9 +28,11 @@
     <!--
 <p>Your selected running schedule is {{ $user->schedule_id }}.</p>
 -->
+
         <p>Your selected running schedule is {{ $user->schedule->name }}.</p>
        
 
         <a class="btn btn-primary" href="schedule">Go to your schedule</a>
+        </div>
     </div>
 @endsection

@@ -3,11 +3,11 @@
 @section('container')
     <div class="wrap">
         @include('includes.menu')
+        <div class="scheduleBody">
         <h1>Your schedule</h1>
-        <ul class="scheduleList" style="padding:0;">
+        <ul class="scheduleList">
             @foreach($pastGoals as $detail)
-                <li class="pastGoals"
-                    style="width: 100%; margin: 10px 0; padding: 10px; list-style-type: none; background:#FE8E44; color:#fff; display:flex; flex-wrap:wrap; justify-content: space-between;">
+                <li class="pastGoals">
                     <div>
                         <p class="schedule_week_count">week {{$detail->week_count}}</p>
                         <p class="schedule_week_dates">
@@ -20,8 +20,7 @@
             @endforeach
 
             @unless($currentGoal == null)
-                <li class="currentGoal" id="{{$currentGoal->id}}"
-                    style="width: 100%; margin: 10px 0; padding: 10px; list-style-type: none; background:#FE5C11; color:#fff; display:flex; flex-wrap:wrap; justify-content: space-between;">
+                <li class="currentGoal" id="{{$currentGoal->id}}">
                     <div>
                         <p class="schedule_week_count">This week</p>
                     </div>
@@ -31,8 +30,7 @@
             @endunless
 
             @foreach($nextGoals as $detail)
-                <li class="nextGoals"
-                    style="width: 100%; margin: 10px 0; padding: 10px; list-style-type: none; background:#999; color:#fff; display:flex; flex-wrap:wrap; justify-content: space-between;">
+                <li class="nextGoals">
                     <div>
                         @if(Carbon\Carbon::parse($detail->week)->format('d/m/Y') == Carbon\Carbon::now()->startOfWeek()->addWeek()->format('d/m/Y'))
                             <p class="schedule_week_count">Next week</p>
@@ -49,7 +47,8 @@
                 </li>
             @endforeach
         </ul>
-        <div>
+        </div>
+        </div>
             @endsection
 
             @section('footerscripts')
@@ -60,13 +59,12 @@
                             {
                                 '_token': '{{csrf_token()}}',
                                 'schedule_id': $(this).attr('id')
-
                             }
                         ).done(function (data) {
                             if (data === []) {
                                 that.find('ul.activity_list').append("<li style='list-style-type: none;'> You don't have any activities yet this week. Start running or zombies will eat your brains! </li>");
                             } else {
-                                that.find('ul.activity_list').append("<li style='list-style-type: none;'><p>Your activities:</p></li>");
+                                that.find('ul.activity_list').append("<li style='list-style-type: none;'><p>This is how much you've run this week!</p></li>");
                                 $.each(data, function (i, value) {
                                     that.find('ul.activity_list').append("<li style='list-style-type: none; display: flex; justify-content: space-around;'><p class='activity_date'>" + value[0] + "</p> <p class='activity_distance'>" + value[1] + " km done!</p></li>");
                                 });
