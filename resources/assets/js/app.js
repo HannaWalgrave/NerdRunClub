@@ -39,9 +39,9 @@ $(document).ready(function(){
         var myChart = new Chart(context, {
             type: 'bar',
             data: {
-                labels: ["KM"],
+                labels: ["KM run"],
                 datasets: [{
-                    label: 'How are you running?',
+                    label: 'How much you ran',
                     data: kmRun,
                     backgroundColor: [
                         'rgba(54, 162, 235, 0.2)',
@@ -59,7 +59,7 @@ $(document).ready(function(){
                     ],
                     borderWidth: 1,
                 },{
-                    label: 'How should you be running?',
+                    label: 'How much you should run',
                     data:userData,
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',

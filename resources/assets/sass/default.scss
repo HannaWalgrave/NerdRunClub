@@ -4,12 +4,27 @@
   align-items: center;
   justify-content: center;
   background-color: #FFFFFF;
+  flex-direction: column;
+  padding: 0;
+  width: 100%;
+}
 
+.center-block{
+  width: 100%;
+}
+
+//home
+
+.bodyHome{
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .userImg{
-  height: 25%;
-  width: 25%;
+  height: 10em;
+  width: 10em;
   border-radius: 50%;
   align-self: center;
 }
@@ -19,11 +34,14 @@
   justify-content: flex-end;
   flex-direction: column;
   height: 100%;
+  width: 80%;
 }
 
 .wrap{
   display: flex;
   flex-direction: column;
+  width: 100%;
+  align-items: center;
 }
 
 .userProfile h1
@@ -49,47 +67,6 @@ align-items: center;
   list-style: none;
 }
 
-//menu items
-
-#menu{
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-#menu a{
-  display: flex;
-  height: 25vh;
-  width: 100vw;
-  color: white;
-  font-size: 20px;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-a{
-
-}
-
-.dashButton{
-  background-color: #ff8f43;
-}
-
-.activityButton{
-  background-color: #ff5d0d ;
-  color: white !important;
-}
-
-.LogoutButton{
-  background-color: #c42700;
-}
-
-.HomeButton{
-  background-color: #f73100;
-}
 
 //Schedule page
 
@@ -153,11 +130,22 @@ a{
 .menu-top{
   width: 100%;
   background-color: orange;
-  padding: 5px;
+  padding: 40px;
   margin-bottom: 10px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
 
-// activities
+.menu-top .btn{
+  color: white;
+  text-decoration: none;
+}
+
+
+// Schedules
 .scheduleList {
   padding: 0;
 }
@@ -175,13 +163,56 @@ a{
 
 .pastGoals {
   background:#FE8E44;
+  width: 100%; margin: 10px 0;
+  padding: 10px;
+  list-style-type: none;
+   color:#fff;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content: space-between;
 }
 
 .currentGoal {
   background:#FE5C11;
+  width: 100%; margin: 10px 0;
+  padding: 10px;
+  list-style-type: none;
+  color:#fff;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content: space-between;
 }
 
 .nextGoals {
-  background:#FE8E44;
+  background:#78909C;
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  list-style-type: none;
+  color:#fff;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content: space-between;
+}
+
+.scheduleBody{
+  width: 70%;
+}
+
+.schedule_week_goal{
+  margin-top: 11px;
+  margin-right: 11px;
+}
+
+.schedule_week_count{
+  margin-top: 11px;
+  margin-left: 11px;
+}
+
+//graphs
+
+.graph1{
+  max-width: 800px;
+  max-height: 800px;
 }
 

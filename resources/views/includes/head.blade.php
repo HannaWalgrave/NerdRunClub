@@ -6,5 +6,6 @@
 <title>humans vs zombies</title>
 <link rel="stylesheet" href="/css/app.css">
 <link rel="stylesheet" href="/css/default.css">
+<script src="https://use.fontawesome.com/ff869f839e.js"></script>
 
 

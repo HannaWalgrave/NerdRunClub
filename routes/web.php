@@ -18,8 +18,6 @@ Route::get('token_exchange', 'LoginController@token_exchange');
 
 // All routes you can only access when authenticated
 Route::middleware('auth')->group(function () {
-    //menu routes
-    Route::view('/menu', 'menu');
 
     // Home
     Route::get('/', 'HomeController@index')->name('home');
