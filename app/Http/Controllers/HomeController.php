@@ -34,7 +34,8 @@ class HomeController extends Controller
         $current_schedule_detail = $user->userScheduleDetail()->where('week', $start_date_current_week)->first();
         $this_weeks_message = $current_schedule_detail->message;
         $zombie = $user->zombie;
+        $currentGoal = $user->userScheduleDetail()->where('week', Carbon::now()->startOfWeek()->format('Y-m-d'))->first();
 
-        return view('home', compact('user', 'schedule', 'this_weeks_message','zombie'));
+        return view('home', compact('user', 'schedule', 'this_weeks_message','zombie','currentGoal'));
     }
 }
