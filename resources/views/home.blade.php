@@ -12,19 +12,19 @@
             <p>{{ $this_weeks_message }}</p>
         </div>
 
-        <div id="badges">
-            <p>No badges yet , start running to earn some!</p>
-            <ul>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
-        </div>
+        {{--< <div id="badges">
+             <p>No badges yet , start running to earn some!</p>
+             <ul>
+                 <li></li>
+                 <li></li>
+                 <li></li>
+                 <li></li>
+                 <li></li>
+             </ul>
+         </div>>--}}
 
-        {{--<input type="hidden" name="_token" value="{{ csrf_token() }}">--}}
-        <canvas id="myGraph" width="400" height="400"></canvas>
+         {{--<input type="hidden" name="_token" value="{{ csrf_token() }}">--}}
+
     <!--
 <p>Your selected running schedule is {{ $user->schedule_id }}.</p>
 -->

@@ -32,6 +32,9 @@ Route::middleware('auth')->group(function () {
     // Activity routes
     Route::get('/activities', 'ActivityController@index');
     Route::get('activities/chart', 'ActivityController@chart');
+
+    //Dashboard routes
+    Route::get('/dashboard' , 'DashboardController@index');
 });
 
 
