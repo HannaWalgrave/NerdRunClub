@@ -67,6 +67,11 @@ align-items: center;
   list-style: none;
 }
 
+.humanStatus{
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
 
 //Schedule page
 

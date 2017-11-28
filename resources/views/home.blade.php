@@ -11,6 +11,10 @@
         <div class="message">
             <p>{{ $this_weeks_message }}</p>
         </div>
+            <div class="humanStatus">
+                <h2>You are a {{$user->zombie?"Zombie":"Human"}} all is safe!</h2>
+                <h3>Keep up the good work</h3>
+            </div>
 
         {{--< <div id="badges">
              <p>No badges yet , start running to earn some!</p>
