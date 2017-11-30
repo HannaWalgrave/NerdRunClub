@@ -369,6 +369,8 @@
 
 .progress_bar {
     display: flex;
+    flex-wrap: wrap;
+    max-width: 600px;
 }
 
 .progress_bar_item {
@@ -376,7 +378,7 @@
     width: 50px;
     height: 50px;
     list-style: none;
-    margin: 10px;
+    margin: 10px 10px 25px 10px;
     border-radius: 15px;
     background-color: grey;
 }
@@ -408,7 +410,7 @@
 .progress_bar_legend {
     display: flex;
     flex-direction: column;
-    margin-top: 20px;
+    margin-top: 10px;
     line-height: 1;
 }
 

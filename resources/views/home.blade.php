@@ -15,26 +15,22 @@
         <h3>your progress</h3>
 
         <ul class="progress_bar">
-
-            <!--  dit wordt nog een foreach  -->
-
-            <li class="progress_bar_item progress_bar_item_past_success"><p>week 1</p></li>
-            <li class="progress_bar_item progress_bar_item_past_fail"><p>week 2</p></li>
-            <li class="progress_bar_item progress_bar_item_current"><p>week 3</p></li>
-            <li class="progress_bar_item progress_bar_item_future"><p>week 4</p></li>
-            <li class="progress_bar_item progress_bar_item_future"><p>week 5</p></li>
-
-        </ul>
-
-        <ul class="progress_bar">
             @foreach($schedule_details as $schedule_detail)
 
                 @if($schedule_detail->modified_marker == false)
                     <li class="progress_bar_item progress_bar_item_future">
                         <p>week {{$schedule_detail->week_count}}</p>
                     </li>
-                @else
+                @elseif($schedule_detail->goal_status == "to do")
+                    <li class="progress_bar_item progress_bar_item_current">
+                        <p>week {{$schedule_detail->week_count}}</p>
+                    </li>
+                @elseif($schedule_detail->goal_status == "success")
                     <li class="progress_bar_item progress_bar_item_past_success">
+                        <p>week {{$schedule_detail->week_count}}</p>
+                    </li>
+                @elseif($schedule_detail->goal_status == "fail")
+                    <li class="progress_bar_item progress_bar_item_past_fail">
                         <p>week {{$schedule_detail->week_count}}</p>
                     </li>
                 @endif
