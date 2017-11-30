@@ -21,6 +21,7 @@ class CreateUserScheduleDetailsTable extends Migration
             $table->float('km_this_week');
             $table->float('km_this_week_modified');
             $table->boolean('modified_marker')->default(false);
+            $table->string('goal_status')->default("to do");
             $table->string('message')->default("Let\'s run! Reach each week\'s goal or you will become a zombie!");
             $table->timestamps();
         });

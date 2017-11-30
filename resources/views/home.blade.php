@@ -28,7 +28,7 @@
 
         <ul class="progress_bar">
             @foreach($schedule_details as $schedule_detail)
-                
+
                 @if($schedule_detail->modified_marker == false)
                     <li class="progress_bar_item progress_bar_item_future">
                         <p>week {{$schedule_detail->week_count}}</p>

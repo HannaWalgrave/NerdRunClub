@@ -22,7 +22,8 @@ class UserScheduleDetailSeeder extends Seeder
                     'km_this_week' => $user->km_per_week * $i,
                     'km_this_week_modified' => $user->km_per_week * $i,
                     'modified_marker' => false,
-                    'message' => "Let\'s run! Reach each week\'s goal or you will become a zombie!",
+                    'goal_status' => "to do",
+                    'message' => "Let's run! Reach each week's goal or you will become a zombie!",
                 ]);
             }
         }
