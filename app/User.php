@@ -49,7 +49,12 @@ class User extends Authenticatable
         $userScheduleDetail->week = Carbon::parse($start_date)->addweeks($i - 1);
         $userScheduleDetail->km_this_week = $km_per_week * $i;
         $userScheduleDetail->km_this_week_modified = $km_per_week * $i;
-        $userScheduleDetail->modified_marker = false;
+
+        if($i == 1) {
+            $userScheduleDetail->modified_marker = true;
+        } else {
+            $userScheduleDetail->modified_marker = false;
+        }
 
         $userScheduleDetail->save();
     }
@@ -97,9 +102,11 @@ class User extends Authenticatable
                         $current_schedule_detail->save();
                     } else {
                         $current_schedule_detail = $this->userScheduleDetail()->where('week', $start_date_current_week)->first();
+                        $current_schedule_detail->modified_marker = 1;
                         $current_schedule_detail->message = "You managed to reach last week's goal, oh human! Keep going & make sure not to turn into a zombie!";
                         $current_schedule_detail->save();
                     };
+
                 }
 
 

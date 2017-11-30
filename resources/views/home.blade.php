@@ -26,6 +26,22 @@
 
         </ul>
 
+        <ul class="progress_bar">
+            @foreach($schedule_details as $schedule_detail)
+                
+                @if($schedule_detail->modified_marker == false)
+                    <li class="progress_bar_item progress_bar_item_future">
+                        <p>week {{$schedule_detail->week_count}}</p>
+                    </li>
+                @else
+                    <li class="progress_bar_item progress_bar_item_past_success">
+                        <p>week {{$schedule_detail->week_count}}</p>
+                    </li>
+                @endif
+
+            @endforeach
+        </ul>
+
         <div class="progress_bar_legend">
 
             <h4 class="progress_bar_legend_title">Legend</h4>

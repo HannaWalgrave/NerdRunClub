@@ -377,13 +377,16 @@
     height: 50px;
     list-style: none;
     margin: 10px;
-    border-radius: 5px;
+    border-radius: 15px;
+    background-color: grey;
 }
 
 .progress_bar_item p {
     color: orange;
     position: relative;
     top: 55px;
+    font-size: 12px;
+    text-align: center;
 }
 
 .progress_bar_item_past_success {
