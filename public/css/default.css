@@ -367,3 +367,80 @@
   max-height: 800px;
 }
 
+.progress_bar {
+    display: flex;
+}
+
+.progress_bar_item {
+    box-sizing: border-box;
+    width: 50px;
+    height: 50px;
+    list-style: none;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+.progress_bar_item p {
+    color: orange;
+    position: relative;
+    top: 55px;
+}
+
+.progress_bar_item_past_success {
+    background-color: #4cae4c;
+}
+
+.progress_bar_item_past_fail {
+    background-color: red;
+}
+
+.progress_bar_item_current {
+    background-color: orange;
+}
+
+.progress_bar_item_future {
+    background-color: grey;
+}
+
+.progress_bar_legend {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    line-height: 1;
+}
+
+.progress_bar_legend_title {
+
+}
+
+.progress_bar_legend_item {
+    display: flex;
+}
+
+.progress_bar_legend_text {
+    color: orange;
+    padding-bottom: 0px;
+}
+
+.progress_bar_legend_color {
+    width: 75px;
+    height: 15px;
+    border: 1px solid black;
+    margin-right: 20px;
+}
+
+.progress_bar_legend_color_success {
+    background-color: #4cae4c;
+}
+
+.progress_bar_legend_color_fail {
+    background-color: red;
+}
+
+.progress_bar_legend_color_current {
+    background-color: orange;
+}
+
+.progress_bar_legend_color_future {
+    background-color: grey;
+}

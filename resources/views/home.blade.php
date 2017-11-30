@@ -11,6 +11,47 @@
                 <p>{{ $this_weeks_message }}</p>
             </div>
         </div>
+
+        <h3>your progress</h3>
+
+        <ul class="progress_bar">
+
+            <!--  dit wordt nog een foreach  -->
+
+            <li class="progress_bar_item progress_bar_item_past_success"><p>week 1</p></li>
+            <li class="progress_bar_item progress_bar_item_past_fail"><p>week 2</p></li>
+            <li class="progress_bar_item progress_bar_item_current"><p>week 3</p></li>
+            <li class="progress_bar_item progress_bar_item_future"><p>week 4</p></li>
+            <li class="progress_bar_item progress_bar_item_future"><p>week 5</p></li>
+
+        </ul>
+
+        <div class="progress_bar_legend">
+
+            <h4 class="progress_bar_legend_title">Legend</h4>
+
+            <div class="progress_bar_legend_item">
+                <p class="progress_bar_legend_color progress_bar_legend_color_success"></p>
+                <p class="progress_bar_legend_text">goal reached</p>
+            </div>
+
+            <div class="progress_bar_legend_item">
+                <p class="progress_bar_legend_color progress_bar_legend_color_fail"></p>
+                <p class="progress_bar_legend_text">goal not reached</p>
+            </div>
+
+            <div class="progress_bar_legend_item">
+                <p class="progress_bar_legend_color progress_bar_legend_color_current"></p>
+                <p class="progress_bar_legend_text">current week</p>
+            </div>
+
+            <div class="progress_bar_legend_item">
+                <p class="progress_bar_legend_color progress_bar_legend_color_future"></p>
+                <p class="progress_bar_legend_text">still to come</p>
+            </div>
+
+        </div>
+
         <div class="bodyHome">
 
             <div class="humanStatus status">
