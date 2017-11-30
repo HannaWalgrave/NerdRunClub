@@ -233,11 +233,22 @@
 }
 
 .login {
-  width: 70%;
+  width: 320px;
   height: 50px;
   line-height: 35px;
   font-size: x-large;
   font-weight: bold;
+  margin-bottom: 2em;
+}
+
+.login_text {
+    width: 320px;
+    font-size: medium;
+    line-height: 20px;
+    text-align: justify;
+    margin-top: -3em;
+    margin-bottom: 2em;
+    font-weight: normal;
 }
 
 .menu-top {
