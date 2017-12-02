@@ -18,6 +18,5 @@ $factory->define(App\UserScheduleDetail::class, function (Faker $faker) {
         'km_this_week' => $faker->randomFloat(),
         'modified_marker' => false,
         'goal_status' => "to do",
-        'message' => "Let's run! Reach each week's goal or you will become a zombie!"
     ];
 });

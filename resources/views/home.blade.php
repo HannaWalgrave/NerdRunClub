@@ -15,7 +15,7 @@
         <h3>your progress</h3>
 
         <ul class="progress_bar">
-            @foreach($schedule_details as $schedule_detail)
+            @foreach($user->userScheduleDetail as $schedule_detail)
 
                 @if($schedule_detail->modified_marker == false)
                     <li class="progress_bar_item progress_bar_item_future">
@@ -72,10 +72,13 @@
             </div>
 
             <div class="kmStatus status">
-                <h2>Your goal this week</h2>
-                <h3>Run {{ $currentGoal-> km_this_week }} Km</h3>
+                @if($current_schedule_detail)
+                    <h2>Your goal this week</h2>
+                    <h3>Run {{ $current_schedule_detail->km_this_week }} Km</h3>
+                @else
+                    <h2>Relax, take it easy! You don't have to run this week!</h2>
+                @endif
             </div>
-
 
 
         {{--< <div id="badges">
@@ -89,16 +92,16 @@
              </ul>
          </div>>--}}
 
-         {{--<input type="hidden" name="_token" value="{{ csrf_token() }}">--}}
+        {{--<input type="hidden" name="_token" value="{{ csrf_token() }}">--}}
 
-    <!--
+        <!--
 <p>Your selected running schedule is {{ $user->schedule_id }}.</p>
 -->
-        <div class="selected status">
-        <p>Your selected running schedule is {{ $user->schedule->name }}.</p>
+            <div class="selected status">
+                <p>Your selected running schedule is {{ $user->schedule->name }}.</p>
 
-        <a class="btn btn-primary" href="schedule">Go to your schedule</a>
-        </div>
+                <a class="btn btn-primary" href="schedule">Go to your schedule</a>
+            </div>
         </div>
     </div>
 @endsection
