@@ -39,7 +39,11 @@
                     <li class="progress_bar_item progress_bar_item_future">
                         <p>week {{$schedule_detail->week_count}}</p>
                     </li>
-                @elseif($schedule_detail->goal_status == "to do")
+                @elseif($schedule_detail->goal_status == "to do" && $current_schedule_detail == null)
+                    <li class="progress_bar_item progress_bar_item_future">
+                        <p>week {{$schedule_detail->week_count}}</p>
+                    </li>
+                @elseif($schedule_detail->goal_status == "to do" && $current_schedule_detail != null)
                     <li class="progress_bar_item progress_bar_item_current">
                         <p>week {{$schedule_detail->week_count}}</p>
                     </li>
@@ -85,28 +89,10 @@
 
         </div>
 
-<<<<<<< HEAD
+
             <div class="selected status">
                 <p>Your selected running schedule is {{ $user->schedule->name }}.</p>
-=======
 
-        {{--< <div id="badges">
-             <p>No badges yet , start running to earn some!</p>
-             <ul>
-                 <li></li>
-                 <li></li>
-                 <li></li>
-                 <li></li>
-                 <li></li>
-             </ul>
-         </div>>--}}
-
-        {{--<input type="hidden" name="_token" value="{{ csrf_token() }}">--}}
-
-        <!--
-<p>Your selected running schedule is {{ $user->schedule_id }}.</p>
--->
->>>>>>> scheduleScreenMakeover
 
         </div>
     </div>
