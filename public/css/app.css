@@ -8361,7 +8361,7 @@ button.close {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -8387,8 +8387,9 @@ button.close {
   -ms-flex-align: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   padding-top: 50px;
 }
 
@@ -8398,6 +8399,7 @@ button.close {
   border-radius: 50%;
   -ms-flex-item-align: center;
       align-self: center;
+  padding: 10px;
 }
 
 .userProfile {
@@ -8407,12 +8409,15 @@ button.close {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
-  -webkit-box-orient: vertical;
+  -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+      -ms-flex-direction: row;
+          flex-direction: row;
   height: 100%;
   width: 80%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .wrap {
@@ -8506,6 +8511,21 @@ button.close {
   margin: 20px;
 }
 
+.backgroundImg.human,
+.backgroundImg.zombie {
+  background-image: url(/fonts/human.svg?b57aa103ccfdc225da42a538bd8c09f1);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 160px;
+  width: 165px;
+}
+
+.backgroundImg.zombie {
+  background-image: url(/fonts/zombie.svg?6794c8b060b0abe5978cbe0abce87335);
+  width: 203px;
+}
+
 .scheduleText {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -8531,6 +8551,7 @@ button.close {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  width: 100%;
 }
 
 .calender {
@@ -8706,5 +8727,133 @@ button.close {
 .graph1 {
   max-width: 800px;
   max-height: 800px;
+}
+
+.progress_bar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 70%;
+  padding-left: 0px;
+  padding-top: 10px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.progress_bar_item {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 40px;
+  height: 40px;
+  list-style: none;
+  margin: 5px 5px 25px 5px;
+  border-radius: 15px;
+  background-color: grey;
+}
+
+.progress_bar_item p {
+  color: orange;
+  position: relative;
+  top: 45px;
+  font-size: 10px;
+  text-align: center;
+}
+
+.progress_bar_item_past_success {
+  background-color: #4cae4c;
+}
+
+.progress_bar_item_past_fail {
+  background-color: red;
+}
+
+.progress_bar_item_current {
+  background-color: orange;
+}
+
+.progress_bar_item_future {
+  background-color: grey;
+}
+
+.progress_bar_legend {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-top: 10px;
+  line-height: 1;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.progress_bar_legend_item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.progress_bar_legend_text {
+  color: orange;
+  padding-bottom: 0px;
+}
+
+.progress_bar_legend_color {
+  width: 75px;
+  height: 15px;
+  border-radius: 10px;
+  margin-right: 20px;
+}
+
+.progress_bar_legend_color_success {
+  background-color: #4cae4c;
+}
+
+.progress_bar_legend_color_fail {
+  background-color: red;
+}
+
+.progress_bar_legend_color_current {
+  background-color: orange;
+}
+
+.progress_bar_legend_color_future {
+  background-color: grey;
+}
+
+.progress_bar_legend_items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 70%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.progressBar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 

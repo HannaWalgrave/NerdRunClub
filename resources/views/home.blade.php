@@ -6,13 +6,31 @@
             <img class="userImg" src="{{ $user->profile }}" alt="profile picture">
 
             <h1>{{ $user->firstname }} {{$user->lastname}}</h1>
-
-            <div class="message">
-                <p>{{ $this_weeks_message }}</p>
-            </div>
         </div>
 
+        <div class="message">
+            <p>{{ $this_weeks_message }}</p>
+            <p>Your selected running schedule is {{ $user->schedule->name }}.</p>
+        </div>
+
+        <div class="bodyHome">
+            <div class="backgroundImg {{ $user->zombie ? "zombie" : "human" }}"> </div>
+            <div class="humanStatus status">
+                <h2>You are a {{$user->zombie?"Zombie":"Human"}} </h2>
+                <h3>{{$user->zombie?"Start running faster!":"Keep up the good work!"}}</h3>
+            </div>
+
+            <div class="kmStatus status">
+                @if($current_schedule_detail)
+                    <h2>Your goal this week</h2>
+                    <h3>Run {{ $current_schedule_detail->km_this_week }} Km</h3>
+                @else
+                    <h2>Relax, take it easy! You don't have to run this week!</h2>
+                @endif
+            </div>
+        <div class="progressBar">
         <h3>your progress</h3>
+
 
         <ul class="progress_bar">
             @foreach($user->userScheduleDetail as $schedule_detail)
@@ -36,12 +54,13 @@
                 @endif
 
             @endforeach
+
         </ul>
 
         <div class="progress_bar_legend">
 
             <h4 class="progress_bar_legend_title">Legend</h4>
-
+<div class="progress_bar_legend_items">
             <div class="progress_bar_legend_item">
                 <p class="progress_bar_legend_color progress_bar_legend_color_success"></p>
                 <p class="progress_bar_legend_text">goal reached</p>
@@ -61,24 +80,10 @@
                 <p class="progress_bar_legend_color progress_bar_legend_color_future"></p>
                 <p class="progress_bar_legend_text">still to come</p>
             </div>
-
+</div>
         </div>
 
-        <div class="bodyHome">
-
-            <div class="humanStatus status">
-                <h2>You are a {{$user->zombie?"Zombie":"Human"}} all is safe!</h2>
-                <h3>Keep up the good work</h3>
-            </div>
-
-            <div class="kmStatus status">
-                @if($current_schedule_detail)
-                    <h2>Your goal this week</h2>
-                    <h3>Run {{ $current_schedule_detail->km_this_week }} Km</h3>
-                @else
-                    <h2>Relax, take it easy! You don't have to run this week!</h2>
-                @endif
-            </div>
+        </div>
 
 
         {{--< <div id="badges">
@@ -97,11 +102,7 @@
         <!--
 <p>Your selected running schedule is {{ $user->schedule_id }}.</p>
 -->
-            <div class="selected status">
-                <p>Your selected running schedule is {{ $user->schedule->name }}.</p>
 
-                <a class="btn btn-primary" href="schedule">Go to your schedule</a>
-            </div>
         </div>
     </div>
 @endsection
