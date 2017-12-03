@@ -8615,7 +8615,7 @@ button.close {
 
 .menu-top {
   width: 100%;
-  background-color: orange;
+  background-color: #FF5D0D;
   padding: 40px;
   margin-bottom: 10px;
   height: 60px;
@@ -8637,6 +8637,10 @@ button.close {
 .menu-top .btn {
   color: white;
   text-decoration: none;
+}
+
+.menu-top.zombie {
+  background-color: #35a67c;
 }
 
 .scheduleList {

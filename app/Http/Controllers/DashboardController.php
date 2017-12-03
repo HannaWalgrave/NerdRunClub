@@ -39,7 +39,7 @@ class DashboardController extends Controller
 
         $days_until_goal = Carbon::parse($user->schedule->end_date)->diffInDays(Carbon::now());
 
-        return view('dashboard', compact('amount_zombies', 'amount_humans', 'km_zombies', 'km_humans', 'averageKm_user', 'averageKm_all', 'run_this_week', 'currentGoal', 'days_until_goal'));
+        return view('dashboard', compact('amount_zombies', 'amount_humans', 'km_zombies', 'km_humans', 'averageKm_user', 'averageKm_all', 'run_this_week', 'currentGoal', 'days_until_goal','user'));
     }
 
 }

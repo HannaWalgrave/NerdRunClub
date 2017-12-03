@@ -192,7 +192,7 @@ align-items: center;
 //menu bar
 .menu-top{
   width: 100%;
-  background-color: orange;
+  background-color: $primary-color;
   padding: 40px;
   margin-bottom: 10px;
   height: 60px;
@@ -207,6 +207,9 @@ align-items: center;
   text-decoration: none;
 }
 
+.menu-top.zombie{
+  background-color: $zombie-primary-color;
+}
 
 // Schedules
 .scheduleList {
