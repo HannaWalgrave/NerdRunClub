@@ -1,7 +1,7 @@
 @extends('layouts.default')
 
 @section('container')
-    <div class="wrap">
+    <div class="wrap ZombieWrap{{--{{$user->zombie?"ZombieWrap":"Human"}}--}}">
         @include('includes.menu')
         <div class="scheduleBody">
         <h1>Your schedule</h1>

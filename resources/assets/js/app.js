@@ -16,7 +16,6 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-//homescreen chart
 
 var url = "activities/chart";
 var userData = [];

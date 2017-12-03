@@ -18,8 +18,13 @@ $tertiary-color: #c42700;
   width: 100%;
 }
 
+
 .center-block{
   width: 100%;
+}
+
+.ZombieWrap{
+  color: $zombie-tertiary-oolor;
 }
 
 //home
@@ -195,7 +200,7 @@ align-items: center;
   width: 100%;
   background-color: $primary-color;
   padding: 40px;
-  margin-bottom: 10px;
+
   height: 60px;
   display: flex;
   align-items: center;
@@ -384,4 +389,77 @@ align-items: center;
   justify-content:center;
   flex-direction: column;
   align-items: center;
+}
+
+//glitch
+
+.glitch * {
+  transform: skewX(0deg);
+  animation: shift 4s ease-in-out infinite alternate;
+}
+
+@keyframes shift{
+  0%,40%, 44%, 58%, 61%, 65%,69%,73%,100%{
+    transform:skewX(0deg);
+  }
+  41%{
+     transform: skewX(10deg);
+  }
+  42%{
+     transform:skewX(-10deg);
+  }
+  59%{
+     transform:skewX(40deg) skewY(10deg);
+  }
+  60%{
+    transform:skewX(-40deg) skewY(-10deg);
+  }
+  63%{
+    transform:skewX(10deg) skewY(-5deg);
+  }
+  70%{
+    transform:skewX(-50deg) skewY(-20deg);
+  }
+  71%{
+    transform:skewX(10deg) skewY(-10deg);
+  }
+}
+
+//flickr
+
+$ease-out-quint:cubic-bezier(0.230, 1.000, 0.320, 1.000);
+$ease-in-quint:cubic-bezier(0.755, 0.050, 0.855, 0.060);
+$screen-background:#121010;
+
+
+@mixin scanlines($color, $height: 1px, $angle: 0, $opacity: 0.2) {
+  position: relative;
+  &:after {
+    background-image: repeating-linear-gradient(to bottom, transparent 0 ,transparent $height, $color $height, $color $height * 2);
+    background-size: 100% $height * 2, cover;
+    transform-origin: 50% 50%;
+    transform: rotate($angle);
+    content: '';
+    opacity: $opacity;
+    position: absolute;
+    top: -150%;
+    left: -150%;
+    right: -150%;
+    bottom: -150%;
+  }
+}
+
+.background{
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background-size: cover;
+  @extend .wrap;
+}
+
+.backgroundZombie {
+ @extend .background;
+  @extend .wrap;
+  @include scanlines($zombie-secondary-color, 1px, 0deg, 0.3);
+
 }

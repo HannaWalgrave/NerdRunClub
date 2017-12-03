@@ -28880,8 +28880,6 @@ window.Vue = __webpack_require__(17);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-//homescreen chart
-
 var url = "activities/chart";
 var userData = [];
 var kmRun = [];

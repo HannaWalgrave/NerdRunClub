@@ -1,26 +1,27 @@
 @extends('layouts.default')
 @section('container')
-    <div class="wrap">
+    <div class="wrap {{$user->zombie?"ZombieWrap":"Human"}}">
         @include('includes.menu')
-        <div class="userProfile">
+        <div class="background {{$user->zombie?"backgroundZombie":"Human"}} ">
+        <div class="userProfile {{$user->zombie?"glitch":"Human"}}">
             <img class="userImg" src="{{ $user->profile }}" alt="profile picture">
 
             <h1>{{ $user->firstname }} {{$user->lastname}}</h1>
         </div>
 
-        <div class="message">
+        <div class="message {{$user->zombie?"glitch":"Human"}}">
             <p>{{ $this_weeks_message }}</p>
             <p>Your selected running schedule is {{ $user->schedule->name }}.</p>
         </div>
 
         <div class="bodyHome">
             <div class="backgroundImg {{ $user->zombie ? "zombie" : "human" }}"> </div>
-            <div class="humanStatus status">
-                <h2>You are a {{$user->zombie?"Zombie":"Human"}} </h2>
+            <div class="humanStatus status {{$user->zombie?"glitch":"Human"}}">
+                <h2 >You are a {{$user->zombie?"Zombie":"Human"}} </h2>
                 <h3>{{$user->zombie?"Start running faster!":"Keep up the good work!"}}</h3>
             </div>
 
-            <div class="kmStatus status">
+            <div class="kmStatus status {{$user->zombie?"glitch":"Human"}}">
                 @if($current_schedule_detail)
                     <h2>Your goal this week</h2>
                     <h3>Run {{ $current_schedule_detail->km_this_week }} Km</h3>
@@ -91,5 +92,7 @@
 
 
         </div>
+    </div>
+
     </div>
 @endsection
