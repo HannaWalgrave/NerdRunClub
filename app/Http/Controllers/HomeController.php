@@ -40,6 +40,7 @@ class HomeController extends Controller
                 $this_weeks_message = "You managed to reach last week's goal, oh human! Keep going & make sure not to turn into a zombie!";
             }
         }
+
         return view('home', compact('user', 'schedule', 'current_schedule_detail', 'this_weeks_message'));
     }
 }

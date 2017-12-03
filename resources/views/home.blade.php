@@ -39,7 +39,11 @@
                     <li class="progress_bar_item progress_bar_item_future">
                         <p>week {{$schedule_detail->week_count}}</p>
                     </li>
-                @elseif($schedule_detail->goal_status == "to do")
+                @elseif($schedule_detail->goal_status == "to do" && $current_schedule_detail == null)
+                    <li class="progress_bar_item progress_bar_item_future">
+                        <p>week {{$schedule_detail->week_count}}</p>
+                    </li>
+                @elseif($schedule_detail->goal_status == "to do" && $current_schedule_detail != null)
                     <li class="progress_bar_item progress_bar_item_current">
                         <p>week {{$schedule_detail->week_count}}</p>
                     </li>

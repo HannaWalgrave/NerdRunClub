@@ -8606,11 +8606,12 @@ button.close {
 }
 
 .login {
-  width: 70%;
+  width: 50%;
   height: 50px;
   line-height: 35px;
-  font-size: x-large;
+  font-size: large;
   font-weight: bold;
+  margin-bottom: 15px;
 }
 
 .menu-top {
