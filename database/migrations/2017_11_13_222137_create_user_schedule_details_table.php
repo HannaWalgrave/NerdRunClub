@@ -15,7 +15,8 @@ class CreateUserScheduleDetailsTable extends Migration
     {
         Schema::create('user_schedule_details', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users')->unsigned();
             $table->date('week');
             $table->integer('week_count');
             $table->float('km_this_week');
