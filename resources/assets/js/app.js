@@ -15,7 +15,7 @@ window.Vue = require('vue');
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-
+/*Graph1*/
 
 var url = "activities/chart";
 var userData = [];
@@ -27,7 +27,7 @@ $(document).ready(function(){
             '_token': $('input[name*="_token"]').val()
         }
     ).done(function(response) {
-        console.log(response[0]);
+       // console.log(response[0]);
         //console.log(response['km_per_week']);
       // $.each(response ,function (data) {
             userData.push(response[0]);
@@ -92,4 +92,48 @@ $(document).ready(function(){
     })
 });
 
+/*Graph2*/
 
+var url1 = "dashboard/chart";
+var zombies = [];
+var humans = [];
+$(document).ready(function(){
+    $.get(url1,
+        {
+            '_token': $('input[name*="_token"]').val()
+        }
+    ).done(function(response) {
+        console.log(response);
+        //console.log(response['km_per_week']);
+        // $.each(response ,function (data) {
+        humans.push(response[0]);
+        zombies.push(response[1]);
+        // });
+        var Chart = require('chart.js');
+        var context = document.querySelector('#GraphZombievsHuman').getContext('2d');
+        var myChart = new Chart(context, {
+            type: 'doughnut',
+            data: {
+                labels: ["Humans", "Zombies"],
+                datasets: [
+                    {
+                        label: "Population",
+                        backgroundColor: ["#FF5D0D", "#35a67c","#3cba9f","#e8c3b9","#c45850"],
+                        data: [
+                            humans,
+                            zombies
+                        ]
+                    }
+                ]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: ''
+                }
+            }
+
+
+        });
+    })
+});

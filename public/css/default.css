@@ -370,9 +370,14 @@ ul li {
   margin-left: 11px;
 }
 
-.graph1 {
+.graph1,
+.graph2 {
   max-width: 800px;
   max-height: 800px;
+}
+
+.graph2 {
+  margin-top: 15px;
 }
 
 .progress_bar {

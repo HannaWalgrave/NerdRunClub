@@ -33,6 +33,7 @@ Route::middleware('auth')->group(function () {
 
     //Dashboard routes
     Route::get('/dashboard' , 'DashboardController@index');
+    Route::get('/dashboard/chart' , 'DashboardController@chart');
 });
 
 

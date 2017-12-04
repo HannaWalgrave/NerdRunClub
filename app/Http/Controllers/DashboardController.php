@@ -42,4 +42,17 @@ class DashboardController extends Controller
         return view('dashboard', compact('amount_zombies', 'amount_humans', 'km_zombies', 'km_humans', 'averageKm_user', 'averageKm_all', 'run_this_week', 'currentGoal', 'days_until_goal','user'));
     }
 
+    public function chart(Request $request)
+    {
+        $result = [];
+
+        $user = Auth::user();
+
+        $amount_zombies = User::where('schedule_id', $user->schedule_id)->where('zombie', 1)->count();
+        $amount_humans = User::where('schedule_id', $user->schedule_id)->where('zombie', 0)->count();
+        array_push($result,$amount_humans,$amount_zombies);
+
+        return $result;
+    }
+
 }
