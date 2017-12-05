@@ -28968,7 +28968,6 @@ window.Vue = __webpack_require__(17);
 var url = "activities/chart";
 var userData = [];
 var kmRun = [];
-var Prices = [];
 $(document).ready(function () {
     $.get(url, {
         '_token': $('input[name*="_token"]').val()
@@ -29021,7 +29020,7 @@ $(document).ready(function () {
     $.get(url1, {
         '_token': $('input[name*="_token"]').val()
     }).done(function (response) {
-        console.log(response);
+        //console.log(response);
         //console.log(response['km_per_week']);
         // $.each(response ,function (data) {
         humans.push(response[0]);
@@ -29037,6 +29036,43 @@ $(document).ready(function () {
                     label: "Population",
                     backgroundColor: ["#FF5D0D", "#35a67c", "#3cba9f", "#e8c3b9", "#c45850"],
                     data: [humans, zombies]
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: ''
+                }
+            }
+
+        });
+    });
+});
+
+/*Graph3*/
+var url2 = "dashboard/chartOne";
+var zombieskm = [];
+var humanskm = [];
+$(document).ready(function () {
+    $.get(url2, {
+        '_token': $('input[name*="_token"]').val()
+    }).done(function (response) {
+        console.log(response);
+        //console.log(response['km_per_week']);
+        // $.each(response ,function (data) {
+        humanskm.push(response[0]);
+        zombieskm.push(response[1]);
+        // });
+        var Chart = __webpack_require__(18);
+        var context = document.querySelector('#graphZombieHumanKm').getContext('2d');
+        var myChart = new Chart(context, {
+            type: 'doughnut',
+            data: {
+                labels: ["Humans KM", "Zombies KM"],
+                datasets: [{
+                    label: "Population",
+                    backgroundColor: ["#3cba9f", "#e8c3b9", "#c45850"],
+                    data: [humanskm, zombieskm]
                 }]
             },
             options: {

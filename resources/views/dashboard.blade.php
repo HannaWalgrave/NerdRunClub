@@ -10,6 +10,13 @@
         <div class="graph2">
             <h2>Humans Vs Zombies</h2>
             <canvas id="GraphZombievsHuman" width="400" height="400"></canvas>
+
+            <h2>Humans Vs Zombies KM</h2>
+            <canvas id="graphZombieHumanKm" width="400" height="400"></canvas>
+
         </div>
+
+
+
     </div>
     @endsection

@@ -55,4 +55,17 @@ class DashboardController extends Controller
         return $result;
     }
 
+    public function chartOne(Request $request)
+    {
+        $result = [];
+
+        $user = Auth::user();
+        $km_zombies = DB::table('users')->join('activities', 'users.id', '=', 'activities.user_id')->where('users.schedule_id', $user->schedule_id)->where('users.zombie', 1)->sum('activities.distance') / 1000;
+        $km_humans = DB::table('users')->join('activities', 'users.id', '=', 'activities.user_id')->where('users.schedule_id', $user->schedule_id)->where('users.zombie', 0)->sum('activities.distance') / 1000;
+
+        array_push($result,$km_humans,$km_zombies);
+
+        return $result;
+    }
+
 }
