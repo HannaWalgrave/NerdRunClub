@@ -88,6 +88,15 @@
 </div>
         </div>
 
+            <div class="kmStatus status">
+                @if($user->currentSchedule())
+                    <h2>Your goal this week</h2>
+                    <h3>Run {{ $user->currentSchedule()->km_this_week }} Km</h3>
+                @else
+                    <h2>Relax, take it easy! You don't have to run this week!</h2>
+                @endif
+            </div>
+        </div>
         </div>
 
 

@@ -36,9 +36,28 @@ class User extends Authenticatable
         return $this->hasMany(Activity::class)->orderBy('start_date', 'asc');
     }
 
+    public function currentActivities()
+    {
+        $start_week = Carbon::now()->startOfWeek();
+        $end_week = Carbon::now()->startOfWeek()->addDays(6);
+        return $this->activities->where('start_date', '>=', $start_week)->where('start_date', '<=', $end_week)->get();
+    }
+
+    public function runThisWeek()
+    {
+        $start_week = Carbon::now()->startOfWeek();
+        $end_week = Carbon::now()->startOfWeek()->addDays(6);
+        return number_format($this->activities->where('start_date', '>=', $start_week)->where('start_date', '<=', $end_week)->sum('distance') / 1000, 1, ",", ".");
+    }
+
     public function schedule()
     {
         return $this->belongsTo(Schedule::class);
+    }
+
+    public function currentSchedule()
+    {
+        return $this->userScheduleDetail()->where('week', Carbon::now()->startOfWeek()->format('Y-m-d'))->first();
     }
 
     public function createDetails($start_date, $km_per_week, $i)
@@ -73,7 +92,7 @@ class User extends Authenticatable
             $start_date_current_week = Carbon::now()->startOfWeek()->format('Y-m-d');
 
             // is verleden week al gecheckt?
-            if ($this->userScheduleDetail()->where('week', $start_date_current_week)->first()->modified_marker == 0) {
+            if ($this->currentSchedule()->modified_marker == 0) {
                 $start_last_week = Carbon::now()->startOfWeek()->subWeek();
                 $end_last_week = Carbon::now()->startOfWeek()->subDay();
                 $last_week_schedule_detail = $this->userScheduleDetail()->where('week', $start_last_week->format('Y-m-d'))->first();

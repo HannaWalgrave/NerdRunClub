@@ -29,11 +29,9 @@ class HomeController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $schedule = Schedule::all()->where('id', $user->schedule_id);
-        $start_date_current_week = Carbon::now()->startOfWeek()->format('Y-m-d');
-        $current_schedule_detail = $user->userScheduleDetail()->where('week', $start_date_current_week)->first();
+        $currentSchedule = $user->currentSchedule();
         $this_weeks_message = "Let's run! Reach each week's goal or you will become a zombie!";
-        if ($current_schedule_detail != null && $current_schedule_detail->week_count > 1) {
+        if ($currentSchedule != null && $currentSchedule->week_count > 1) {
             if ($user->zombie) {
                 $this_weeks_message = "You did not reach last week's goal, so you will have to run more in order to become human again!";
             } else {

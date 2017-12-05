@@ -30,10 +30,10 @@ class DashboardController extends Controller
         $averageKm_all = number_format(DB::table('users')->join('activities', 'users.id', '=', 'activities.user_id')->where('users.schedule_id', $user->schedule_id)->avg('activities.distance') / 1000, 1, ",", ".");
 
 
-        $currentGoal = $user->userScheduleDetail()->where('week', Carbon::now()->startOfWeek()->format('Y-m-d'))->first();
+        $currentGoal = $user->currentSchedule();
         $run_this_week = "0,0";
         if ($currentGoal != null) {
-            $run_this_week = number_format($user->activities()->where('start_date', '>=', $currentGoal->week)->where('start_date', '<=', Carbon::parse($currentGoal->week)->addDays(6))->sum('distance') / 1000, 1, ",", ".");
+            $run_this_week = $user->runThisWeek();
             $currentGoal = number_format($currentGoal->km_this_week, 1, ",", ".");
         }
 

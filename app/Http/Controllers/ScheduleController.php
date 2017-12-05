@@ -15,7 +15,7 @@ class ScheduleController extends Controller
         //get active user and collect all activities from database
         $user = auth()->user();
         $pastGoals = $user->userScheduleDetail()->where('week', '<', Carbon::now()->startOfWeek()->format('Y-m-d'))->get();
-        $currentGoal = $user->userScheduleDetail()->where('week', Carbon::now()->startOfWeek()->format('Y-m-d'))->first();
+        $currentGoal = $user->currentSchedule();
         $nextGoals = $user->userScheduleDetail()->where('week', '>', Carbon::now()->startOfWeek()->format('Y-m-d'))->get();
         $activities = $user->activities;
 

@@ -16,6 +16,8 @@ Route::get('login', 'LoginController@login')->name('login');
 Route::get('logout', 'LoginController@logout')->name('logout');
 Route::get('token_exchange', 'LoginController@token_exchange');
 
+Route::get('hall-of-fame/{filter?}', 'FameController@index');
+
 // All routes you can only access when authenticated
 Route::middleware('auth')->group(function () {
 
