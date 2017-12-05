@@ -1,7 +1,7 @@
 @extends('layouts.default')
 @section('container')
     <div class="wrap">
-        @include('includes.menu')
+
         <h1>Hall of fame</h1>
         <nav aria-label="breadcrumb" role="navigation">
             <ol class="breadcrumb">

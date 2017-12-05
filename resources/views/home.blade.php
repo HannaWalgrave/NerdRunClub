@@ -22,9 +22,9 @@
             </div>
 
             <div class="kmStatus status {{$user->zombie?"glitch":"Human"}}">
-                @if($current_schedule_detail)
+                @if($user->currentSchedule() )
                     <h2>Your goal this week</h2>
-                    <h3>Run {{ $current_schedule_detail->km_this_week }} Km</h3>
+                    <h3>Run {{ $user->currentSchedule()->km_this_week }} Km</h3>
                 @else
                     <h2>Relax, take it easy! You don't have to run this week!</h2>
                 @endif
@@ -40,11 +40,11 @@
                     <li class="progress_bar_item progress_bar_item_future">
                         <p>week {{$schedule_detail->week_count}}</p>
                     </li>
-                @elseif($schedule_detail->goal_status == "to do" && $current_schedule_detail == null)
+                @elseif($schedule_detail->goal_status == "to do" && $user->currentSchedule() == null)
                     <li class="progress_bar_item progress_bar_item_future">
                         <p>week {{$schedule_detail->week_count}}</p>
                     </li>
-                @elseif($schedule_detail->goal_status == "to do" && $current_schedule_detail != null)
+                @elseif($schedule_detail->goal_status == "to do" && $user->currentSchedule() != null)
                     <li class="progress_bar_item progress_bar_item_current">
                         <p>week {{$schedule_detail->week_count}}</p>
                     </li>
@@ -87,15 +87,6 @@
             </div>
 </div>
         </div>
-
-            <div class="kmStatus status">
-                @if($user->currentSchedule())
-                    <h2>Your goal this week</h2>
-                    <h3>Run {{ $user->currentSchedule()->km_this_week }} Km</h3>
-                @else
-                    <h2>Relax, take it easy! You don't have to run this week!</h2>
-                @endif
-            </div>
         </div>
         </div>
 

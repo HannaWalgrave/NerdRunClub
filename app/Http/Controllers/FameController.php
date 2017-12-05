@@ -12,6 +12,7 @@ class FameController extends Controller
 {
     public function index($filter = 'IMD-10-miles-of-wow!')
     {
+
         $schedules = Schedule::all();
         $start_week = Carbon::now()->startOfWeek();
         $end_week = Carbon::now()->startOfWeek()->addDays(6);

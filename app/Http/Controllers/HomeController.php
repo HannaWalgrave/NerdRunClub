@@ -30,6 +30,7 @@ class HomeController extends Controller
     {
         $user = Auth::user();
         $currentSchedule = $user->currentSchedule();
+
         $this_weeks_message = "Let's run! Reach each week's goal or you will become a zombie!";
         if ($currentSchedule != null && $currentSchedule->week_count > 1) {
             if ($user->zombie) {
