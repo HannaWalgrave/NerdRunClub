@@ -47,7 +47,7 @@ class User extends Authenticatable
     {
         $start_week = Carbon::now()->startOfWeek();
         $end_week = Carbon::now()->startOfWeek()->addDays(6);
-        return number_format($this->activities->where('start_date', '>=', $start_week)->where('start_date', '<=', $end_week)->sum('distance') / 1000, 1, ",", ".");
+        return $this->activities->where('start_date', '>=', $start_week)->where('start_date', '<=', $end_week)->sum('distance') / 1000;
     }
 
     public function schedule()
@@ -118,6 +118,7 @@ class User extends Authenticatable
                     $current_schedule_detail->modified_marker = 1;
                     $current_schedule_detail->save();
                     $last_week_schedule_detail->save();
+                    $this->save();
                 }
             }
         }
