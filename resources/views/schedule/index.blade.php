@@ -7,7 +7,7 @@
         <h1>Your schedule</h1>
         <ul class="scheduleList">
             @foreach($pastGoals as $detail)
-                <li class="pastGoals" {{$detail->goal_status=="success"?"style=background-color:green;
+                <li class="pastGoals showActivities" id="{{$detail->id}}" {{$detail->goal_status=="success"?"style=background-color:green;
                 ":"style=background-color:red;"}}>
                     <div>
                         <p class="schedule_week_count">week {{$detail->week_count}}</p>
@@ -17,11 +17,12 @@
                         </p>
                     </div>
                     <p class="schedule_week_goal">{{$detail->km_this_week_modified}}km</p>
+                    <ul class="activity_list" style="width:100%;"></ul>
                 </li>
             @endforeach
 
             @unless($currentGoal == null)
-                <li class="currentGoal" id="{{$currentGoal->id}}">
+                <li class="currentGoal showActivities" id="{{$currentGoal->id}}">
                     <div>
                         <p class="schedule_week_count">This week</p>
                     </div>
@@ -54,12 +55,12 @@
 
             @section('footerscripts')
                 <script>
-                    $('.currentGoal').on('click', function () {
+                    $('.showActivities').on('click', function () {
                         var that = $(this);
                         $.get("activities",
                             {
                                 '_token': '{{csrf_token()}}',
-                                'schedule_id': $(this).attr('id')
+                                'schedule_detail_id': $(this).attr('id')
                             }
                         ).done(function (data) {
                             if (data === []) {
