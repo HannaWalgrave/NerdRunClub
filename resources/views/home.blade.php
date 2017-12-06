@@ -12,11 +12,12 @@
             <div class="message {{$user->zombie?"glitch":"Human"}}">
                 <p>{{ $this_weeks_message }}</p>
                 <p>Your selected running schedule is {{ $user->schedule->name }}.</p>
+
             </div>
 
-            <div>
-                <a href="/deleteUserSchedule">Change your running schedule</a>
-            </div>
+
+            <a class="btn btn-primary {{$user->zombie?"zombiebtn":""}}" href="/deleteUserSchedule">Change your running schedule</a>
+
 
             <div class="bodyHome">
                 <div class="backgroundImg {{ $user->zombie ? "zombie" : "human" }}"></div>
