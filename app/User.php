@@ -100,7 +100,7 @@ class User extends Authenticatable
                 // we checken de stand van zaken van afgelopen week, want dat is nog niet gebeurd
                 if ($last_week_schedule_detail != null) {
                     // bereken totale afstand alle activiteiten verleden week
-                    $total_last_week = $this->activities()->where('start_date', '>=', $start_last_week)->where('start_date', '<=', $end_last_week)->sum('distance');
+                    $total_last_week = $this->activities()->where('start_date', '>=', $start_last_week)->where('start_date', '<=', $end_last_week)->sum('distance')/1000;
                     // haal de scheduled afstand van verleden week op
                     $scheduled_last_week = $last_week_schedule_detail->km_this_week_modified;
 
