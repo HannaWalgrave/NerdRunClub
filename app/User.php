@@ -121,6 +121,15 @@ class User extends Authenticatable
                     $this->save();
                 }
             }
+
+            if($this->currentSchedule()->km_this_week_modified <= $this->runThisWeek()){
+                $this->zombie = 0;
+                $current_schedule_detail = $this->userScheduleDetail()->where('week', $start_date_current_week)->first();
+                $current_schedule_detail->goal_status = "success";
+                $current_schedule_detail->save();
+                $this->save();
+            }
+
         }
     }
 }

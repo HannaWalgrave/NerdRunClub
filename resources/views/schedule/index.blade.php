@@ -26,7 +26,7 @@
                     <div>
                         <p class="schedule_week_count">This week</p>
                     </div>
-                    <p class="schedule_week_goal">{{$currentGoal->km_this_week_modified}}km</p>
+                    <p class="schedule_week_goal">Already run: {{ $user->runThisWeek() }}km - Goal: {{$currentGoal->km_this_week_modified}}km</p>
                     <ul class="activity_list" style="width:100%;"></ul>
                 </li>
             @endunless

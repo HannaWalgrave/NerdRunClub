@@ -27,8 +27,12 @@
 
                 <div class="kmStatus status {{$user->zombie?"glitch":"Human"}}">
                     @if($user->currentSchedule() )
-                        <h2>Your goal this week</h2>
-                        <h3>Run {{ $user->currentSchedule()->km_this_week_modified }} Km</h3>
+                        @if($user->currentSchedule()->goal == "to do")
+                            <h2>Your goal this week</h2>
+                            <h3>Run {{ $user->currentSchedule()->km_this_week_modified }} Km</h3>
+                        @else
+                            <h2>Congratulations! You have reached your weekly goal!</h2>
+                        @endif
                     @else
                         <h2>Relax, take it easy! You don't have to run this week!</h2>
                     @endif
