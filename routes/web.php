@@ -21,21 +21,26 @@ Route::get('hall-of-fame/{filter?}', 'FameController@index');
 // All routes you can only access when authenticated
 Route::middleware('auth')->group(function () {
 
-    // Home
-    Route::get('/', 'HomeController@index')->name('home');
+    Route::get('/schedule/create', 'ScheduleController@create');
 
-    //Schedule routes
-    Route::resource('schedule', 'ScheduleController', ['only' => ['index', 'create', 'store']]);
-    Route::get('/deleteUserSchedule', 'ScheduleController@deleteUserSchedule');
+    Route::middleware('schedule')->group(function () {
+        // Home
+        Route::get('/', 'HomeController@index')->name('home');
 
-    // Activity routes
-    Route::get('/activities', 'ActivityController@index');
-    Route::get('activities/chart', 'ActivityController@chart');
+        //Schedule routes
+        Route::get('/schedule', 'ScheduleController@index');
+        Route::get('/schedule/store', 'ScheduleController@store');
+        Route::get('/deleteUserSchedule', 'ScheduleController@deleteUserSchedule');
 
-    //Dashboard routes
-    Route::get('/dashboard' , 'DashboardController@index');
-    Route::get('/dashboard/chart' , 'DashboardController@chart');
-    Route::get('/dashboard/chartOne' , 'DashboardController@chartOne');
+        // Activity routes
+        Route::get('/activities', 'ActivityController@index');
+        Route::get('activities/chart', 'ActivityController@chart');
+
+        //Dashboard routes
+        Route::get('/dashboard', 'DashboardController@index');
+        Route::get('/dashboard/chart', 'DashboardController@chart');
+        Route::get('/dashboard/chartOne', 'DashboardController@chartOne');
+    });
 });
 
 
