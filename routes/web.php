@@ -22,6 +22,7 @@ Route::get('hall-of-fame/{filter?}', 'FameController@index');
 Route::middleware('auth')->group(function () {
 
     Route::get('/schedule/create', 'ScheduleController@create');
+    Route::get('/schedule/store', 'ScheduleController@store');
 
     Route::middleware('schedule')->group(function () {
         // Home
@@ -29,7 +30,6 @@ Route::middleware('auth')->group(function () {
 
         //Schedule routes
         Route::get('/schedule', 'ScheduleController@index');
-        Route::get('/schedule/store', 'ScheduleController@store');
         Route::get('/deleteUserSchedule', 'ScheduleController@deleteUserSchedule');
 
         // Activity routes
