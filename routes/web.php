@@ -22,7 +22,7 @@ Route::get('hall-of-fame/{filter?}', 'FameController@index');
 Route::middleware('auth')->group(function () {
 
     Route::get('/schedule/create', 'ScheduleController@create');
-    Route::get('/schedule/store', 'ScheduleController@store');
+    Route::post('/schedule', 'ScheduleController@store');
 
     Route::middleware('schedule')->group(function () {
         // Home
