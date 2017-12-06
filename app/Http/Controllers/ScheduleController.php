@@ -7,6 +7,7 @@ use App\User;
 use App\Schedule;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ScheduleController extends Controller
 {
@@ -73,5 +74,26 @@ class ScheduleController extends Controller
         }
 
         return redirect()->route('home');
+    }
+
+    public function deleteUserSchedule()
+    {
+        $user = Auth::user();
+
+        $user->schedule_id = null;
+        $user->init_date = null;
+        $user->start_date = null;
+        $user->number_weeks = null;
+        $user->km_per_week = null;
+        $user->zombie = 0;
+        $user->save();
+
+        $details = App\UserScheduleDetail::where('user_id', $user->id)->get();
+
+        foreach($details as $detail){
+            $detail->delete();
+        }
+
+        return redirect('/schedule/create');
     }
 }

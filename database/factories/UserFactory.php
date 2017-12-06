@@ -23,17 +23,6 @@ $factory->define(App\User::class, function (Faker $faker) {
     $init_date = $faker->dateTimeBetween('-30 days', 'today');
     $init_date = Carbon::parse($init_date->format('Y-m-d H:i:s'));
 
-    /*switch ($init_date->dayOfWeek) {
-        case Carbon::FRIDAY:
-        case Carbon::SATURDAY:
-        case Carbon::SUNDAY:
-            $start_date = $init_date->startOfWeek()->addWeek();
-            break;
-        default:
-            $start_date = $init_date->startOfWeek();
-            break;
-    }*/
-
     if ($init_date->dayOfWeek == Carbon::MONDAY) {
         $start_date = Carbon::now();
     } elseif ($init_date->dayOfWeek == Carbon::TUESDAY) {

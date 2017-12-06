@@ -25,9 +25,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/', 'HomeController@index')->name('home');
 
     //Schedule routes
-    /*Route::get('/schedule/create', 'ScheduleController@index')->name('schedule');;
-    Route::post('/schedule', 'ScheduleController@store');*/
     Route::resource('schedule', 'ScheduleController', ['only' => ['index', 'create', 'store']]);
+    Route::get('/deleteUserSchedule', 'ScheduleController@deleteUserSchedule');
 
     // Activity routes
     Route::get('/activities', 'ActivityController@index');
