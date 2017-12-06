@@ -8445,28 +8445,14 @@ button.close {
       align-self: center;
 }
 
-#badges {
-  padding-top: 20px;
-  padding-bottom: 20px;
+.zombiebtn {
+  background-color: #007650;
+  border: #6bd8ab;
+  z-index: 100;
 }
 
-#badges ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
-#badges ul li {
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
-  list-style: none;
+.zombiebtn:hover {
+  background-color: #35a67c;
 }
 
 .humanStatus {

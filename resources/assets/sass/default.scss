@@ -74,22 +74,14 @@ $tertiary-color: #c42700;
   align-self: center;
 }
 
-#badges{
-  padding-top: 20px;
-  padding-bottom: 20px;
+.zombiebtn{
+  background-color: $zombie-tertiary-oolor;
+  border: $zombie-secondary-color;
+  z-index: 100;
 }
 
-#badges ul{
-  display: flex;
-align-items: center;
-  justify-content: space-between;
-}
-
-#badges ul li{
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
-  list-style: none;
+.zombiebtn:hover{
+  background-color: $zombie-primary-color;
 }
 
 .humanStatus{
