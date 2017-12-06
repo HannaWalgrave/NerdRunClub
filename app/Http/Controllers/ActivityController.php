@@ -37,7 +37,7 @@ class ActivityController extends Controller
         $currentGoal = $user->currentSchedule();
 
         if ($currentGoal != null) {
-            array_push($result, $currentGoal->km_this_week);
+            array_push($result, $currentGoal->km_this_week_modified);
             array_push($result, $user->runThisWeek());
         }
 

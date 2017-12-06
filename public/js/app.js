@@ -28972,7 +28972,7 @@ $(document).ready(function () {
     $.get(url, {
         '_token': $('input[name*="_token"]').val()
     }).done(function (response) {
-        console.log(response[0]);
+        console.log(response);
         //console.log(response['km_per_week']);
         // $.each(response ,function (data) {
         userData.push(response[0]);
