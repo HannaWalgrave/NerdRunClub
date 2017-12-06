@@ -28972,7 +28972,7 @@ $(document).ready(function () {
     $.get(url, {
         '_token': $('input[name*="_token"]').val()
     }).done(function (response) {
-        // console.log(response[0]);
+        console.log(response[0]);
         //console.log(response['km_per_week']);
         // $.each(response ,function (data) {
         userData.push(response[0]);
@@ -29057,7 +29057,7 @@ $(document).ready(function () {
     $.get(url2, {
         '_token': $('input[name*="_token"]').val()
     }).done(function (response) {
-        console.log(response);
+        //console.log(response);
         //console.log(response['km_per_week']);
         // $.each(response ,function (data) {
         humanskm.push(response[0]);
