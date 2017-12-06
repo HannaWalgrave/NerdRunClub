@@ -7,7 +7,8 @@
         <h1>Your schedule</h1>
         <ul class="scheduleList">
             @foreach($pastGoals as $detail)
-                <li class="pastGoals">
+                <li class="pastGoals" {{$detail->goal_status=="success"?"style=background-color:green;
+                ":"style=background-color:red;"}}>
                     <div>
                         <p class="schedule_week_count">week {{$detail->week_count}}</p>
                         <p class="schedule_week_dates">
