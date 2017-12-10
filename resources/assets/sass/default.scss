@@ -30,7 +30,7 @@ $tertiary-color: #c42700;
 //home
 
 .bodyHome{
-  width: 50%;
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -46,10 +46,9 @@ $tertiary-color: #c42700;
 }
 
 .userImg{
-  height: 10em;
-  width: 10em;
+  height: 80px;
+  width: 80px;
   border-radius: 50%;
-  align-self: center;
   padding: 10px;
 }
 
@@ -94,7 +93,7 @@ $tertiary-color: #c42700;
 .kmStatus {
   display: flex;
   align-items: center;
-  flex-direction: column;
+  flex-direction: row;
 }
 
 .message{
@@ -167,8 +166,8 @@ $tertiary-color: #c42700;
   background-repeat: no-repeat;
   background-size: contain;
   display: block;
-  height: 100px;
-  width: 100px;
+  height: 150px;
+  width: 200px;
   margin-top: 10px;
   margin-bottom: -10px;
 }
@@ -180,6 +179,14 @@ $tertiary-color: #c42700;
   display: block;
   height: 350px;
   width: 326px;
+}
+
+.loginBlock{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+  margin-bottom: 20px;
 }
 
 //menu bar
@@ -284,7 +291,7 @@ $tertiary-color: #c42700;
 //schedule Progress bar
 .progress_bar {
   display: flex;
-  max-width: 70%;
+  max-width: 100%;
   padding-left: 0px;
   padding-top: 10px;
   flex-wrap: wrap;
@@ -296,16 +303,16 @@ $tertiary-color: #c42700;
   width: 40px;
   height: 40px;
   list-style: none;
-  margin: 5px 5px 25px 5px;
-  border-radius: 15px;
+  margin: 15px 15px 15px 15px;
+  border-radius: 50%;
   background-color: grey;
 }
 
 .progress_bar_item p {
   color: orange;
   position: relative;
-  top: 45px;
-  font-size: 10px;
+  top: 8%;
+  font-size: 15px;
   text-align: center;
 }
 
@@ -313,44 +320,62 @@ $tertiary-color: #c42700;
   background-color: #4cae4c;
 }
 
+.progress_bar_item_past_success p {
+  color: #ffffff;
+}
+
 .progress_bar_item_past_fail {
   background-color: red;
 }
 
+.progress_bar_item_past_fail p {
+  color: white;
+}
+
 .progress_bar_item_current {
-  background-color: orange;
+  border:solid 3px orange;
+}
+
+
+.progress_bar_item_current p {
+ color: #ffffff;
 }
 
 .progress_bar_item_future {
-  background-color: grey;
+  border: solid 1px lightgrey;
+  background-color: transparent;
+}
+
+.progress_bar_item_future p {
+  color: darkgrey;
+  top: 15% !important;
 }
 
 .progress_bar_legend {
   display: flex;
-  flex-wrap: wrap;
+
   flex-direction: column;
   margin-top: 10px;
   line-height: 1;
   align-items: center;
-}
-
-.progress_bar_legend_title {
-
+  width: 100%;
 }
 
 .progress_bar_legend_item {
   display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .progress_bar_legend_text {
-  color: orange;
+  color: $tertiary-color;
   padding-bottom: 0px;
 }
 
 .progress_bar_legend_color {
-  width: 75px;
-  height: 15px;
-  border-radius: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
   margin-right: 20px;
 }
 
@@ -363,11 +388,11 @@ $tertiary-color: #c42700;
 }
 
 .progress_bar_legend_color_current {
-  background-color: orange;
+  @extend .progress_bar_item_current
 }
 
 .progress_bar_legend_color_future {
-  background-color: grey;
+  @extend .progress_bar_item_future
 }
 
 .progress_bar_legend_items{
@@ -382,6 +407,7 @@ $tertiary-color: #c42700;
   justify-content:center;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 }
 
 //glitch
@@ -458,3 +484,9 @@ $screen-background:#121010;
 }
 
 
+//hall of fame
+
+.Fame_user img{
+  margin-bottom: 15px;
+  border-radius: 50%;
+}

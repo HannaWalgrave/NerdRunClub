@@ -3,21 +3,6 @@
     <div class="wrap {{$user->zombie?"ZombieWrap":"Human"}}">
         @include('includes.menu')
         <div class="background {{$user->zombie?"backgroundZombie":"Human"}} ">
-            <div class="userProfile {{$user->zombie?"glitch":"Human"}}">
-                <img class="userImg" src="{{ $user->profile }}" alt="profile picture">
-
-                <h1>{{ $user->firstname }} {{$user->lastname}}</h1>
-            </div>
-
-            <div class="message {{$user->zombie?"glitch":"Human"}}">
-                <p>{{ $this_weeks_message }}</p>
-                <p>Your selected running schedule is {{ $user->schedule->name }}.</p>
-
-            </div>
-
-
-            <a class="btn btn-primary {{$user->zombie?"zombiebtn":""}}" href="/deleteUserSchedule">Change your running schedule</a>
-
 
             <div class="bodyHome">
                 <div class="backgroundImg {{ $user->zombie ? "zombie" : "human" }}"></div>
@@ -25,44 +10,47 @@
                     <h2>You are a {{$user->zombie?"Zombie":"Human"}} </h2>
                     <h3>{{$user->zombie?"Start running faster!":"Keep up the good work!"}}</h3>
                 </div>
+<div class="kmStatus status {{$user->zombie?"glitch":"Human"}}">
+    <h3>You still have {{$days_until_goal}} days to go! <br> You are in week {{$weeks_until_goal}}.
+    </h3>
+</div>
 
-                <div class="kmStatus status {{$user->zombie?"glitch":"Human"}}">
-                    @if($user->currentSchedule() )
-                        @if($user->currentSchedule()->goal == "to do")
-                            <h2>Your goal this week</h2>
-                            <h3>Run {{ $user->currentSchedule()->km_this_week_modified }} Km</h3>
-                        @else
-                            <h2>Congratulations! You have reached your weekly goal!</h2>
-                        @endif
-                    @else
-                        <h2>Relax, take it easy! You don't have to run this week!</h2>
-                    @endif
-                </div>
                 <div class="progressBar">
-                    <h3>your progress</h3>
+                    <div class="kmStatus status {{$user->zombie?"glitch":"Human"}}">
+                        @if($user->currentSchedule() )
+                            @if($user->currentSchedule()->goal == "to do")
+                                <h3>Your goal this week</h3>
+                                <h3>Run {{ $user->currentSchedule()->km_this_week_modified }} Km</h3>
+                            @else
+                                <h3>Congratulations! <br> You have reached your weekly goal!</h3>
+                            @endif
+                        @else
+                            <h3>Relax, take it easy! You don't have to run this week!</h3>
+                        @endif
+                    </div>
 
                     <ul class="progress_bar">
                         @foreach($user->userScheduleDetail as $schedule_detail)
 
                             @if($schedule_detail->modified_marker == false)
                                 <li class="progress_bar_item progress_bar_item_future">
-                                    <p>week {{$schedule_detail->week_count}}</p>
+                                    <p>{{$schedule_detail->week_count}}</p>
                                 </li>
                             @elseif($schedule_detail->goal_status == "to do" && $user->currentSchedule() == null)
                                 <li class="progress_bar_item progress_bar_item_future">
-                                    <p>week {{$schedule_detail->week_count}}</p>
+                                    <p>{{$schedule_detail->week_count}}</p>
                                 </li>
                             @elseif($schedule_detail->goal_status == "to do" && $user->currentSchedule() != null)
                                 <li class="progress_bar_item progress_bar_item_current">
-                                    <p>week {{$schedule_detail->week_count}}</p>
+                                    <p>{{$schedule_detail->week_count}}</p>
                                 </li>
                             @elseif($schedule_detail->goal_status == "success")
-                                <li class="progress_bar_item progress_bar_item_past_success">
-                                    <p>week {{$schedule_detail->week_count}}</p>
+                                <li class="progress_bar_item progress_bar_item_past_success {{ $weeks_until_goal ===  $schedule_detail->week_count ? "progress_bar_item_current" : "human" }}">
+                                    <p>{{$schedule_detail->week_count}}</p>
                                 </li>
                             @elseif($schedule_detail->goal_status == "fail")
                                 <li class="progress_bar_item progress_bar_item_past_fail">
-                                    <p>week {{$schedule_detail->week_count}}</p>
+                                    <p>{{$schedule_detail->week_count}}</p>
                                 </li>
                             @endif
 
@@ -72,7 +60,6 @@
 
                     <div class="progress_bar_legend">
 
-                        <h4 class="progress_bar_legend_title">Legend</h4>
                         <div class="progress_bar_legend_items">
                             <div class="progress_bar_legend_item">
                                 <p class="progress_bar_legend_color progress_bar_legend_color_success"></p>

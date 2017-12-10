@@ -117,7 +117,7 @@ $(document).ready(function(){
                 datasets: [
                     {
                         label: "Population",
-                        backgroundColor: ["#FF5D0D", "#35a67c","#3cba9f","#e8c3b9","#c45850"],
+                        backgroundColor: ["#A6BEBB","#522C46","#c45850"],
                         data: [
                             humans,
                             zombies

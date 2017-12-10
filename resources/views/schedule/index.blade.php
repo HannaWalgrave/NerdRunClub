@@ -5,6 +5,8 @@
         @include('includes.menu')
         <div class="scheduleBody">
         <h1>Your schedule</h1>
+            <p>Your selected running schedule is {{ $user->schedule->name }}.</p>
+            <a class="btn btn-primary {{$user->zombie?"zombiebtn":""}}" href="/deleteUserSchedule">Change your running schedule</a>
         <ul class="scheduleList">
             @foreach($pastGoals as $detail)
                 <li class="pastGoals showActivities" id="{{$detail->id}}" {{$detail->goal_status=="success"?"style=background-color:green;

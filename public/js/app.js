@@ -28972,7 +28972,7 @@ $(document).ready(function () {
     $.get(url, {
         '_token': $('input[name*="_token"]').val()
     }).done(function (response) {
-        console.log(response);
+        console.log(response[0]);
         //console.log(response['km_per_week']);
         // $.each(response ,function (data) {
         userData.push(response[0]);
@@ -29034,7 +29034,7 @@ $(document).ready(function () {
                 labels: ["Humans", "Zombies"],
                 datasets: [{
                     label: "Population",
-                    backgroundColor: ["#FF5D0D", "#35a67c", "#3cba9f", "#e8c3b9", "#c45850"],
+                    backgroundColor: ["#A6BEBB", "#522C46", "#c45850"],
                     data: [humans, zombies]
                 }]
             },

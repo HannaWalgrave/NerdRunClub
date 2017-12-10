@@ -27,7 +27,7 @@
 }
 
 .bodyHome {
-  width: 50%;
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -46,11 +46,9 @@
 }
 
 .userImg {
-  height: 10em;
-  width: 10em;
+  height: 80px;
+  width: 80px;
   border-radius: 50%;
-  -ms-flex-item-align: center;
-      align-self: center;
   padding: 10px;
 }
 
@@ -123,10 +121,10 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-orient: vertical;
+  -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+      -ms-flex-direction: row;
+          flex-direction: row;
 }
 
 .message {
@@ -227,8 +225,8 @@ ul li {
   background-repeat: no-repeat;
   background-size: contain;
   display: block;
-  height: 100px;
-  width: 100px;
+  height: 150px;
+  width: 200px;
   margin-top: 10px;
   margin-bottom: -10px;
 }
@@ -240,6 +238,21 @@ ul li {
   display: block;
   height: 350px;
   width: 326px;
+}
+
+.loginBlock {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 20px;
 }
 
 .menu-top {
@@ -370,7 +383,7 @@ ul li {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  max-width: 70%;
+  max-width: 100%;
   padding-left: 0px;
   padding-top: 10px;
   -ms-flex-wrap: wrap;
@@ -386,16 +399,16 @@ ul li {
   width: 40px;
   height: 40px;
   list-style: none;
-  margin: 5px 5px 25px 5px;
-  border-radius: 15px;
+  margin: 15px 15px 15px 15px;
+  border-radius: 50%;
   background-color: grey;
 }
 
 .progress_bar_item p {
   color: orange;
   position: relative;
-  top: 45px;
-  font-size: 10px;
+  top: 8%;
+  font-size: 15px;
   text-align: center;
 }
 
@@ -403,24 +416,44 @@ ul li {
   background-color: #4cae4c;
 }
 
+.progress_bar_item_past_success p {
+  color: #ffffff;
+}
+
 .progress_bar_item_past_fail {
   background-color: red;
 }
 
-.progress_bar_item_current {
-  background-color: orange;
+.progress_bar_item_past_fail p {
+  color: white;
 }
 
-.progress_bar_item_future {
-  background-color: grey;
+.progress_bar_item_current,
+.progress_bar_legend_color_current {
+  border: solid 3px orange;
+}
+
+.progress_bar_item_current p,
+.progress_bar_legend_color_current p {
+  color: #ffffff;
+}
+
+.progress_bar_item_future,
+.progress_bar_legend_color_future {
+  border: solid 1px lightgrey;
+  background-color: transparent;
+}
+
+.progress_bar_item_future p,
+.progress_bar_legend_color_future p {
+  color: darkgrey;
+  top: 15% !important;
 }
 
 .progress_bar_legend {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -430,23 +463,31 @@ ul li {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  width: 100%;
 }
 
 .progress_bar_legend_item {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .progress_bar_legend_text {
-  color: orange;
+  color: #c42700;
   padding-bottom: 0px;
 }
 
 .progress_bar_legend_color {
-  width: 75px;
-  height: 15px;
-  border-radius: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
   margin-right: 20px;
 }
 
@@ -456,14 +497,6 @@ ul li {
 
 .progress_bar_legend_color_fail {
   background-color: red;
-}
-
-.progress_bar_legend_color_current {
-  background-color: orange;
-}
-
-.progress_bar_legend_color_future {
-  background-color: grey;
 }
 
 .progress_bar_legend_items {
@@ -492,6 +525,7 @@ ul li {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  width: 100%;
 }
 
 .glitch * {
@@ -611,5 +645,10 @@ ul li {
   left: -150%;
   right: -150%;
   bottom: -150%;
+}
+
+.Fame_user img {
+  margin-bottom: 15px;
+  border-radius: 50%;
 }
 
