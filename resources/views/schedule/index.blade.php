@@ -1,15 +1,17 @@
 @extends('layouts.default')
 
 @section('container')
-    <div class="wrap  {{$user->zombie?"ZombieWrap":"Human"}}">
+    <div class="wrap  {{$user->zombie?"ZombieWrap":"Human"}}" xmlns:v-on="http://www.w3.org/1999/xhtml">
         @include('includes.menu')
         <div class="scheduleBody">
         <h1>Your schedule</h1>
             <p>Your selected running schedule is {{ $user->schedule->name }}.</p>
             <a class="btn btn-primary {{$user->zombie?"zombiebtn":""}}" href="/deleteUserSchedule">Change your running schedule</a>
-        <ul class="scheduleList">
+
+            <ul class="scheduleList">
+
             @foreach($pastGoals as $detail)
-                <li class="pastGoals showActivities" id="{{$detail->id}}" {{$detail->goal_status=="success"?"style=background-color:green;
+                <li class="pastGoals showActivities"  id="{{$detail->id}}" {{$detail->goal_status=="success"?"style=background-color:green;
                 ":"style=background-color:red;"}}>
                     <div>
                         <p class="schedule_week_count">week {{$detail->week_count}}</p>
@@ -21,6 +23,7 @@
                     <p class="schedule_week_goal">{{$detail->km_this_week_modified}}km</p>
                     <ul class="activity_list" style="width:100%;"></ul>
                 </li>
+
             @endforeach
 
             @unless($currentGoal == null)
@@ -56,28 +59,5 @@
             @endsection
 
             @section('footerscripts')
-                <script>
-                    $('.showActivities').on('click', function () {
-                        var that = $(this);
-                        $.get("activities",
-                            {
-                                '_token': '{{csrf_token()}}',
-                                'schedule_detail_id': $(this).attr('id')
-                            }
-                        ).done(function (data) {
-                            if (data === []) {
-                                that.find('ul.activity_list').append("<li style='list-style-type: none;'> You don't have any activities yet this week. Start running or zombies will eat your brains! </li>");
-                            } else {
-                                that.find('ul.activity_list').append("<li style='list-style-type: none;'><p>This is how much you've run this week!</p></li>");
-                                $.each(data, function (i, value) {
-                                    that.find('ul.activity_list').append("<li style='list-style-type: none; display: flex; justify-content: space-around;'><p class='activity_date'>" + value[0] + "</p> <p class='activity_distance'>" + value[1] + " km done!</p></li>");
-                                });
-                            }
-                        })
-                    });
-
-                    $('body').on('click', function () {
-                        $(this).find('ul.activity_list').children().remove();
-                    })
-                </script>
+                <script src='app.js'></script>
 @endsection

@@ -15,6 +15,37 @@ window.Vue = require('vue');
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
+
+
+
+
+$('.showActivities').on('click', function () {
+    var that = $(this);
+    $.get("activities",
+        {
+            '_token': '{{csrf_token()}}',
+            'schedule_detail_id': $(this).attr('id')
+        }
+    ).done(function (data) {
+        if (data === []) {
+            that.find('ul.activity_list').append("<li style='list-style-type: none;'> You don't have any activities yet this week. Start running or zombies will eat your brains! </li>");
+        } else {
+            that.find('ul.activity_list').append("<li style='list-style-type: none;'><p>This is how much you've run this week!</p></li>");
+            $.each(data, function (i, value) {
+                that.find('ul.activity_list').append("<li style='list-style-type: none; display: flex; justify-content: space-around;'><p class='activity_date'>" + value[0] + "</p> <p class='activity_distance'>" + value[1] + " km done!</p></li>");
+            });
+        }
+    })
+});
+
+$('.showActivities').on('click', function () {
+    $(this).find('ul.activity_list').children().remove();
+})
+
+
+
+
+
 /*Graph1*/
 
 var url = "activities/chart";
