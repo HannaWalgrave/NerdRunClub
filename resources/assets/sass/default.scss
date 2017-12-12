@@ -486,6 +486,19 @@ $screen-background:#121010;
 
 //hall of fame
 
+.hall-of-fame {
+  display: flex;
+  justify-content: space-between;
+  width: 60%;
+  max-width: 1200px;
+}
+
+.Fame_user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .Fame_user img{
   margin-bottom: 15px;
   border-radius: 50%;

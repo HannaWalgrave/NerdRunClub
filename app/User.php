@@ -92,6 +92,7 @@ class User extends Authenticatable
             $start_date_current_week = Carbon::now()->startOfWeek()->format('Y-m-d');
 
             // is verleden week al gecheckt?
+
             if ($this->currentSchedule()->modified_marker == 0) {
                 $start_last_week = Carbon::now()->startOfWeek()->subWeek();
                 $end_last_week = Carbon::now()->startOfWeek()->subDay();
