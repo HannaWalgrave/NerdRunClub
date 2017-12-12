@@ -19,9 +19,8 @@ class LoginTest extends DuskTestCase
         $user = factory(User::class)->create();
 
         $this->browse(function (Browser $browser) use ($user){
-            $browser->loginAs($user->id)
-                    ->visit('/')
-                    ->assertSee('Ready to run?');
+            $browser->visit('/hall-of-fame')
+                    ->assertSee('Hall of fame');
         });
 
     }
