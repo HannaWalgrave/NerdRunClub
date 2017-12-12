@@ -14,13 +14,16 @@
             </ol>
         </nav>
 
-        @forelse($users as $user)
-            <div class="Fame_user">
-            <img src="{{ $user->profile ? $user->profile : asset('img/human.svg')  }}" alt="{{ $user->firstname }} {{ $user->lastname }}"><p>{{ $user->firstname }}  {{ $user->lastname }}</p>
-            <p>{{ $user->distance/1000 }} km</p>
-            </div>
-        @empty
-            <p>Nobody has run this week :( Y'all becoming zombies!</p>
-        @endforelse
+        <div class="hall-of-fame">
+            @forelse($users as $user)
+                <div class="Fame_user">
+                    <img src="{{ $user->profile ? $user->profile : asset('img/human.svg')  }}" alt="{{ $user->firstname }} {{ $user->lastname }}"><p>{{ $user->firstname }}  {{ $user->lastname }}</p>
+                    <p>{{ $user->distance/1000 }} km</p>
+                </div>
+            @empty
+                <p>Nobody has run this week :( Y'all becoming zombies!</p>
+            @endforelse
+        </div>
+
     </div>
 @endsection
