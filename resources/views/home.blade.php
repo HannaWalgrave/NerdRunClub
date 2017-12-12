@@ -45,11 +45,15 @@
                                     <p>{{$schedule_detail->week_count}}</p>
                                 </li>
                             @elseif($schedule_detail->goal_status == "success")
-                                <li class="progress_bar_item progress_bar_item_past_success {{ $weeks_until_goal ===  $schedule_detail->week_count ? "progress_bar_item_current" : "" }}">
+                                <li class="progress_bar_item progress_bar_item_past_success">
                                     <p>{{$schedule_detail->week_count}}</p>
                                 </li>
                             @elseif($schedule_detail->goal_status == "fail")
                                 <li class="progress_bar_item progress_bar_item_past_fail">
+                                    <p>{{$schedule_detail->week_count}}</p>
+                                </li>
+                                @elseif($user->currentSchedule() != null && $schedule_detail->goal_status == "success")
+                                <li class="progress_bar_item progress_bar_item_past_success progress_bar_item_current">
                                     <p>{{$schedule_detail->week_count}}</p>
                                 </li>
                             @endif
