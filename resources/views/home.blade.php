@@ -10,17 +10,17 @@
                     <h2>You are a {{$user->zombie?"Zombie":"Human"}} </h2>
                     <h3>{{$user->zombie?"Start running faster!":"Keep up the good work!"}}</h3>
                 </div>
-<div class="kmStatus status {{$user->zombie?"glitch":"Human"}}">
-    <h3>You still have {{$days_until_goal}} days to go! <br> You are in week {{$weeks_until_goal}}.
-    </h3>
-</div>
+                <div class="kmStatus status {{$user->zombie?"glitch":"Human"}}">
+                    <h3>You still have {{$days_until_goal}} days to go! <br> You are in week {{$weeks_until_goal}}.
+                    </h3>
+                </div>
 
                 <div class="progressBar">
                     <div class="kmStatus status {{$user->zombie?"glitch":"Human"}}">
                         @if($user->currentSchedule() )
-                            @if($user->currentSchedule()->goal == "to do")
-                                <h3>Your goal this week</h3>
-                                <h3>Run {{ $user->currentSchedule()->km_this_week_modified }} Km</h3>
+                            @if($user->currentSchedule()->goal_status == "to do")
+                                <h3>Your goal this week: <br>
+                                    Run {{ $user->currentSchedule()->km_this_week_modified }} Km</h3>
                             @else
                                 <h3>Congratulations! <br> You have reached your weekly goal!</h3>
                             @endif
@@ -36,14 +36,18 @@
                                 <li class="progress_bar_item progress_bar_item_future">
                                     <p>{{$schedule_detail->week_count}}</p>
                                 </li>
-                            @elseif($schedule_detail->goal_status == "to do" && $user->currentSchedule() == null)
-                                <li class="progress_bar_item progress_bar_item_future">
-                                    <p>{{$schedule_detail->week_count}}</p>
-                                </li>
-                            @elseif( $user->currentSchedule() != null)
-                                <li class="progress_bar_item progress_bar_item_current">
-                                    <p>{{$schedule_detail->week_count}}</p>
-                                </li>
+
+                            @elseif($schedule_detail->week_count == $user->currentSchedule()->week_count)
+                                @if($schedule_detail->goal_status == "to do")
+                                    <li class="progress_bar_item progress_bar_item_current">
+                                        <p>{{$schedule_detail->week_count}}</p>
+                                    </li>
+                                @else
+                                    <li class="progress_bar_item progress_bar_item_current progress_bar_item_past_success">
+                                        <p>{{$schedule_detail->week_count}}</p>
+                                    </li>
+                                @endif
+
                             @elseif($schedule_detail->goal_status == "success")
                                 <li class="progress_bar_item progress_bar_item_past_success">
                                     <p>{{$schedule_detail->week_count}}</p>
@@ -52,12 +56,7 @@
                                 <li class="progress_bar_item progress_bar_item_past_fail">
                                     <p>{{$schedule_detail->week_count}}</p>
                                 </li>
-                            @elseif( $user->currentSchedule() != null && $schedule_detail->goal_status == "success")
-                                <li class="progress_bar_item progress_bar_item_current progress_bar_item_past_success">
-                                    <p>{{$schedule_detail->week_count}}</p>
-                                </li>
                             @endif
-
                         @endforeach
 
                     </ul>
