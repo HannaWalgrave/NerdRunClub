@@ -19,7 +19,7 @@ class LoginTest extends DuskTestCase
         $user = factory(User::class)->create();
 
         $this->browse(function (Browser $browser) use ($user){
-            $browser->visit('/hall-of-fame')
+            $browser->visit('https://humansvszombies.weareimd.be/hall-of-fame')
                     ->assertSee('Hall of fame');
         });
 
