@@ -18,7 +18,7 @@
             @forelse($users as $user)
                 <div class="Fame_user">
                     <img src="{{ $user->profile == "avatar/athlete/large.png" ? asset('img/human.svg') : $user->profile   }}" alt="{{ $user->firstname }} {{ $user->lastname }}"><p>{{ $user->firstname }}  {{ $user->lastname }}</p>
-                    <p>{{ $user->distance/1000 }} km</p>
+                    <p>{{ $user->totalDistance }} km</p>
                 </div>
             @empty
                 <p>Nobody has run this week :( Y'all becoming zombies!</p>
