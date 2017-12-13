@@ -3,7 +3,6 @@
     <div class="wrap {{$user->zombie?"ZombieWrap":"Human"}}">
         @include('includes.menu')
         <div class="background {{$user->zombie?"backgroundZombie":"Human"}} ">
-
             <div class="bodyHome">
                 <div class="backgroundImg {{ $user->zombie ? "zombie" : "human" }}"></div>
                 <div class="humanStatus status {{$user->zombie?"glitch":"Human"}}">
@@ -87,6 +86,4 @@
                     </div>
                 </div>
             </div>
-
-
 @endsection
