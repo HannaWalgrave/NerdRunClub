@@ -29070,7 +29070,7 @@ $(document).ready(function () {
                 labels: ["Humans", "Zombies"],
                 datasets: [{
                     label: "Population",
-                    backgroundColor: ["#A6BEBB", "#522C46", "#c45850"],
+                    backgroundColor: ["#FF5D0D", "#35a67c", "#c45850"],
                     data: [humans, zombies]
                 }]
             },
@@ -29107,7 +29107,7 @@ $(document).ready(function () {
                 labels: ["Humans KM", "Zombies KM"],
                 datasets: [{
                     label: "Population",
-                    backgroundColor: ["#3cba9f", "#e8c3b9", "#c45850"],
+                    backgroundColor: ["#FF5D0D", "#35a67c", "#c45850"],
                     data: [humanskm, zombieskm]
                 }]
             },

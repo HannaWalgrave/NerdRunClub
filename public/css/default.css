@@ -1,13 +1,3 @@
-body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  height: 100%;
-}
-
 .container {
   height: 100%;
   display: -webkit-box;
@@ -444,7 +434,6 @@ ul li {
   list-style: none;
   margin: 15px 15px 15px 15px;
   border-radius: 50%;
-  background-color: grey;
 }
 
 .progress_bar_item p {
@@ -456,19 +445,20 @@ ul li {
 }
 
 .progress_bar_item_past_success {
-  background-color: #4cae4c;
+  background: url(/fonts/human.svg?b57aa103ccfdc225da42a538bd8c09f1);
+  color: transparent;
 }
 
 .progress_bar_item_past_success p {
-  color: #ffffff;
+  color: transparent !important;
 }
 
 .progress_bar_item_past_fail {
-  background-color: red;
+  background: url(/fonts/zombie.svg?6794c8b060b0abe5978cbe0abce87335);
 }
 
 .progress_bar_item_past_fail p {
-  color: white;
+  color: transparent !important;
 }
 
 .progress_bar_item_current,
@@ -478,7 +468,7 @@ ul li {
 
 .progress_bar_item_current p,
 .progress_bar_legend_color_current p {
-  color: #ffffff;
+  color: darkgrey;
 }
 
 .progress_bar_item_future,
@@ -535,11 +525,15 @@ ul li {
 }
 
 .progress_bar_legend_color_success {
-  background-color: #4cae4c;
+  background: url(/fonts/human.svg?b57aa103ccfdc225da42a538bd8c09f1);
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 .progress_bar_legend_color_fail {
-  background-color: red;
+  background: url(/fonts/zombie.svg?6794c8b060b0abe5978cbe0abce87335);
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 .progress_bar_legend_items {
