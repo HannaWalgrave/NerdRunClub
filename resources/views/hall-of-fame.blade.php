@@ -17,6 +17,7 @@
         <div class="hall-of-fame">
             @forelse($users as $user)
                 <div class="Fame_user">
+                    <p>{{ $user->profile }}</p>
                     <img src="{{ $user->profile ? $user->profile : asset('img/human.svg')  }}" alt="{{ $user->firstname }} {{ $user->lastname }}"><p>{{ $user->firstname }}  {{ $user->lastname }}</p>
                     <p>{{ $user->distance/1000 }} km</p>
                 </div>
